@@ -1,0 +1,9 @@
+{
+  "room": 1,
+  "roomName": "Foyer",
+  "shortDesc": "A big entrance hall",
+  "objects" : ["object_1"],
+  "exits": {
+    "east": 2
+  }
+}
