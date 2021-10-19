@@ -2,9 +2,10 @@
   "room": 2,
   "roomName": "Living Room",
   "shortDesc": "A big living room",
+  "longDesc": "",
   "objects" : ["object_2"],
   "exits": {
-    "west": 1,
-    "north": 3
+    "north": 3,
+    "west": 1
   }
 }
