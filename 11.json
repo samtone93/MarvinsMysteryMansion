@@ -1,0 +1,11 @@
+{
+    "room": 11,
+    "roomName": "Master Room",
+    "shortDesc": "A room fit for a king.",
+    "longDesc": "You see the master bed, elegantly draped in the finest silks. To either side sits a nightstand. Through the hallway to the east, you see what appears to be a closet door.",
+    "objects" : ["master_bed", "nightstand", "book"],
+    "exits": {
+        "east": 12,
+        "west": 10
+    }
+}

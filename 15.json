@@ -1,0 +1,10 @@
+{
+    "room": 15,
+    "roomName": "Garage",
+    "shortDesc": "The walls of the garage are filled with various albums and storage boxes.",
+    "longDesc": "To your right, you notice albums filling every shelf on the wall. On the opposite wall, boxes upon boxes are stacked towards the ceiling.",
+    "objects" : ["album_1", "album_key", "album_2", "empty_box", "box_1"],
+    "exits": {
+      "west": 12
+    }
+  }
