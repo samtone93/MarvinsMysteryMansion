@@ -2,6 +2,7 @@
   "room": 1,
   "roomName": "Foyer",
   "shortDesc": "A big entrance hall",
+  "longDesc": "",
   "objects" : ["object_1"],
   "exits": {
     "east": 2
