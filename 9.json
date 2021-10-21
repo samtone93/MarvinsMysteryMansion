@@ -1,0 +1,10 @@
+{
+  "room": 9,
+  "roomName": "Theater",
+  "shortDesc": "A theater with descending rows of padded seats facing north where the stage is.",
+  "longDesc": "",
+  "objects" : ["projector"],
+  "exits": {
+    "south": 8
+  }
+}

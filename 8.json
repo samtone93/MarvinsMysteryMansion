@@ -1,0 +1,11 @@
+{
+    "room": 8,
+    "roomName": "Recreation Room",
+    "shortDesc": "A room full of paintings and one vase on a table in the corner",
+    "longDesc": "",
+    "objects" : ["cue_stick"],
+    "exits": {
+        "north": 9,
+        "south": 7
+    }
+}

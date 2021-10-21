@@ -1,0 +1,11 @@
+{
+    "room": 6,
+    "roomName": "Ballroom",
+    "shortDesc": "A very large ballroom with a giant chandelier hanging from the high ceiling",
+    "longDesc": "",
+    "objects" : ["ballroom_envelop", "film_reel"],
+    "exits": {
+        "east": 7,
+        "west": 2
+    }
+}

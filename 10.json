@@ -1,0 +1,11 @@
+{
+  "room": 10,
+  "roomName": "Library",
+  "shortDesc": "A room with walls lined with 12 feet tall bookshelves and armchairs in the center",
+  "longDesc": "",
+  "objects" : ["ladder"],
+  "exits": {
+    "north": 7,
+    "east": 11
+  }
+}
