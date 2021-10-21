@@ -1,0 +1,12 @@
+{
+    "room": 7,
+    "roomName": "Art Gallery",
+    "shortDesc": "A room full of paintings and one vase on a table in the corner",
+    "longDesc": "",
+    "objects" : ["art_note"],
+    "exits": {
+        "north": 8,
+        "south": 10,
+        "west": 6
+    }
+}
