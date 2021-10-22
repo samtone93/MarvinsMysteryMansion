@@ -2,7 +2,7 @@
 
 import json
 
-room_json_file = open("11.json")
+room_json_file = open("1.json")
 
 room_data = json.load(room_json_file)
 room_json_file.close()
