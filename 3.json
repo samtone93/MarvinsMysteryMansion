@@ -1,0 +1,11 @@
+{
+  "room": 3,
+  "roomName": "Kitchen",
+  "shortDesc": "Small kitchen with Marvin's house manager, Harvey, at the island next to a fridge with family photos",
+  "longDesc": "",
+  "objects" : ["house_manager","fridge_photos"],
+  "exits": {
+    "north": 4,
+    "south": 2
+  }
+}

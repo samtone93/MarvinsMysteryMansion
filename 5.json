@@ -1,0 +1,10 @@
+{
+  "room": 5,
+  "roomName": "Utility Closet",
+  "shortDesc": "A small utility closet with a shelf of tools & trinkets",
+  "longDesc": "",
+  "objects" : ["screwdriver","crowbar","gloves","gardening_book","family_note"],
+  "exits": {
+    "east": 4
+  }
+}

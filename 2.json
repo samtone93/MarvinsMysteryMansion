@@ -1,11 +1,12 @@
 {
   "room": 2,
   "roomName": "Living Room",
-  "shortDesc": "A big living room",
+  "shortDesc": "A very large living room with a few packed up art pieces including an old frame & large statue",
   "longDesc": "",
-  "objects" : ["object_2"],
+  "objects" : ["family_portrait","portrait_sheet","lion_statue","nameplate","nailed_boards"],
   "exits": {
     "north": 3,
-    "west": 1
+    "west": 1,
+    "east": 6
   }
 }

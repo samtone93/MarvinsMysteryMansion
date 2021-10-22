@@ -1,0 +1,11 @@
+{
+  "room": 4,
+  "roomName": "Greenhouse",
+  "shortDesc": "Large greenhouse with several rows of plants, a koi pond, and a Marvin's groundskeeper, Greg, cleaning",
+  "longDesc": "",
+  "objects" : ["tomatoes","corn","green_beans","flowers","koi_pond","combo_lock","groundskeeper"],
+  "exits": {
+    "west": 5,
+    "south": 3
+  }
+}
