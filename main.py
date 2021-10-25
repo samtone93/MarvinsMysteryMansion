@@ -91,9 +91,9 @@ action_json_file = open("actions.json")
 action_list = json.load(action_json_file)
 action_json_file.close()
 
-#inventory_json_file = open("inventory.json")
-#inventory_list = json.load(inventory_json_file)
-#inventory_json_file.close()
+objects_json_file = open("objects.json")
+objects_list = json.load(objects_json_file)
+objects_json_file.close()
 
 
 def parse(input_command):
@@ -113,6 +113,11 @@ def parse(input_command):
             if verb == pair:
                 # evaluating "go" returns room_data; room_data updated after parsed
                 return eval(action + "(\"" + argument + "\")")
+
+    #for object in objects_list:
+    #    for alias in objects_list[object]["name"]:
+    #        if alias in input_command:
+
     # longer sentence ->
     # remove prepositions (up/down/the... junk words)
     # check first word, compare to actions.json -> continue as normal
