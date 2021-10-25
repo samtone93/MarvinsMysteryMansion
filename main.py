@@ -115,15 +115,28 @@ def parse(input_command):
     # remove verb, left-over string is either room or object
 
 
-
 def go(direction):
-
     if direction in current_room["exits"]:
         new_data = room_data_list[current_room["exits"][direction][0]]
     else:
         print("There is no exit " + direction)
         new_data = current_room
     return new_data
+
+
+# assume it's legal
+# inventory -> room
+def put(item):
+    current_room["objects"].append(item)
+    inventory["objects"].remove(item)
+    return current_room
+
+
+# room -> inventory
+def take(item):
+    inventory["objects"].append(item)
+    current_room["objects"].remove(item)
+    return current_room
 
 
 print()
@@ -137,11 +150,12 @@ print(
 print("Prevail, and you shall inherit it all; fail, and you will return to what you once were.")
 print()
 
-#print("current room:" + str(current_room["roomName"]))
 while True:
     print("\nYou enter the " + current_room['roomName'] + ".")
     print(current_room['shortDesc'])
     print(current_room['longDesc'])
+    print("Room items: " + str(current_room['objects']))
+    print("Inventory: " + str(inventory['objects']))
 
     player_input = input(">")
     current_room = parse(player_input)
