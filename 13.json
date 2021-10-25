@@ -5,6 +5,6 @@
     "longDesc": "A single computer occupies the study. On the computer screen you notice a video game running in a Lionux terminal.",
     "objects" : ["pc"],
     "exits": {
-        "south": 12
+        "south": [12,0]
     }
   }

@@ -5,6 +5,6 @@
   "longDesc": "",
   "objects" : ["screwdriver","crowbar","gloves","gardening_book","family_note"],
   "exits": {
-    "east": 4
+    "east": [4,0]
   }
 }

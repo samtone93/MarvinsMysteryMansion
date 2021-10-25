@@ -5,7 +5,7 @@
   "longDesc": "",
   "objects" : ["tomatoes","corn","green_beans","flowers","koi_pond","combo_lock","groundskeeper"],
   "exits": {
-    "west": 5,
-    "south": 3
+    "west": [5,0],
+    "south": [3,0]
   }
 }

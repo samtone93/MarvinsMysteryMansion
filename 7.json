@@ -5,8 +5,8 @@
     "longDesc": "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nAt on of the corners of the room, a gray vase sits on a pedestal. There are doorways to the north and south.",
     "objects" : ["art_note"],
     "exits": {
-        "north": 8,
-        "south": 10,
-        "west": 6
+        "north": [8,0],
+        "south": [10,0],
+        "west": [6,0]
     }
 }

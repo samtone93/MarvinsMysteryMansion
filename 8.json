@@ -5,7 +5,7 @@
     "longDesc": "The room is brightly lit and very spacious. There are groups of armchairs spread around the corners.\n In the center of the room, you see a fancy billiards table with red felt. You see something on the otherwise empty table.",
     "objects" : ["cue_stick"],
     "exits": {
-        "north": 9,
-        "south": 7
+        "north": [9,0],
+        "south": [7,0]
     }
 }

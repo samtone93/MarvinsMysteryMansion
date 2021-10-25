@@ -5,9 +5,9 @@
     "longDesc": "Three wardrobes occupy the room. On the north wall you see a wardrobe with a lion insignia above it. On the east wall you see a wardrobe with a witch insignia above it. On the south wall you see a wardrobe with a...wardrobe insignia above it?",
     "objects" : ["lion_wardrobe", "witch_wardrobe", "wardrobe_wardrobe"],
     "exits": {
-      "north": 13,
-      "east": 15,
-      "south": 14,
-      "west": 11
+      "north": [13,0],
+      "east": [15,0],
+      "south": [14,0],
+      "west": [11,0]
     }
   }

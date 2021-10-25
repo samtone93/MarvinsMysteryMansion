@@ -3,10 +3,12 @@
   "roomName": "Living Room",
   "shortDesc": "A very large living room with a few packed up art pieces including an old frame & large statue",
   "longDesc": "",
+  "smell": "it smells like",
+  "sound": "it sounds like",
   "objects" : ["family_portrait","portrait_sheet","lion_statue","nameplate","nailed_boards"],
   "exits": {
-    "north": 3,
-    "west": 1,
-    "east": 6
+    "north": [3,0],
+    "west": [1,0],
+    "east": [6,0]
   }
 }

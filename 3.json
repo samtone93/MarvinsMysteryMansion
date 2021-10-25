@@ -5,7 +5,7 @@
   "longDesc": "",
   "objects" : ["house_manager","fridge_photos"],
   "exits": {
-    "north": 4,
-    "south": 2
+    "north": [4,0],
+    "south": [2,0]
   }
 }
