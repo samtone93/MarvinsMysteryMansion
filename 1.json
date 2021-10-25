@@ -3,6 +3,8 @@
   "roomName": "Foyer",
   "shortDesc": "A small foyer with 3 animal-themed coat hooks above a large chest",
   "longDesc": "",
+  "smell": "it smells like",
+  "sound": "it sounds like",
   "objects" : ["lion_hook","elephant_hook","bear_hook","foyer_chest","recipe_book"],
   "exits": {
     "east": [2,0]

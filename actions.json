@@ -2,5 +2,7 @@
     "go": ["go", "move", "head"],
     "break": ["smash", "destroy"],
     "put": ["put"],
-    "take": ["take"]
+    "take": ["take"],
+    "smell": ["smell"],
+    "listen": ["listen"]
 }

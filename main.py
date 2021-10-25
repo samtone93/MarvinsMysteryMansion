@@ -98,6 +98,10 @@ action_json_file.close()
 
 def parse(input_command):
 
+    # literal single word function name
+    # need to account for destinations / directions
+    if ' ' not in input_command:
+        return eval(input_command + "()")
 
     # if one word case
     # > do word (verb)
@@ -138,6 +142,18 @@ def take(item):
     current_room["objects"].remove(item)
     return current_room
 
+# no arg -> room smell
+# 1 arg -> smell object..?
+
+
+def smell():
+    print(current_room["smell"])
+    return current_room
+
+
+def listen():
+    print(current_room["sound"])
+    return current_room
 
 print()
 print("While you were going about your day, you were abducted and dropped off at an unknown location.")
