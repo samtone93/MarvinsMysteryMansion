@@ -5,7 +5,7 @@
     "longDesc": "",
     "objects" : ["cue_stick"],
     "exits": {
-        "north": 9,
-        "south": 7
+        "north": [9,0],
+        "south": [7,0]
     }
 }

@@ -5,7 +5,7 @@
   "longDesc": "",
   "objects" : ["ladder"],
   "exits": {
-    "north": 7,
-    "east": 11
+    "north": [7,0],
+    "east": [11,0]
   }
 }

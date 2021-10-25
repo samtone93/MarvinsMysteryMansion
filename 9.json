@@ -5,6 +5,6 @@
   "longDesc": "",
   "objects" : ["projector"],
   "exits": {
-    "south": 8
+    "south": [8,0]
   }
 }

@@ -1,0 +1,4 @@
+{
+    "go": ["go", "move", "head"],
+    "break": ["smash", "destroy"]
+}

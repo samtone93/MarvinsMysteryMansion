@@ -5,6 +5,6 @@
   "longDesc": "",
   "objects" : ["lion_hook","elephant_hook","bear_hook","foyer_chest","recipe_book"],
   "exits": {
-    "east": 2
+    "east": [2,0]
   }
 }

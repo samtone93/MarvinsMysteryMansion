@@ -5,8 +5,8 @@
     "longDesc": "",
     "objects" : ["art_note"],
     "exits": {
-        "north": 8,
-        "south": 10,
-        "west": 6
+        "north": [8,0],
+        "south": [10,0],
+        "west": [6,0]
     }
 }

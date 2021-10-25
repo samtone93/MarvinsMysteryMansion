@@ -5,7 +5,7 @@
     "longDesc": "",
     "objects" : ["ballroom_envelop", "film_reel"],
     "exits": {
-        "east": 7,
-        "west": 2
+        "east": [7,0],
+        "west": [2,0]
     }
 }

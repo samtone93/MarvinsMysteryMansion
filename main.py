@@ -2,21 +2,127 @@
 
 import json
 
-room_json_file = open("1.json")
+inventory_json_file = open("inventory.json")
+inventory = json.load(inventory_json_file)
+inventory_json_file.close()
 
-room_data = json.load(room_json_file)
+room_json_file = open("1.json")
+room_data_1 = json.load(room_json_file)
 room_json_file.close()
 
+current_room = room_data_1
 
-def go(data, direction):
-    if direction in data["exits"]:
-        json_file = open(str(data["exits"][direction]) + ".json")
-        new_data = json.load(json_file)
-        json_file.close()
+room_json_file = open("2.json")
+room_data_2 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("3.json")
+room_data_3 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("4.json")
+room_data_4 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("5.json")
+room_data_5 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("6.json")
+room_data_6 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("7.json")
+room_data_7 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("8.json")
+room_data_8 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("9.json")
+room_data_9 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("10.json")
+room_data_10 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("11.json")
+room_data_11 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("12.json")
+room_data_12 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("13.json")
+room_data_13 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("14.json")
+room_data_14 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("15.json")
+room_data_15 = json.load(room_json_file)
+room_json_file.close()
+
+room_data_list = [
+    inventory,
+    room_data_1,
+    room_data_2,
+    room_data_3,
+    room_data_4,
+    room_data_5,
+    room_data_6,
+    room_data_7,
+    room_data_8,
+    room_data_9,
+    room_data_10,
+    room_data_11,
+    room_data_12,
+    room_data_13,
+    room_data_14,
+    room_data_15
+]
+
+action_json_file = open("actions.json")
+action_list = json.load(action_json_file)
+action_json_file.close()
+
+#inventory_json_file = open("inventory.json")
+#inventory_list = json.load(inventory_json_file)
+#inventory_json_file.close()
+
+
+def parse(input_command):
+
+
+    # if one word case
+    # > do word (verb)
+    # else if
+    # Two-word Case
+    verb, argument = input_command.split()
+    for action in action_list:
+        for pair in action_list[action]:
+            if verb == pair:
+                # evaluating "go" returns room_data; room_data updated after parsed
+                return eval(action + "(\"" + argument + "\")")
+    # longer sentence ->
+    # remove prepositions (up/down/the... junk words)
+    # check first word, compare to actions.json -> continue as normal
+    # remove verb, left-over string is either room or object
+
+
+
+def go(direction):
+
+    if direction in current_room["exits"]:
+        new_data = room_data_list[current_room["exits"][direction][0]]
     else:
         print("There is no exit " + direction)
-        new_data = data
-
+        new_data = current_room
     return new_data
 
 
@@ -31,18 +137,14 @@ print(
 print("Prevail, and you shall inherit it all; fail, and you will return to what you once were.")
 print()
 
+#print("current room:" + str(current_room["roomName"]))
 while True:
-    print("\nYou enter the " + room_data['roomName'] + ".")
-    print(room_data['shortDesc'])
-    print(room_data['longDesc'])
+    print("\nYou enter the " + current_room['roomName'] + ".")
+    print(current_room['shortDesc'])
+    print(current_room['longDesc'])
 
     player_input = input(">")
+    current_room = parse(player_input)
 
-    if player_input == "go north":
-        room_data = go(room_data, "north")
-    elif player_input == "go east":
-        room_data = go(room_data, "east")
-    elif player_input == "go west":
-        room_data = go(room_data, "west")
-    elif player_input == "go south":
-        room_data = go(room_data, "south")
+
+
