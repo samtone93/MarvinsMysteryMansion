@@ -2,22 +2,42 @@
 
 import json
 
-room_json_file = open("1.json")
+room_data_list = []
 
-room_data = json.load(room_json_file)
+room_json_file = open("1.json")
+room_data_list.push(json.load(room_json_file))
 room_json_file.close()
 
+room_json_file = open("2.json")
+room_data_list.push(json.load(room_json_file))
+room_json_file.close()
 
-def go(data, direction):
-    if direction in data["exits"]:
-        json_file = open(str(data["exits"][direction]) + ".json")
-        new_data = json.load(json_file)
-        json_file.close()
+room_json_file = open("3.json")
+room_data_list.push(json.load(room_json_file))
+room_json_file.close()
+
+room_json_file = open("4.json")
+room_data_list.push(json.load(room_json_file))
+room_json_file.close()
+
+room_json_file = open("5.json")
+room_data_list.push(json.load(room_json_file))
+room_json_file.close()
+
+room_json_file = open("6.json")
+room_data_list[5] = json.load(room_json_file)
+room_json_file.close()
+
+current_room_data = room_data_list[0]
+
+
+def go(direction):
+    if direction in current_room_data["exits"]:
+        return room_data_list[ current_room_data["exits"][direction]-1]
     else:
         print("There is no exit " + direction)
-        new_data = data
 
-    return new_data
+
 
 
 print()
@@ -32,17 +52,17 @@ print("Prevail, and you shall inherit it all; fail, and you will return to what 
 print()
 
 while True:
-    print("\nYou enter the " + room_data['roomName'] + ".")
-    print(room_data['shortDesc'])
-    print(room_data['longDesc'])
+    print("\nYou enter the " + current_room_data['roomName'] + ".")
+    print(current_room_data['shortDesc'])
+    print(current_room_data['longDesc'])
 
     player_input = input(">")
 
     if player_input == "go north":
-        room_data = go(room_data, "north")
+        current_room_data = go("north")
     elif player_input == "go east":
-        room_data = go(room_data, "east")
+        room_data = go("east")
     elif player_input == "go west":
-        room_data = go(room_data, "west")
+        room_data = go("west")
     elif player_input == "go south":
-        room_data = go(room_data, "south")
+        room_data = go("south")
