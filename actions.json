@@ -4,5 +4,6 @@
     "put": ["put"],
     "take": ["take"],
     "smell": ["smell"],
-    "listen": ["listen"]
+    "listen": ["listen"],
+    "look": ["look"]
 }
