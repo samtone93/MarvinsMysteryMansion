@@ -2,7 +2,7 @@
     "room": 6,
     "roomName": "Ballroom",
     "shortDesc": "A very large ballroom with a giant chandelier hanging from the high ceiling",
-    "longDesc": "You see a large magnificent room with finished hardwood flooring and tall glass windows lining the north wall.\nA fancy chandelier hangs from the center of the ceiling. There is also a grand piano on the south west corner. On the east side is an open doorway.",
+
     "objects" : ["ballroom_envelop", "film_reel"],
     "exits": {
         "east": [7,0],
