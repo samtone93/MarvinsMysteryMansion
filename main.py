@@ -2,6 +2,14 @@
 
 import json
 
+action_json_file = open("actions.json")
+action_list = json.load(action_json_file)
+action_json_file.close()
+
+objects_json_file = open("objects.json")
+objects_list = json.load(objects_json_file)
+objects_json_file.close()
+
 inventory_json_file = open("inventory.json")
 inventory = json.load(inventory_json_file)
 inventory_json_file.close()
@@ -9,8 +17,6 @@ inventory_json_file.close()
 room_json_file = open("1.json")
 room_data_1 = json.load(room_json_file)
 room_json_file.close()
-
-current_room = room_data_1
 
 room_json_file = open("2.json")
 room_data_2 = json.load(room_json_file)
@@ -87,20 +93,16 @@ room_data_list = [
     room_data_15
 ]
 
-action_json_file = open("actions.json")
-action_list = json.load(action_json_file)
-action_json_file.close()
-
-objects_json_file = open("objects.json")
-objects_list = json.load(objects_json_file)
-objects_json_file.close()
+current_room = room_data_1
 
 
 def parse(input_command):
-
     # literal single word function name
     # need to account for destinations / directions
-    if ' ' not in input_command:
+
+    if len(input_command.split()) == 1:
+        if input_command in ('north', 'east', 'south', 'west'):
+            return go(input_command)
         return eval(input_command + "()")
 
     # if one word case
@@ -132,7 +134,6 @@ def go(direction):
         new_data = current_room
     return new_data
 
-
 # assume it's legal
 # inventory -> room
 def put(item):
@@ -151,14 +152,26 @@ def take(item):
 # 1 arg -> smell object..?
 
 
+# Describes the smell of the current room.
 def smell():
     print(current_room["smell"])
     return current_room
 
 
+# Describes the sound of the current room.
 def listen():
     print(current_room["sound"])
     return current_room
+
+
+# Long description of the current room.
+def look():
+    print(current_room["longDesc"])
+    return current_room
+
+def look_at(object):
+    print(object["longDesc"])
+
 
 print()
 print("While you were going about your day, you were abducted and dropped off at an unknown location.")
@@ -178,7 +191,7 @@ while True:
     print("Room items: " + str(current_room['objects']))
     print("Inventory: " + str(inventory['objects']))
 
-    player_input = input(">")
+    player_input = input(">").lower()
     current_room = parse(player_input)
 
 
