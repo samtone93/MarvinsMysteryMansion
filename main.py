@@ -93,63 +93,83 @@ room_data_list = [
     room_data_15
 ]
 
-current_room = room_data_1
+current_room = room_data_12
 
 
 def parse(input_command):
-    # literal single word function name
-    # need to account for destinations / directions
+    # In case the player forgets to specify the item/argument of the verb
+    if input_command in ("go", "put", "take", "look at"):
+        print("That is not a legal command - be specific!.")
+        return current_room
 
-    if len(input_command.split()) == 1:
-        if input_command in ('north', 'east', 'south', 'west'):
-            return go(input_command)
+    # For singular verbs <put> <take> <smell> <listen> <look>
+    if len(input_command.split()) == 1 and input_command in action_list:
         return eval(input_command + "()")
 
-    # if one word case
-    # > do word (verb)
-    # else if
-    # Two-word Case
-    verb, argument = input_command.split()
+    # For movement via <direction> only
+    if input_command in ("north", "east", "south", "west"):
+        return go(input_command)
+
+    # For movement via <location> only
+    if input_command in current_room["exits"]:
+        return go(input_command)
+
+    # For movement via <go> <location>
+    if "go" in input_command and input_command[3:] in current_room["exits"]:
+        return go(input_command[3:])
+
+    # For illegal movement; skipping or teleporting rooms
+    if "go" in input_command and input_command[3:] not in current_room["exits"]:
+        print("You can't go there from this room.")
+        return current_room
+
+    # Create default values to determine if they get changed
+    verb, argument = "test", "test"
+
+    # If an action or its alias is detected in user input
     for action in action_list:
-        for pair in action_list[action]:
-            if verb == pair:
-                # evaluating "go" returns room_data; room_data updated after parsed
-                return eval(action + "(\"" + argument + "\")")
+        for alias in action_list[action]:
+            if alias in input_command:
+                verb = action
 
-    #for object in objects_list:
-    #    for alias in objects_list[object]["name"]:
-    #        if alias in input_command:
+    # If an object or its alias is detected in user input
+    for key in objects_list:
+        for name in objects_list[key]["name"]:
+            if name in input_command:
+                argument = name
 
-    # longer sentence ->
-    # remove prepositions (up/down/the... junk words)
-    # check first word, compare to actions.json -> continue as normal
-    # remove verb, left-over string is either room or object
-
-
-def go(direction):
-    if direction in current_room["exits"]:
-        new_data = room_data_list[current_room["exits"][direction][0]]
+    # If not default values, eval the two
+    if verb != "test" and argument != "test":
+        return eval(verb + "(\"" + argument + "\")")
+    # If default values, prompt user for another command.
     else:
-        print("There is no exit " + direction)
+        print("You can't do that. Try something else.")
+        return current_room
+
+
+# Handles both directions & entryways
+# Edit room files to include aliases for entryways under "exits"
+def go(argument):
+    if argument in current_room["exits"]:
+        new_data = room_data_list[current_room["exits"][argument][0]]
+    else:
+        print("You cannot go there.")
         new_data = current_room
     return new_data
 
-# assume it's legal
-# inventory -> room
+
+# Object removed from inventory, placed in room.
 def put(item):
     current_room["objects"].append(item)
     inventory["objects"].remove(item)
     return current_room
 
 
-# room -> inventory
+# Object removed from room, placed in inventory.
 def take(item):
     inventory["objects"].append(item)
     current_room["objects"].remove(item)
     return current_room
-
-# no arg -> room smell
-# 1 arg -> smell object..?
 
 
 # Describes the smell of the current room.
@@ -169,8 +189,17 @@ def look():
     print(current_room["longDesc"])
     return current_room
 
-def look_at(object):
-    print(object["longDesc"])
+
+# Description of the object.
+def look_at(input):
+    for item in objects_list:
+        for name in objects_list[item]["name"]:
+            if input == name and (item in current_room["objects"] or item in inventory["objects"]):
+                print(objects_list[item]["desc"])
+                return current_room
+    print("There is no such thing to look at. Try again.")
+    return current_room
+
 
 
 print()
@@ -193,6 +222,3 @@ while True:
 
     player_input = input(">").lower()
     current_room = parse(player_input)
-
-
-
