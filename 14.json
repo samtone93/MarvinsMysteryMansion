@@ -3,8 +3,12 @@
     "roomName": "Wine Cellar",
     "shortDesc": "A collection of wine bottles cover the wall as far as the eye can see.",
     "longDesc": "Wine bottles cover the walls as far as the eye can see. Your great-grandfather's collection has wines from every decade, starting from 1930. ",
+    "smell": "The smell of wine overpowers your nostrils. ",
+    "sound": "There are no sounds to be heard.",
     "objects" : ["wine_1930", "wine_1940", "wine_1950", "wine_1960", "wine_1970", "wine_1980", "wine_1990", "wine_2000", "wine_2010", "wine_2020"],
     "exits": {
-      "north": [12,0]
+      "north": [12,0],
+      "wardrobe": [12,0],
+      "wardrobe room": [12,0]
     }
   }

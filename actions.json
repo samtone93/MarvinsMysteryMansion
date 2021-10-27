@@ -5,5 +5,6 @@
     "take": ["take"],
     "smell": ["smell"],
     "listen": ["listen"],
-    "look": ["look"]
+    "look": ["look"],
+    "look_at": ["look at"]
 }
