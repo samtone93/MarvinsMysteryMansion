@@ -14,6 +14,10 @@ inventory_json_file = open("inventory.json")
 inventory = json.load(inventory_json_file)
 inventory_json_file.close()
 
+prep_json_file = open("prep.json")
+prep_list = json.load(prep_json_file)
+prep_json_file.close()
+
 room_json_file = open("1.json")
 room_data_1 = json.load(room_json_file)
 room_json_file.close()
@@ -98,6 +102,7 @@ current_room = room_data_12
 
 def parse(input_command):
     # In case the player forgets to specify the item/argument of the verb
+
     if input_command in ("go", "put", "take", "look at"):
         print("That is not a legal command - be specific!.")
         return current_room
@@ -113,6 +118,12 @@ def parse(input_command):
     # For movement via <location> only
     if input_command in current_room["exits"]:
         return go(input_command)
+
+    # Remove prepositions the user may use (to, the, )
+    # "  " kept as last entry in prepositions to remove any extra spaces
+    for prep in prep_list["prepositions"]:
+        if prep in input_command:
+            input_command = input_command.replace(prep, '')
 
     # For movement via <go> <location>
     if "go" in input_command and input_command[3:] in current_room["exits"]:
