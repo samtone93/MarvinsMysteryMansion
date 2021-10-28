@@ -1,11 +1,22 @@
 {
   "room": 4,
   "roomName": "Greenhouse",
-  "shortDesc": "Large greenhouse with several rows of plants, a koi pond, and a Marvin's groundskeeper, Greg, cleaning",
-  "longDesc": "",
-  "objects" : ["tomatoes","corn","green_beans","flowers","koi_pond","combo_lock","groundskeeper"],
+  "shortDesc": "A massive greenhouse with several rows of plants, a koi pond, and groundskeeper cleaning with a glass door back to the kitchen to the south and a worn wooden door to the west.",
+  "longDesc": "The greenhouse is just that: bright green and full of life. There's several rows of plants including tomatoes, corn, green beans, lavender, marigolds, and mint. A massive koi pond with a waterfall sits off behind the rows of plants. A groundskeeper seems busy cleaning off to the side. To your south is the glass door back to the kitchen. To your west is a worn wooden door to what appears to be a utility closet.",
+  "smell": "The smell of the garden floods into your nostrils. Specifically, the lavender and mint make the room smell like it's been flooded with essential oils.",
+  "sound": "The bubbling of the koi pond makes the room feel like the perfect place to meditate and relax. The only disturbance comes from the groundskeeper shuffling off to the side.",
+  "objects" : ["tomatoes","corn","green_beans","lavender","marigolds","mint","koi_pond","combo_lock","groundskeeper"],
   "exits": {
     "west": [5,0],
-    "south": [3,0]
+    "utility closet": [5,0],
+    "utility": [5,0],
+    "closet": [5,0],
+    "worn wooden door": [5,0],
+    "worn door": [5,0],
+    "wooden door": [5,0],
+
+    "south": [3,0],
+    "kitchen": [3,0],
+    "glass door": [3,0]
   }
 }
