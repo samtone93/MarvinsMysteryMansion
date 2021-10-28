@@ -139,10 +139,10 @@ def parse(input_command):
             if alias in input_command:
                 verb = action
 
-    # If an object or its alias is detected in user input
+    # If an object or its alias is detected in user input and can be interacted with
     for key in objects_list:
         for name in objects_list[key]["name"]:
-            if name in input_command:
+            if name in input_command and (name in current_room["objects"] or name in inventory["objects"]):
                 argument = name
 
     # If not default values, eval the two
