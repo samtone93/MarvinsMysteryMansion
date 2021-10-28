@@ -111,12 +111,8 @@ def parse(input_command):
     if len(input_command.split()) == 1 and input_command in action_list:
         return eval(input_command + "()")
 
-    # For movement via <direction> only
-    if input_command in ("north", "east", "south", "west"):
-        return go(input_command)
-
-    # For movement via <location> only
-    if input_command in current_room["exits"]:
+    # For movement via <direction> or <location>
+    if input_command in (("north", "east", "south", "west") or current_room["exits"]):
         return go(input_command)
 
     # Remove prepositions the user may use (to, the, )
