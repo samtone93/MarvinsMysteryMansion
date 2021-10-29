@@ -12,6 +12,78 @@
       "actions": ["take", "put"],
       "state": ""
     },
+    "piano": {
+      "name": ["piano", "grand piano"],
+      "desc": "A grand piano with polished mahogany finish. A piano bench is stowed under the keyboard",
+      "actions": [],
+      "state": ""
+    },
+    "piano_bench": {
+      "name": ["piano bench"],
+      "desc": "A deluxe black cushioned bench meant to be used to play piano. There is a button on one side slightly below the cushion.",
+      "actions": [],
+      "state": ""
+    },
+    "chandelier": {
+      "name": ["chandelier"],
+      "desc": "A grandiose ",
+      "actions": [],
+      "state": ""
+    },
+    "film_reel" : {
+      "name": ["film reel", "film"],
+      "desc": "A film rolled on a reel that goes on a projector",
+      "actions": ["take", "put"],
+      "state": ""
+    },
+    "master_bedroom_key": {
+      "name": ["master_bedroom_key"],
+      "desc": "A dark red key with a lion's head engraved on the key handle",
+      "actions": ["take", "put"],
+      "state": ""
+    },
+    "vase": {
+      "name": ["vase"],
+      "desc": "A plain white vase with a crack on one side of the lip. It looks old and about to shatter.",
+      "actions": ["take", "put"],
+      "state": ""
+    },
+    "piano_bench_doodle" : {
+      "name": ["piano bench doodle", "doodle", "doodle of piano bench"],
+      "desc": "A small piece of paper with a doodle drawing of a piano bench",
+      "actions": ["take", "put"],
+      "state": ""
+    },
+    "cue_stick": {
+      "name": ["cue stick"],
+      "desc": "A cue stick that's used to play billiards or pool",
+      "actions": ["take", "put"],
+      "state": ""
+    },
+    "pool_table": {
+      "name": ["pool table", "billiards table"],
+      "desc": "A large billiards table, complete with red felt top under a hanging light. The table is bare except for one cue stick placed in the middle",
+      "actions": [],
+      "state": ""
+    },
+    "armchair": {
+      "name": ["armchair"],
+      "desc": "A nice black leather armchair.",
+      "actions": [],
+      "state": ""
+    },
+    "projector": {
+      "name": ["projector", "film projector", "movie projector"],
+      "desc": "A film projector with two spools and lens pointed at the giant projection screen.",
+      "actions": [],
+      "state": ""
+    },
+    "ladder": {
+      "name": ["ladder"],
+      "desc": "A bookshelf ladder that is tall enough to reach the ceiling and top shelf. A closer look shows that in can be unfolded into four legs to stand on its own.",
+      "actions": ["take", "put"],
+      "state": ""
+    },
      "master_bed": {
       "name": ["master bed"],
       "desc": "A king sized bed fitted with silken sheets. It looks extremely comfortable.",

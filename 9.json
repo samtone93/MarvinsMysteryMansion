@@ -1,10 +1,14 @@
 {
   "room": 9,
   "roomName": "Theater",
-  "shortDesc": "A theater with descending rows of padded seats facing north where the stage is.",
-  "longDesc": "",
+  "shortDesc": "A theater room with rows of seats facing a screen on a stage. There are the double doors at the south.",
+  "longDesc": "You see a large home theater with descending rows of comfy padded seats facing north where a stage is. There is a gigantic projector screen on the stage and a film projector at the south wall behind all the seats.\n The double doors at the south wall in which you entered are the only exit.",
+  "smell": "There is a faint smell of leather in the air",
+  "sound": "There is complete silence, as the theater room seems to be soundproof",
   "objects" : ["projector"],
   "exits": {
-    "south": [8,0]
+    "south": [8,0],
+    "double black doors": [8,0],
+    "double doors": [8,0]
   }
 }
