@@ -1,17 +1,17 @@
 {
-  "room": 5,
-  "roomName": "Utility Closet",
-  "shortDesc": "A small utility closet with shelves of tools & trinkets and one exit through the wooden door back to the greenhouse to the east",
-  "longDesc": "The utility closet is small and cramped. There's a tool bench with several shelves above it, though most of it seems to already have been cleared out. You spot a screwdriver, a crow bar, a pair of gloves, and a gardening book across the various shelves. To your east is the worn wooden door you entered through from the greenhouse.",
-  "smell": "There's a light smell of dirt tracked in from the gardening area.",
-  "sound": "Very little noise enters the room. Behind the door you can only faintly hear the bubbly from the koi pond waterfall.",
-  "objects" : ["screwdriver","crowbar","gloves","gardening_book","family_note"],
-  "exits": {
-    "east": [4,0],
-    "greenhouse": [4,0],
-    "garden": [4,0],
-    "worn wooden door": [4,0],
-    "worn door": [4,0],
-    "wooden door": [4,0]
-  }
+    "room": 5,
+    "roomName": "Utility Closet",
+    "shortDesc": "A small utility closet with shelves of tools & trinkets and one exit through the wooden door back to the greenhouse to the east",
+    "longDesc": "The utility closet is small and cramped. There's a tool bench with several shelves above it, though most of it seems to already have been cleared out. You spot a screwdriver, a crow bar, a pair of gloves, and a gardening book with what appears to be a note underneath across the various shelves. To your east is the worn wooden door you entered through from the greenhouse.",
+    "smell": "There's a light smell of dirt tracked in from the gardening area.",
+    "sound": "Very little noise enters the room. Behind the door you can only faintly hear the bubbly from the koi pond waterfall.",
+    "objects" : ["screwdriver","crowbar","gloves","gardening_book","family_note"],
+    "exits": {
+        "east": [4,0],
+        "greenhouse": [4,0],
+        "garden": [4,0],
+        "worn wooden door": [4,0],
+        "worn door": [4,0],
+        "wooden door": [4,0]
+    }
 }

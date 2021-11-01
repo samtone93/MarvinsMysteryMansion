@@ -7,9 +7,201 @@
       "desc": "The will left to you by your great-grandfather Marvin."
     },
     "lion_hook": {
-      "name": ["lion hook"],
-      "desc": "its a hook with a lion's head",
-      "actions": ["take", "put"],
+      "name": ["lion hook","lion"],
+      "desc": "A coat hook with a lion's head decorating the top",
+      "actions": [],
+      "state": ""
+    },
+    "tiger_hook": {
+      "name": ["tiger hook","tiger"],
+      "desc": "A coat hook with a tiger's head decorating the top",
+      "actions": [],
+      "state": ""
+    },
+    "bear_hook": {
+      "name": ["bear hook","bear"],
+      "desc": "A coat hook with a bear's head decorating the top",
+      "actions": [],
+      "state": ""
+    },
+    "locked_foyer_chest": {
+      "name": ["foyer chest","chest","old chest","large chest","large old chest"],
+      "desc": "A large, old chest with no handle to open it",
+      "actions": [],
+      "state": ""
+    },
+    "unlocked_foyer_chest": {
+      "name": ["foyer chest","chest","old chest","large chest","large old chest"],
+      "desc": "A large, old chest with no handle to open it",
+      "actions": [],
+      "state": ""
+    },
+    "recipe_book": {
+      "name": ["recipe book","book","cookbook","worn book","worn cookbook","worn recipe book","recipe"],
+      "desc": "A worn recipe book covered with splashes of sauces & grease covering it from use throughout the years"
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "shag_rug": {
+      "name": ["rug","shag rug","shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
+      "desc": "A soft shag rug in a dingy shade of brown",
+      "actions": [],
+      "state": ""
+    },
+    "house_manager_note": {
+      "name": ["note","house manager note","note from house manager","Harvey note","note from Harvey"],
+      "desc": "A note from Marvin's house manager, Harvey",
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "covered_portrait": {
+      "name": ["covered portrait","portrait","covered frame","covered painting","painting","frame"],
+      "desc": "A portrait with a golden frame covered by a thin white sheet",
+      "actions": [],
+      "state": ""
+    },
+    "uncovered_portrait": {
+      "name": ["uncovered portrait","portrait","uncovered frame","uncovered painting","painting","frame"],
+      "desc": "A black and white portrait of a young bride and groom with the nameplate reading 'Julie & John '32' surrounded by a golden frame",
+      "actions": [],
+      "state": ""
+    },
+    "lion_statue": {
+      "name": ["statue","lion","lion statue","large lion statue"],
+      "desc": "A large lion statue coated in a gold finish",
+      "actions": [],
+      "state": ""
+    },
+    "nailed_boards": {
+      "name": ["nailed boards","boards","nails"],
+      "desc": "Boards covering an exit from the living room",
+      "actions": [],
+      "state": ""
+    },
+    "house_manager": {
+      "name": ["Harvey","house manager","kind old man","old man","cook","chef","manager"],
+      "desc": "A kind-looking old man and Marvin's house manager, Harvey",
+      "actions": [],
+      "state": ""
+    },
+    "oven": {
+      "name": ["oven","stove"],
+      "desc": "An oven with vegetables sauteing on the stove top and baked goods heating inside",
+      "actions": [],
+      "state": ""
+    },
+    "fridge": {
+      "name": ["fridge","refrigerator"],
+      "desc": "A fridge with 3 photos: a family photo, a wedding photo, and a mountain photo",
+      "actions": [],
+      "state": ""
+    },
+    "family_photo": {
+      "name": ["family photo","family picture","family pic"],
+      "desc": "A black and white family photo of two adults and two children in front of a large apple tree",
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "wedding_photo": {
+      "name": ["wedding photo","wedding picture","wedding pic"],
+      "desc": "A black and white photo of a young Marvin and his bride in front of a small white chapel",
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "mountain_photo": {
+      "name": ["mountain photo","mountain picture","mountain pic","mountain landscape photo","mountain landscape picture","mountain landscape pic","cabin photo","cabin picture","cabin pic"],
+      "desc": "A photo of a mountain landscape with an older woman sitting on the steps of a cabin in the foreground",
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "tomatoes": {
+      "name": ["tomatoes","tomato"],
+      "desc": "3 rows of 2 tomatoes",
+      "actions": [""],
+      "state": ""
+    },
+    "corn": {
+      "name": ["corn","corn stalks","sweet corn","sweet corn stalks"],
+      "desc": "2 rows of 3 sweet corn stalks",
+      "actions": [""],
+      "state": ""
+    },
+    "green_beans": {
+      "name": ["beans","green beans","bean stalks","grean bean stalks","bean","green bean","bean stalk","green bean stalk"],
+      "desc": "2 rows of 3 green bean stocks",
+      "actions": [""],
+      "state": ""
+    },
+    "lavender": {
+      "name": ["lavender","lavender bushes","lavender bush","bush"],
+      "desc": "2 rows of 3 green bean stocks",
+      "actions": ["2 rows of 3 lavender bushes"],
+      "state": ""
+    },
+    "marigolds": {
+      "name": ["marigolds","marigold","marigold plants","marigold plant"],
+      "desc": "1 row of 6 marigold plants",
+      "actions": [""],
+      "state": ""
+    },
+    "mint": {
+      "name": ["mint","mint leaf","mint leaves","mint leaf bundles","bundle","mint leaf bundle","mint bundle"],
+      "desc": "1 row of 6 mint leaf bundles",
+      "actions": [""],
+      "state": ""
+    },
+    "koi_pond": {
+      "name": ["koi pond","pond","koi","koi fish","kois","koi fishes","fish","fishes"],
+      "desc": "6 koi fish swim in a large pond while water drops from the loud waterfall",
+      "actions": [""],
+      "state": ""
+    },
+    "combo_lock": {
+      "name": ["combo lock","lock","combo"],
+      "desc": "A combo lock hooked to the wooden door",
+      "actions": [""],
+      "state": ""
+    },
+    "groundskeeper": {
+      "name": ["groundskeeper","gardener","Greg"],
+      "desc": "A groundskeeper, Greg",
+      "actions": ["A groundskeeper, Greg"],
+      "state": ""
+    },
+    "todo_list": {
+      "name": ["list","to-do list","todo list","to do list"],
+      "desc": "A to-do list of items to plant with check marks next to each of the 6 items: 6 corn, 6 green beans, 6 tomatoes, 6 lavender, 6 marigolds, 6 mint",
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "screwdriver": {
+      "name": ["screwdriver","red screwdriver","red handled screwdriver","red handle screwdriver"],
+      "desc": "A screwdriver with a red handle",
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "crowbar": {
+      "name": ["crowbar","rusty crowbar"],
+      "desc": "A rusty crowbar",
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "gloves": {
+      "name": ["gardening gloves","gloves","green gloves","green gardening gloves"],
+      "desc": "A pair of green gardening gloves",
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "gardening_book": {
+      "name": ["book","gardening book"],
+      "desc": "An old gardening book that appear to be falling apart",
+      "actions": ["take","put"],
+      "state": ""
+    },
+    "family_note": {
+      "name": ["note","family note"],
+      "desc": "A note with details about your family history from Harvey",
+      "actions": ["take","put"],
       "state": ""
     },
     "piano": {
