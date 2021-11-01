@@ -1,4 +1,5 @@
 # Marvin's Mystery Mansion
+# -*- coding: utf-8 -*-
 
 import json
 
