@@ -227,5 +227,6 @@ while True:
     print("Room items: " + str(current_room['objects']))
     print("Inventory: " + str(inventory['objects']))
 
+
     player_input = input(">").lower()
     current_room = parse(player_input)
