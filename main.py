@@ -248,7 +248,7 @@ while looping:
     # print(current_room['longDesc'])
     # print("Room items: " + str(current_room['objects']))
 
-    player_input = raw_input(">")
+    player_input = raw_input(">").lower()
     if player_input == "quit":
         looping = quit_game()
     else:
