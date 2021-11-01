@@ -172,8 +172,8 @@ def parse(input_command):
 def go(argument):
     if argument in current_room["exits"]:
         new_data = room_data_list[current_room["exits"][argument][0]]
-        print("\nYou enter the " + new_data['roomName'] + ".")
-        print(new_data['shortDesc'])
+        print("\nYou enter the " + new_data["roomName"] + ".")
+        print(new_data["shortDesc"])
     else:
         print("You cannot go there.")
         new_data = current_room
