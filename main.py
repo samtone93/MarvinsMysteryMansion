@@ -97,7 +97,7 @@ room_data_list = [
     room_data_15
 ]
 
-current_room = room_data_12
+current_room = room_data_1
 
 
 def parse(input_command):

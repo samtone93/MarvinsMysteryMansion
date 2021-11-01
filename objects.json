@@ -38,7 +38,7 @@
     },
     "recipe_book": {
       "name": ["recipe book","book","cookbook","worn book","worn cookbook","worn recipe book","recipe"],
-      "desc": "A worn recipe book covered with splashes of sauces & grease covering it from use throughout the years"
+      "desc": "A worn recipe book covered with splashes of sauces & grease covering it from use throughout the years",
       "actions": ["take","put"],
       "state": ""
     },
@@ -332,8 +332,8 @@
     },
     "wine_1950": {
       "name": ["1950 wine"],
-      "desc": "Wine from the year 1950",
-      "actions": ["take", "put"],
+      "desc": "Wine from the year 1950. There appears to be something inside?",
+      "actions": ["take", "put", "break"],
       "state": ""
     },
     "wine_1960": {
@@ -380,7 +380,13 @@
     },
     "album": {
       "name": ["album"],
-      "desc": "An album containing family photos. There appears to be a note wedged into the binding.",
+      "desc": "A locked album. It looks like a key is required.",
+      "actions": ["take", "put"],
+      "state": ""
+    },
+    "album_key": {
+      "name": ["album_key"],
+      "desc": "A key to an album.",
       "actions": ["take", "put"],
       "state": ""
     },
