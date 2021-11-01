@@ -11,7 +11,7 @@ objects_list = json.load(objects_json_file)
 objects_json_file.close()
 
 inventory_json_file = open("inventory.json")
-inventory = json.load(inventory_json_file)
+inventory_list = json.load(inventory_json_file)
 inventory_json_file.close()
 
 prep_json_file = open("prep.json")
@@ -79,7 +79,7 @@ room_data_15 = json.load(room_json_file)
 room_json_file.close()
 
 room_data_list = [
-    inventory,
+    inventory_list,
     room_data_1,
     room_data_2,
     room_data_3,
@@ -142,7 +142,7 @@ def parse(input_command):
     # If an object or its alias is detected in user input and can be interacted with
     for key in objects_list:
         for name in objects_list[key]["name"]:
-            if name in input_command and (name in current_room["objects"] or name in inventory["objects"]):
+            if name in input_command and (name in current_room["objects"] or name in inventory_list["objects"]):
                 argument = name
 
     # If not default values, eval the two
@@ -168,13 +168,13 @@ def go(argument):
 # Object removed from inventory, placed in room.
 def put(item):
     current_room["objects"].append(item)
-    inventory["objects"].remove(item)
+    inventory_list["objects"].remove(item)
     return current_room
 
 
 # Object removed from room, placed in inventory.
 def take(item):
-    inventory["objects"].append(item)
+    inventory_list["objects"].append(item)
     current_room["objects"].remove(item)
     return current_room
 
@@ -197,11 +197,17 @@ def look():
     return current_room
 
 
+# Prints out the current items in the inventory.
+def inventory():
+    print("Inventory: " + str(inventory_list["objects"]))
+    return current_room
+
+
 # Description of the object.
 def look_at(input):
     for item in objects_list:
         for name in objects_list[item]["name"]:
-            if input == name and (item in current_room["objects"] or item in inventory["objects"]):
+            if input == name and (item in current_room["objects"] or item in inventory_list["objects"]):
                 print(objects_list[item]["desc"])
                 return current_room
     print("There is no such thing to look at. Try again.")
@@ -223,10 +229,9 @@ print()
 while True:
     print("\nYou enter the " + current_room['roomName'] + ".")
     print(current_room['shortDesc'])
-    print(current_room['longDesc'])
-    print("Room items: " + str(current_room['objects']))
-    print("Inventory: " + str(inventory['objects']))
-
+    # print(current_room['longDesc'])
+    # print("Room items: " + str(current_room['objects']))
+    # print("Inventory: " + str(inventory['objects']))
 
     player_input = input(">").lower()
     current_room = parse(player_input)
