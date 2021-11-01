@@ -1,16 +1,16 @@
 {
-  "room": 1,
-  "roomName": "Foyer",
-  "shortDesc": "A small foyer with 3 animal-themed coat hooks above a large chest and an archway to the east",
-  "longDesc": "The foyer is a cozy entrance into the much larger mansion. The floor is covered by an soft shag rug. On the wall, you see 3 hooks, a lion, a tiger, and a bear (oh my!) above a large, old chest. To the east, there is a large archway leading into the much larger living room",
-  "smell": "The room smells a bit musty and outdoorsy from all the guests who have entered before you. There's also a faint smell of something cooking a few rooms over.",
-  "sound": "You hear light sounds from a few rooms over of pots clanking while birds chirp loudly through the open windows.",
-  "objects" : ["lion_hook","tiger_hook","bear_hook","foyer_chest","recipe_book","shag_rug","house_manager_note"],
-  "exits": {
-    "east": [2,0],
-    "living room": [2,0],
-    "archway": [2,0],
-    "large archway": [2,0],
-    "larger living room": [2,0]
-  }
+    "room": 1,
+    "roomName": "Foyer",
+    "shortDesc": "A small foyer with 3 animal-themed coat hooks above a large chest and an archway to the east",
+    "longDesc": "The foyer is a cozy entrance into the much larger mansion. The floor is covered by an soft shag rug. On the wall, you see 3 hooks, a lion, a tiger, and a bear (oh my!) above a large, old chest. To the east, there is a large archway leading into the much larger living room",
+    "smell": "The room smells a bit musty and outdoorsy from all the guests who have entered before you. There's also a faint smell of something cooking a few rooms over.",
+    "sound": "You hear light sounds from a few rooms over of pots clanking while birds chirp loudly through the open windows.",
+    "objects" : ["lion_hook","tiger_hook","bear_hook","locked_foyer_chest","recipe_book","shag_rug","house_manager_note"],
+    "exits": {
+        "east": [2,0],
+        "living room": [2,0],
+        "archway": [2,0],
+        "large archway": [2,0],
+        "larger living room": [2,0]
+    }
 }

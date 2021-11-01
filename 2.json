@@ -1,28 +1,28 @@
 {
-  "room": 2,
-  "roomName": "Living Room",
-  "shortDesc": "A very large living room with a few art pieces and 3 exits: to the east, west, and north.",
-  "longDesc": "The living room is a massive space with large windows letting in sunlight. The floor shows dust around where furniture used to live and many guests were likely entertained. All that is left is a what appears to be a portrait leaning against the wall and a statue in the corner. To your west is the archway to the foyer. To your east is a mysterious red door. To your north are saloon doors leading to the kitchen.",
-  "smell": "The faint aroma from the foyer is much stronger as you near the kitchen making your mouth water. It clouds the mustiness coming from the dusty living room.",
-  "sound": "From the kitchen, the clanking of pots and pans, whistling of boiling water, and sizzling skillet seem inviting. Behind all of the commotion, you also pick up someone humming a light tune through the saloon doors.",
-  "objects" : ["covered_portrait","lion_statue","nailed_boards"],
-  "exits": {
-    "north": [3,0],
-    "kitchen": [3,0],
-    "saloon doors": [3,0],
-    "doors": [3,0],
+    "room": 2,
+    "roomName": "Living Room",
+    "shortDesc": "A very large living room with a few art pieces and 3 exits: to the east, west, and north.",
+    "longDesc": "The living room is a massive space with large windows letting in sunlight. The floor shows dust around where furniture used to live and many guests were likely entertained. All that is left is a what appears to be a portrait leaning against the wall and a statue in the corner. To your west is the archway to the foyer. To your east is a mysterious red door. To your north are saloon doors leading to the kitchen.",
+    "smell": "The faint aroma from the foyer is much stronger as you near the kitchen making your mouth water. It clouds the mustiness coming from the dusty living room.",
+    "sound": "From the kitchen, the clanking of pots and pans, whistling of boiling water, and sizzling skillet seem inviting. Behind all of the commotion, you also pick up someone humming a light tune through the saloon doors.",
+    "objects" : ["covered_portrait","lion_statue","nailed_boards"],
+    "exits": {
+        "north": [3,0],
+        "kitchen": [3,0],
+        "saloon doors": [3,0],
+        "doors": [3,0],
 
-    "west": [1,0],
-    "foyer": [1,0],
-    "archway": [1,0],
-    "large archway": [1,0],
+        "west": [1,0],
+        "foyer": [1,0],
+        "archway": [1,0],
+        "large archway": [1,0],
 
-    "east": [6,0],
-    "ballroom": [6,0],
-    "red door": [6,0],
-    "nailed door": [6,0],
-    "mysterious door": [6,0],
-    "mysterious red door": [6,0],
-    "door": [6,0]
-  }
+        "east": [6,0],
+        "ballroom": [6,0],
+        "red door": [6,0],
+        "nailed door": [6,0],
+        "mysterious door": [6,0],
+        "mysterious red door": [6,0],
+        "door": [6,0]
+    }
 }
