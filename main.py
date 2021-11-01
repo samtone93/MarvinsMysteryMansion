@@ -2,6 +2,8 @@
 
 import json
 
+looping = True
+
 action_json_file = open("actions.json")
 action_list = json.load(action_json_file)
 action_json_file.close()
@@ -98,6 +100,12 @@ room_data_list = [
 ]
 
 current_room = room_data_1
+
+
+# Quit game
+def quit_game():
+    print("Goodbye!")
+    return False
 
 
 def parse(input_command):
@@ -214,7 +222,6 @@ def look_at(input):
     return current_room
 
 
-
 print()
 print("While you were going about your day, you were abducted and dropped off at an unknown location.")
 print("You feel the car stop and the driver leaves you with a letter before driving off in the distance.")
@@ -226,7 +233,7 @@ print(
 print("Prevail, and you shall inherit it all; fail, and you will return to what you once were.")
 print()
 
-while True:
+while looping:
     print("\nYou enter the " + current_room['roomName'] + ".")
     print(current_room['shortDesc'])
     # print(current_room['longDesc'])
@@ -234,4 +241,7 @@ while True:
     # print("Inventory: " + str(inventory['objects']))
 
     player_input = input(">").lower()
-    current_room = parse(player_input)
+    if player_input == "quit":
+        looping = quit_game()
+    else:
+        current_room = parse(player_input)
