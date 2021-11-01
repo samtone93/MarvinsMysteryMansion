@@ -2,7 +2,7 @@
     "room": 6,
     "roomName": "Ballroom",
     "shortDesc": "A ballroom with a giant chandelier. There is painted glass door on the east wall.",
-    "longDesc": "You see a very large room with finished hardwood flooring and tall glass windows on the north wall.\n There is a magnificent crystal chandelier hanging from the middle of the room ceiling. A grand piano and its bench are placed at one corner.\nTo the east wall is a beautifly painted glass door leading to the next room.",
+    "longDesc": "You see a very large room with finished hardwood flooring and tall glass windows on the north wall.\n There is a magnificent crystal chandelier hanging from the middle of the room ceiling. A grand piano and its bench are placed at one corner.\nTo the east wall is a beautifully painted glass door leading to the next room.",
     "smell": "There is a very slight citrus smell, left over from a recent mopping of the entire floor",
     "sound": "You hear the soft melody of piano strings being struck. The grand piano is playing itself",
     "objects": ["ballroom_envelop", "film_reel", "piano", "piano_bench", "chandelier"],

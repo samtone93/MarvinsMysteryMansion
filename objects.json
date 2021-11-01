@@ -127,7 +127,7 @@
       "state": ""
     },
     "green_beans": {
-      "name": ["beans","green beans","bean stalks","grean bean stalks","bean","green bean","bean stalk","green bean stalk"],
+      "name": ["beans","green beans","bean stalks","green bean stalks","bean","green bean","bean stalk","green bean stalk"],
       "desc": "2 rows of 3 green bean stocks",
       "actions": [""],
       "state": ""
@@ -218,7 +218,7 @@
     },
     "chandelier": {
       "name": ["chandelier"],
-      "desc": "A grandiose ",
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling. It brightly illuminates the entire room",
       "actions": [],
       "state": ""
     },
@@ -295,25 +295,25 @@
       "state": ""
     },
     "lion_wardrobe": {
-      "name": ["lion wardrobe"],
+      "name": ["lion_wardrobe","lion wardrobe"],
       "desc": "A lion themed wardrobe",
       "actions": ["go"],
       "state": ""
     },
     "witch_wardrobe": {
-      "name": ["witch wardrobe", "witch"],
+      "name": ["witch_wardrobe","witch wardrobe", "witch"],
       "desc": "A witch themed wardrobe",
       "actions": ["go"],
       "state": ""
     },
     "wardrobe_wardrobe": {
-      "name": ["wardrobe wardrobe"],
+      "name": ["wardrobe_wardrobe","wardrobe wardrobe"],
       "desc": "A wardrobe themed wardrobe",
       "actions": ["go"],
       "state": ""
     },
     "pc": {
-      "name": ["computer"],
+      "name": ["pc,","computer"],
       "desc": "A video game appears to be running in the background.",
       "actions": ["play"],
       "state": ""
