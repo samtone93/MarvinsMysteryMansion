@@ -2,7 +2,7 @@
 
 import re
 
-looping = True
+# looping = True
 
 
 def filter_prep(pi):
@@ -11,9 +11,10 @@ def filter_prep(pi):
     pi = re.sub("look at", "look_at", pi)
 
     # find and sub out articles/prepositions
-    # filters out: a, an, at, by, for, from, in, of, on, out, the, to, with
+    # filters out: a, an, at, by, for, from, in, of, on, out, that, the, to, toward, towards, with
     pi = re.sub(
-        r"\bthe\b|\bin\b|\bto\b|\baway\b|\ba\b|\ban\b|\bby\b|\bfor\b|\bon\b|\bfrom\b|\bof\b|\bout\b|\bwith\b|\bat\b",
+        r"\bthe\b|\bin\b|\bto\b|\baway\b|\ba\b|\ban\b|\bby\b|\bfor\b|\bon\b|\bfrom\b|\bof\b|\bout\b|\bwith\b|\bat\b|"
+        r"\btoward\b|\btowards\b|\bthat\b",
         "",
         pi)
 
@@ -36,9 +37,9 @@ def filter_prep(pi):
     return pi
 
 
-while looping:
-    player_input = input(">").lower()
-    filtered_str = filter_prep(player_input)
-    print(filtered_str)
-    if player_input == "exit":
-        looping = False
+# while looping:
+#     player_input = input(">").lower()
+#     filtered_str = filter_prep(player_input)
+#     print(filtered_str)
+#     if player_input == "exit":
+#         looping = False

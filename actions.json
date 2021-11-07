@@ -4,8 +4,8 @@
     "put": ["put"],
     "take": ["take"],
     "smell": ["smell"],
-    "listen": ["listen"],
+    "listen": ["listen", "hear"],
     "look": ["look"],
-    "look_at": ["look at"],
+    "look_at": ["look_at"],
     "inventory": ["inventory"]
 }

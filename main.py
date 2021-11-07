@@ -1,6 +1,7 @@
 # Marvin's Mystery Mansion
 
 import json
+from regex import filter_prep
 
 looping = True
 
@@ -127,11 +128,9 @@ def parse(input_command):
     if input_command in current_room["exits"]:
         return go(input_command)
 
-    # Remove prepositions the user may use (to, the, )
-    # "  " kept as last entry in prepositions to remove any extra spaces
-    for prep in prep_list["prepositions"]:
-        if prep in input_command:
-            input_command = input_command.replace(prep, '')
+    # Remove prepositions and common articles
+    # filters out: a, an, at, by, for, from, in, of, on, out, that, the, to, toward, towards, with
+    input_command = filter_prep(input_command)
 
     # For movement via <go> <location>
     if "go" in input_command and input_command[3:] in current_room["exits"]:
