@@ -1,11 +1,11 @@
 {
     "room": 15,
     "roomName": "Garage",
-    "shortDesc": "The walls of the garage are filled with various albums and storage boxes.",
-    "longDesc": "To your right, you notice albums filling every shelf on the wall. On the opposite wall, boxes upon boxes are stacked towards the ceiling.",
+    "shortDesc": "The walls of the garage are filled with various albums and storage boxes. There appears to be a master chest in the corner.",
+    "longDesc": "To your right, you notice albums filling every shelf on the wall. On the opposite wall, boxes upon boxes are stacked towards the ceiling. The master chest hides in the corner.",
     "smell": "The smell of laundry detergent and fabric softener fills the air.",
     "sound": "The tumbling of the dryer blares into your ears.",
-    "objects" : ["album", "empty_box"],
+    "objects" : ["master_chest", "empty_box"],
     "exits": {
       "west": [12,0],
       "wardrobe": [12,0],
