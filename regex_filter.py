@@ -1,4 +1,4 @@
-# RUN regex.py. It will loop asking for input, and print out filtered string result. Type exit to end loop
+# RUN regex_filter.py. It will loop asking for input, and print out filtered string result. Type exit to end loop
 
 import re
 

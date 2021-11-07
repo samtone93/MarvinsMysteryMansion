@@ -1,7 +1,7 @@
 # Marvin's Mystery Mansion
 
 import json
-from regex import filter_prep
+from regex_filter import filter_prep
 
 looping = True
 
@@ -16,10 +16,6 @@ objects_json_file.close()
 inventory_json_file = open("inventory.json")
 inventory_list = json.load(inventory_json_file)
 inventory_json_file.close()
-
-prep_json_file = open("prep.json")
-prep_list = json.load(prep_json_file)
-prep_json_file.close()
 
 room_json_file = open("1.json")
 room_data_1 = json.load(room_json_file)
@@ -112,6 +108,10 @@ def quit_game():
 def parse(input_command):
     # In case the player forgets to specify the item/argument of the verb
 
+    # Remove prepositions and common articles
+    # filters out: a, an, at, by, for, from, in, of, on, out, that, the, to, toward, towards, with
+    input_command = filter_prep(input_command)
+
     if input_command in ("go", "put", "take", "look at"):
         print("That is not a legal command - be specific!.")
         return current_room
@@ -127,10 +127,6 @@ def parse(input_command):
     # For movement via <location>
     if input_command in current_room["exits"]:
         return go(input_command)
-
-    # Remove prepositions and common articles
-    # filters out: a, an, at, by, for, from, in, of, on, out, that, the, to, toward, towards, with
-    input_command = filter_prep(input_command)
 
     # For movement via <go> <location>
     if "go" in input_command and input_command[3:] in current_room["exits"]:
@@ -183,6 +179,7 @@ def put(item):
     if item in inventory_list["objects"]:
         current_room["objects"].append(item)
         inventory_list["objects"].remove(item)
+        print(f"You put down the {objects_list[item]['name'][0]}")
     else:
         print("No item to put.")
     return current_room
@@ -193,6 +190,7 @@ def take(item):
     if item in current_room["objects"]:
         inventory_list["objects"].append(item)
         current_room["objects"].remove(item)
+        print(f"You take the {objects_list[item]['name'][0]}")
     else:
         print("No item to take.")
     return current_room
