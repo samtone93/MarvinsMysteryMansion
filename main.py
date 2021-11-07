@@ -2,6 +2,8 @@
 
 import json
 
+looping = True
+
 action_json_file = open("actions.json")
 action_list = json.load(action_json_file)
 action_json_file.close()
@@ -11,7 +13,7 @@ objects_list = json.load(objects_json_file)
 objects_json_file.close()
 
 inventory_json_file = open("inventory.json")
-inventory = json.load(inventory_json_file)
+inventory_list = json.load(inventory_json_file)
 inventory_json_file.close()
 
 prep_json_file = open("prep.json")
@@ -79,7 +81,7 @@ room_data_15 = json.load(room_json_file)
 room_json_file.close()
 
 room_data_list = [
-    inventory,
+    inventory_list,
     room_data_1,
     room_data_2,
     room_data_3,
@@ -97,7 +99,13 @@ room_data_list = [
     room_data_15
 ]
 
-current_room = room_data_12
+current_room = room_data_1
+
+
+# Quit game
+def quit_game():
+    print("Goodbye!")
+    return False
 
 
 def parse(input_command):
@@ -111,11 +119,11 @@ def parse(input_command):
     if len(input_command.split()) == 1 and input_command in action_list:
         return eval(input_command + "()")
 
-    # For movement via <direction> only
+    # For movement via <direction>
     if input_command in ("north", "east", "south", "west"):
         return go(input_command)
 
-    # For movement via <location> only
+    # For movement via <location>
     if input_command in current_room["exits"]:
         return go(input_command)
 
@@ -143,11 +151,11 @@ def parse(input_command):
             if alias in input_command:
                 verb = action
 
-    # If an object or its alias is detected in user input
+    # If an object or its alias is detected in user input and can be interacted with
     for key in objects_list:
         for name in objects_list[key]["name"]:
-            if name in input_command:
-                argument = name
+            if name in input_command and (key in current_room["objects"] or key in inventory_list["objects"]):
+                argument = key
 
     # If not default values, eval the two
     if verb != "test" and argument != "test":
@@ -163,6 +171,8 @@ def parse(input_command):
 def go(argument):
     if argument in current_room["exits"]:
         new_data = room_data_list[current_room["exits"][argument][0]]
+        print("\nYou enter the " + new_data["roomName"] + ".")
+        print(new_data["shortDesc"])
     else:
         print("You cannot go there.")
         new_data = current_room
@@ -171,15 +181,21 @@ def go(argument):
 
 # Object removed from inventory, placed in room.
 def put(item):
-    current_room["objects"].append(item)
-    inventory["objects"].remove(item)
+    if item in inventory_list["objects"]:
+        current_room["objects"].append(item)
+        inventory_list["objects"].remove(item)
+    else:
+        print("No item to put.")
     return current_room
 
 
 # Object removed from room, placed in inventory.
 def take(item):
-    inventory["objects"].append(item)
-    current_room["objects"].remove(item)
+    if item in current_room["objects"]:
+        inventory_list["objects"].append(item)
+        current_room["objects"].remove(item)
+    else:
+        print("No item to take.")
     return current_room
 
 
@@ -201,22 +217,22 @@ def look():
     return current_room
 
 
-# Description of the object.
-def look_at(input):
-    for item in objects_list:
-        for name in objects_list[item]["name"]:
-            if input == name and (item in current_room["objects"] or item in inventory["objects"]):
-                print(objects_list[item]["desc"])
-                return current_room
-    print("There is no such thing to look at. Try again.")
+# Prints out the current items in the inventory.
+def inventory():
+    print("Inventory: " + str(inventory_list["objects"]))
     return current_room
 
+
+# Description of the object.
+def look_at(item):
+    print(objects_list[item]["desc"])
+    return current_room
 
 
 print()
 print("While you were going about your day, you were abducted and dropped off at an unknown location.")
 print("You feel the car stop and the driver leaves you with a letter before driving off in the distance.")
-print("It reads: “Hello <Player>, I hope this letter finds you well.")
+print("It reads: “Hello Player, I hope this letter finds you well.")
 print(
     "As my last remaining kin, I have left you the entirety of my fortune, which includes the mansion you currently stand at.")
 print(
@@ -224,13 +240,15 @@ print(
 print("Prevail, and you shall inherit it all; fail, and you will return to what you once were.")
 print()
 
-while True:
-    print("\nYou enter the " + current_room['roomName'] + ".")
-    print(current_room['shortDesc'])
-    print(current_room['longDesc'])
-    print("Room items: " + str(current_room['objects']))
-    print("Inventory: " + str(inventory['objects']))
+print("\nYou enter the " + current_room['roomName'] + ".")
+print(current_room['shortDesc'])
+while looping:
 
+    # print(current_room['longDesc'])
+    # print("Room items: " + str(current_room['objects']))
 
     player_input = input(">").lower()
-    current_room = parse(player_input)
+    if player_input == "quit":
+        looping = quit_game()
+    else:
+        current_room = parse(player_input)

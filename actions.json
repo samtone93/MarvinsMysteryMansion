@@ -6,5 +6,6 @@
     "smell": ["smell"],
     "listen": ["listen"],
     "look": ["look"],
-    "look_at": ["look at"]
+    "look_at": ["look at"],
+    "inventory": ["inventory"]
 }
