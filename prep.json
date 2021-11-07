@@ -1,6 +1,3 @@
 {
-    "prepositions": [" to ",
-                  " the ",
-                  " away ",
-                  "  "]
+    "prepositions": ["a", "an", "at", "by", "for", "from", "in", "of", "on", "out", "that", "the", "to", "toward", "towards", "with"]
 }
