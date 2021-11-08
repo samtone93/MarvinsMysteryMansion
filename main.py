@@ -10,6 +10,10 @@ action_json_file = open("actions.json")
 action_list = json.load(action_json_file)
 action_json_file.close()
 
+prep_json_file = open("prep.json")
+prep_list = json.load(prep_json_file)
+prep_json_file.close()
+
 objects_json_file = open("objects.json")
 objects_list = json.load(objects_json_file)
 objects_json_file.close()
@@ -97,7 +101,7 @@ room_data_list = [
     room_data_15
 ]
 
-current_room = room_data_14
+current_room = room_data_1
 
 
 # Quit game
@@ -107,59 +111,52 @@ def quit_game():
 
 
 def parse(input_command):
-    # In case the player forgets to specify the item/argument of the verb
+    # split input
+    input_list = input_command.split()
 
-    # Remove prepositions and common articles
-    # filters out: a, an, at, by, for, from, in, of, on, out, that, the, to, toward, towards, with
-    input_command = filter_prep(input_command)
-
-    if input_command in ("go", "put", "take", "look at", "play"):
-        print("That is not a legal command - be specific!.")
-        return current_room
-
-    # For singular verbs <put> <take> <smell> <listen> <look>
-    if len(input_command.split()) == 1 and input_command in action_list:
-        return eval(input_command + "()")
-
-    # For movement via <direction>
-    if input_command in ("north", "east", "south", "west"):
-        return go(input_command)
-
-    # For movement via <location>
-    if input_command in current_room["exits"]:
-        return go(input_command)
-
-    # For movement via <go> <location>
-    if "go" in input_command and input_command[3:] in current_room["exits"]:
-        return go(input_command[3:])
-
-    # For illegal movement; skipping or teleporting rooms
-    if "go" in input_command and input_command[3:] not in current_room["exits"]:
-        print("You can't go there from this room.")
-        return current_room
-
-    # Create default values to determine if they get changed
-    verb, argument = "test", "test"
-
-    # If an action or its alias is detected in user input
+    # get verb]
+    verb = ""
     for action in action_list:
         for alias in action_list[action]:
-            if alias in input_command:
+            if alias in input_list[0]:
                 verb = action
 
-    # If an object or its alias is detected in user input and can be interacted with
+    # remove verb from input
+    if verb == "":
+        verb = "go"
+    else:
+        input_list.remove(input_list[0])
+
+    # remove prepositions
+    for prep in prep_list["prepositions"]:
+        if prep in input_list:
+            input_list.remove(prep)
+
+    if verb == "look" and len(input_list) > 0:
+        verb = "look_at"
+
+    # create argument
+    argument = ""
+    while len(input_list) > 0:
+        argument = argument + input_list[0]
+        input_list.remove(input_list[0])
+        if len(input_list) > 0:
+            argument = argument + " "
+
+    if argument == "":
+        return eval(verb + "()")
+    else:
+        return eval(verb + "(\"" + argument + "\")")
+
+
+# Converts item to be usable
+def item_convert(item_str):
+    item = ""
     for key in objects_list:
         for name in objects_list[key]["name"]:
-            if name in input_command and (key in current_room["objects"] or key in inventory_list["objects"]):
-                argument = key
-
-    # If not default values, eval the two
-    if verb != "test" and argument != "test":
-        return eval(verb + "(\"" + argument + "\")")
-    # If default values, prompt user for another command.
-    else:
-        print("You can't do that. Try something else.")
-        return current_room
+            if name == item_str and (key in current_room["objects"] or key in inventory_list["objects"]):
+                item = key
+    return item
 
 
 # Handles both directions & entryways
@@ -177,6 +174,7 @@ def go(argument):
 
 # Object removed from inventory, placed in room.
 def put(item):
+    item = item_convert(item)
     if item in inventory_list["objects"]:
         current_room["objects"].append(item)
         inventory_list["objects"].remove(item)
@@ -188,6 +186,7 @@ def put(item):
 
 # Object removed from room, placed in inventory.
 def take(item):
+    item = item_convert(item)
     if item in current_room["objects"]:
         inventory_list["objects"].append(item)
         current_room["objects"].remove(item)
@@ -223,12 +222,14 @@ def inventory():
 
 # Description of the object.
 def look_at(item):
+    item = item_convert(item)
     print(objects_list[item]["desc"])
     return current_room
 
 
 # Play the game on the PC
 def play(item):
+    item = item_convert(item)
     if item == "pc":
         print("Enter the correct code to continue: ")
         print("There are three numbers to the code \n")
@@ -262,7 +263,7 @@ def play(item):
 
 # Smash the 1950 wine bottle in the wine cellar for the album key
 def smash(item):
-
+    item = item_convert(item)
     if item in inventory_list["objects"] and item == "wine_1950":
         print("You smash the 1950 wine bottle open.")
         inventory_list["objects"].remove(item)
@@ -279,6 +280,7 @@ def smash(item):
 # Unlock the album in the garage and obtain "Marvin's Manifesto"
 # Reading the Manifesto ends the game.
 def unlock(item):
+    item = item_convert(item)
     if item in current_room["objects"] and item == "master_chest":
         if "master_key" in inventory_list["objects"]:
             print("You unlock the chest with the master key.")
@@ -293,9 +295,6 @@ def unlock(item):
     else:
         print("You can't unlock that.")
         return current_room
-
-
-
 
 
 

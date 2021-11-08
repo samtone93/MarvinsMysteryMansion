@@ -277,7 +277,7 @@
       "actions": ["take", "put"]
     },
     "wine_1950": {
-      "name": ["1950 wine"],
+      "name": ["1950 wine", "1950"],
       "desc": "Wine from the year 1950. There appears to be something inside?",
       "actions": ["take", "put", "break"]
     },
