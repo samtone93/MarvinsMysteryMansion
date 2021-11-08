@@ -1,6 +1,7 @@
 # Marvin's Mystery Mansion
 
 import json
+import random
 from regex_filter import filter_prep
 
 looping = True
@@ -112,28 +113,28 @@ def quit_game():
 def parse(input_command):
     # split input
     input_list = input_command.split()
-    
+
     # get verb]
     verb = ""
     for action in action_list:
         for alias in action_list[action]:
             if alias in input_list[0]:
                 verb = action
-    
+
     # remove verb from input
     if verb == "":
         verb = "go"
     else:
         input_list.remove(input_list[0])
-    
+
     # remove prepositions
     for prep in prep_list["prepositions"]:
         if prep in input_list:
             input_list.remove(prep)
-    
+
     if verb == "look" and len(input_list) > 0:
         verb = "look_at"
-    
+
     # create argument
     argument = ""
     while len(input_list) > 0:
@@ -141,13 +142,13 @@ def parse(input_command):
         input_list.remove(input_list[0])
         if len(input_list) > 0:
             argument = argument + " "
-    
+
     if argument == "":
         return eval(verb + "()")
     else:
         return eval(verb + "(\"" + argument + "\")")
-    
-    
+
+
 # Converts item to be usable
 def item_convert(item_str):
     item = ""
@@ -224,6 +225,77 @@ def look_at(item):
     item = item_convert(item)
     print(objects_list[item]["desc"])
     return current_room
+
+
+# Play the game on the PC
+def play(item):
+    item = item_convert(item)
+    if item == "pc":
+        print("Enter the correct code to continue: ")
+        print("There are three numbers to the code \n")
+
+        code_a = random.randint(1, 5)
+        code_b = random.randint(1, 5)
+        code_c = random.randint(1, 5)
+        code_sum = code_a + code_b + code_c
+        code_prod = code_a * code_b * code_c
+
+        print("The codes add-up to " + str(code_sum))
+        print("The product of the codes is " + str(code_prod) + "\n")
+
+        guess_a = int(input("Guess first number: "))
+        guess_b = int(input("Guess second number: "))
+        guess_c = int(input("Guess third number: "))
+
+        guess_sum = guess_a + guess_b + guess_c
+        guess_prod = guess_a * guess_b * guess_c
+
+        if guess_sum == code_sum and guess_prod == guess_prod:
+            print("Correct! For your quick wit, you are awarded with the number 1950.")
+            return current_room
+        else:
+            print("Wrong! Better luck next time!\n")
+            return current_room
+    else:
+        print("You can't play that.\n")
+        return current_room
+
+
+# Smash the 1950 wine bottle in the wine cellar for the album key
+def smash(item):
+    item = item_convert(item)
+    if item in inventory_list["objects"] and item == "wine_1950":
+        print("You smash the 1950 wine bottle open.")
+        inventory_list["objects"].remove(item)
+        print("You find a large key of sorts was inside.")
+        for object in objects_list:
+            if object == "master_key":
+                inventory_list["objects"].append(object)
+        return current_room
+    else:
+        print("You can't smash that")
+        return current_room
+
+
+# Unlock the album in the garage and obtain "Marvin's Manifesto"
+# Reading the Manifesto ends the game.
+def unlock(item):
+    item = item_convert(item)
+    if item in current_room["objects"] and item == "master_chest":
+        if "master_key" in inventory_list["objects"]:
+            print("You unlock the chest with the master key.")
+            print("Inside, you find a note left by your great-grandfather. A type of manifesto?")
+            for object in objects_list:
+                if object == "marvin_manifesto":
+                    inventory_list["objects"].append(object)
+                    return current_room
+        else:
+            print("You can't unlock the album without a key.")
+            return current_room
+    else:
+        print("You can't unlock that.")
+        return current_room
+
 
 
 print()

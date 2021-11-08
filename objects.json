@@ -262,7 +262,7 @@
       "actions": ["go"]
     },
     "pc": {
-      "name": ["pc,","computer"],
+      "name": ["pc", "computer", "video game"],
       "desc": "A video game appears to be running in the background.",
       "actions": ["play"]
     },
@@ -277,7 +277,7 @@
       "actions": ["take", "put"]
     },
     "wine_1950": {
-      "name": ["1950 wine"],
+      "name": ["1950 wine", "1950"],
       "desc": "Wine from the year 1950. There appears to be something inside?",
       "actions": ["take", "put", "break"]
     },
@@ -316,19 +316,25 @@
       "desc": "Wine from the year 2020",
       "actions": ["take", "put"]
     },
-    "album": {
-      "name": ["album"],
-      "desc": "A locked album. It looks like a key is required.",
-      "actions": ["take", "put"]
-    },
-    "album_key": {
-      "name": ["album_key"],
-      "desc": "A key to an album.",
+    "master_chest": {
+      "name": ["master chest"],
+      "desc": "A lion engraved grandiose chest. It looks like a large key is required.",
       "actions": ["take", "put"]
     },
     "empty_box": {
       "name": ["empty box", "box"],
       "desc": "It's empty.",
       "actions": []
+    },
+     "master_key": {
+      "name": ["master key"],
+      "desc": "An alarmingly large key.",
+      "actions": ["take", "put"]
+    },
+     "marvin_manifesto": {
+      "name": ["manifesto", "marvin manifesto"],
+      "desc": "Marvin's last words to the player.",
+      "actions": ["take", "put", "read"]
     }
+
 }

@@ -1,11 +1,13 @@
 {
     "go": ["go", "move", "head"],
-    "break": ["smash", "destroy"],
+    "smash": ["smash", "destroy", "break"],
     "put": ["put"],
     "take": ["take"],
     "smell": ["smell"],
     "listen": ["listen", "hear"],
     "look": ["look"],
     "look_at": ["look_at"],
-    "inventory": ["inventory"]
+    "inventory": ["inventory"],
+    "play": ["play"],
+    "unlock": ["unlock"]
 }
