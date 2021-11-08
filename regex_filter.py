@@ -2,10 +2,11 @@
 
 import re
 
+
 # looping = True
 
 
-def filter_prep(pi):
+def filter_prep(pi, exits):
     """pi stands for player input"""
     # if there is look at, replace with look_at so not to filter out
     pi = re.sub("look at", "look_at", pi)
@@ -34,8 +35,10 @@ def filter_prep(pi):
             if reversed_search.start() == 0:
                 pi = re.sub("\s", "", reversed_pi, 1)
 
-    return pi
+    if pi in exits or pi in ["north", "south", "east", "west"]:
+        pi = "go " + pi
 
+    return pi.split()
 
 # while looping:
 #     player_input = input(">").lower()
