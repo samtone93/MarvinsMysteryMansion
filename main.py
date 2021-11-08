@@ -113,7 +113,6 @@ def quit_game():
 def parse(input_command):
     # remove prepositions
     input_command = filter_prep(input_command, current_room["exits"])
-    print(input_command)
     # split input
     input_list = input_command.split()
 
