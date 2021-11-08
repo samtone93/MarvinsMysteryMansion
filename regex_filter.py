@@ -38,7 +38,7 @@ def filter_prep(pi, exits):
     if pi in exits or pi in ["north", "south", "east", "west"]:
         pi = "go " + pi
 
-    return pi
+    return pi.split()
 
 # while looping:
 #     player_input = input(">").lower()

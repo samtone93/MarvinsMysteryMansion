@@ -111,12 +111,10 @@ def quit_game():
 
 
 def parse(input_command):
-    # remove prepositions
-    input_command = filter_prep(input_command, current_room["exits"])
-    # split input
-    input_list = input_command.split()
+    # remove prepositions, filter input string, and split into list
+    input_list = filter_prep(input_command, current_room["exits"])
 
-    # get verb]
+    # get verb
     verb = ""
     for action in action_list:
         for alias in action_list[action]["aliases"]:
@@ -125,7 +123,7 @@ def parse(input_command):
 
     # remove verb from input
     if verb == "":
-        print("That is an unrecognized command. Sorry, try againl")
+        print("That is an unrecognized command. Sorry, try again")
         return current_room
     else:
         input_list.remove(input_list[0])
@@ -298,7 +296,6 @@ def unlock(item):
     else:
         print("You can't unlock that.")
         return current_room
-
 
 
 print()
