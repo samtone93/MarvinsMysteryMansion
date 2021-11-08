@@ -1,13 +1,46 @@
 {
-    "go": ["go", "move", "head"],
-    "smash": ["smash", "destroy", "break"],
-    "put": ["put"],
-    "take": ["take"],
-    "smell": ["smell"],
-    "listen": ["listen", "hear"],
-    "look": ["look"],
-    "look_at": ["look_at"],
-    "inventory": ["inventory"],
-    "play": ["play"],
-    "unlock": ["unlock"]
+    "go": {
+        "aliases": ["go", "move", "head"],
+        "takes_arg": true
+    },
+    "smash": {
+        "aliases": ["smash", "destroy", "break"],
+        "takes_arg": true
+    },
+    "put": {
+        "aliases":  ["put"],
+        "takes_arg": true
+    },
+    "take": {
+        "aliases": ["take"],
+        "takes_arg": true
+    },
+    "smell": {
+        "aliases": ["smell", "sniff"],
+        "takes_arg": false
+    },
+    "listen": {
+        "aliases": ["listen", "hear"],
+        "takes_arg": false
+    },
+    "look": {
+        "aliases": ["look"],
+        "takes_arg": false
+    },
+    "look_at": {
+        "aliases": ["look_at"],
+        "takes_arg": true
+    },
+    "inventory": {
+        "aliases": ["inventory"],
+        "takes_arg": false
+    },
+    "play": {
+        "aliases": ["play"],
+        "takes_arg": true
+    },
+    "unlock": {
+        "aliases": ["unlock"],
+        "takes_arg": true
+    }
 }

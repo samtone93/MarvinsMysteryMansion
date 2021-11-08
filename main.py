@@ -111,29 +111,25 @@ def quit_game():
 
 
 def parse(input_command):
+    # remove prepositions
+    input_command = filter_prep(input_command, current_room["exits"])
+    print(input_command)
     # split input
     input_list = input_command.split()
 
     # get verb]
     verb = ""
     for action in action_list:
-        for alias in action_list[action]:
+        for alias in action_list[action]["aliases"]:
             if alias in input_list[0]:
                 verb = action
 
     # remove verb from input
     if verb == "":
-        verb = "go"
+        print("That is an unrecognized command. Sorry, try againl")
+        return current_room
     else:
         input_list.remove(input_list[0])
-
-    # remove prepositions
-    for prep in prep_list["prepositions"]:
-        if prep in input_list:
-            input_list.remove(prep)
-
-    if verb == "look" and len(input_list) > 0:
-        verb = "look_at"
 
     # create argument
     argument = ""
@@ -143,10 +139,13 @@ def parse(input_command):
         if len(input_list) > 0:
             argument = argument + " "
 
-    if argument == "":
+    if argument == "" and not action_list[verb]["takes_arg"]:
         return eval(verb + "()")
-    else:
+    elif argument != "" and action_list[verb]["takes_arg"]:
         return eval(verb + "(\"" + argument + "\")")
+    else:
+        print("Command not understood. Try again")
+        return current_room
 
 
 # Converts item to be usable
@@ -187,10 +186,12 @@ def put(item):
 # Object removed from room, placed in inventory.
 def take(item):
     item = item_convert(item)
-    if item in current_room["objects"]:
+    if item in current_room["objects"] and "take" in objects_list[item]["actions"]:
         inventory_list["objects"].append(item)
         current_room["objects"].remove(item)
         print(f"You take the {objects_list[item]['name'][0]}")
+    elif item in current_room["objects"] and "take" not in objects_list[item]["actions"]:
+        print("You cannot take that.")
     else:
         print("No item to take.")
     return current_room
@@ -223,7 +224,10 @@ def inventory():
 # Description of the object.
 def look_at(item):
     item = item_convert(item)
-    print(objects_list[item]["desc"])
+    if item in current_room["objects"] or item in inventory_list["objects"]:
+        print(objects_list[item]["desc"])
+    else:
+        print("No item to look at.")
     return current_room
 
 
