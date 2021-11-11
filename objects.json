@@ -10,17 +10,20 @@
     "lion_hook": {
       "name": ["lion hook", "lion"],
       "desc": "A coat hook with a lion's head decorating the top",
-      "actions": ["look_at", "pull"]
+      "actions": ["look_at", "pull"],
+      "pull": "As you pull the lion hook, you hear a popping sound from behind the chest before the hook snaps back into place"
     },
     "tiger_hook": {
       "name": ["tiger hook", "tiger"],
       "desc": "A coat hook with a tiger's head decorating the top",
-      "actions": ["look_at", "pull"]
+      "actions": ["look_at", "pull"],
+      "pull": "As you pull the tiger hook, it just barely tilts downward before snapping back into place"
     },
     "bear_hook": {
       "name": ["bear hook", "bear"],
       "desc": "A coat hook with a bear's head decorating the top",
-      "actions": ["look_at", "pull"]
+      "actions": ["look_at", "pull"],
+      "pull": "As you attempt to pull the bear hook, it just barely tilts downward before snapping back into place"
     },
     "locked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
@@ -45,15 +48,17 @@
     "shag_rug": {
       "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
       "desc": "A soft shag rug in a dingy shade of brown",
-      "actions": ["lift"]
+      "actions": ["pull"],
+      "pull": "Pulling back the rug reveals a note from Harvey"
     },
     "empty_shag_rug": {
       "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
       "desc": "A soft shag rug in a dingy shade of brown",
-      "actions": []
+      "actions": ["pull"],
+      "pull": "Pulling back the rug reveals nothing but a dusty floor"
     },
     "house_manager_note": {
-      "name": ["note","house manager note","note from house manager","Harvey note","note from Harvey"],
+      "name": ["note", "house manager note", "note from house manager", "note house manager", "Harvey note", "note from Harvey", "note Harvey"],
       "desc": "A note from Marvin's house manager, Harvey",
       "actions": ["take", "put"]
     },

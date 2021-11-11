@@ -4,11 +4,6 @@
         "takes_arg": true,
         "description": "allows the user to exit room using cardinal direction or exit description"
     },
-    "smash": {
-        "aliases": ["smash", "destroy", "break"],
-        "takes_arg": true,
-        "description": "allows the user to break an item in their inventory or the current room"
-    },
     "put": {
         "aliases":  ["put"],
         "takes_arg": true,
@@ -39,20 +34,30 @@
         "takes_arg": true,
         "description": "allows the user to look at an item in their inventory or the current room"
     },
-    "inventory": {
-        "aliases": ["inventory"],
-        "takes_arg": false,
-        "description": "allows the user to open their inventory and view the items within it"
-    },
     "play": {
         "aliases": ["play"],
         "takes_arg": true,
         "description": "allows the user to play an item in their inventory or the current room"
     },
+    "smash": {
+        "aliases": ["smash", "destroy", "break"],
+        "takes_arg": true,
+        "description": "allows the user to break an item in their inventory or the current room"
+    },
     "unlock": {
         "aliases": ["unlock"],
         "takes_arg": true,
         "description": "allows the user to unlock an item in their inventory or the current room"
+    },
+    "pull": {
+        "aliases": ["pull"],
+        "takes_arg": true,
+        "description": "allows the user to pull on an item in their inventory or the current room"
+    },
+    "inventory": {
+        "aliases": ["inventory"],
+        "takes_arg": false,
+        "description": "allows the user to open their inventory and view the items within it"
     },
     "help":  {
         "aliases": ["help"],
