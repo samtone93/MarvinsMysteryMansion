@@ -4,47 +4,63 @@
     },
     "will": {
       "name": ["will", "marvin's will"],
-      "desc": "The will left to you by your great-grandfather Marvin."
+      "desc": "The will left to you by your great-grandfather Marvin.",
+      "actions": ["look_at", "put", "take", "read"]
     },
     "lion_hook": {
-      "name": ["lion hook","lion"],
+      "name": ["lion hook", "lion"],
       "desc": "A coat hook with a lion's head decorating the top",
-      "actions": []
+      "actions": ["look_at", "pull"],
+      "pull": "As you pull the lion hook, you hear a popping sound from behind the chest before the hook snaps back into place"
     },
     "tiger_hook": {
-      "name": ["tiger hook","tiger"],
+      "name": ["tiger hook", "tiger"],
       "desc": "A coat hook with a tiger's head decorating the top",
-      "actions": []
+      "actions": ["look_at", "pull"],
+      "pull": "As you pull the tiger hook, it just barely tilts downward before snapping back into place"
     },
     "bear_hook": {
-      "name": ["bear hook","bear"],
+      "name": ["bear hook", "bear"],
       "desc": "A coat hook with a bear's head decorating the top",
-      "actions": []
+      "actions": ["look_at", "pull"],
+      "pull": "As you attempt to pull the bear hook, it just barely tilts downward before snapping back into place"
     },
     "locked_foyer_chest": {
-      "name": ["foyer chest","chest","old chest","large chest","large old chest"],
+      "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large, old chest with no handle to open it",
-      "actions": []
+      "actions": ["look_at"]
     },
     "unlocked_foyer_chest": {
-      "name": ["foyer chest","chest","old chest","large chest","large old chest"],
-      "desc": "A large, old chest with no handle to open it",
-      "actions": []
+      "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
+      "desc": "A large old chest that has popped open",
+      "actions": ["open", "look_at"]
+    },
+    "empty_unlocked_foyer_chest": {
+      "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
+      "desc": "A large old chest that has popped open",
+      "actions": ["open", "look_at"]
     },
     "recipe_book": {
-      "name": ["recipe book","book","cookbook","worn book","worn cookbook","worn recipe book","recipe"],
+      "name": ["recipe book", "book", "cookbook", "worn book", "worn cookbook", "worn recipe book", "recipe"],
       "desc": "A worn recipe book covered with splashes of sauces & grease covering it from use throughout the years",
-      "actions": ["take","put"]
+      "actions": ["take", "put", "read"]
     },
     "shag_rug": {
-      "name": ["rug","shag rug","shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
+      "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
       "desc": "A soft shag rug in a dingy shade of brown",
-      "actions": []
+      "actions": ["pull"],
+      "pull": "Pulling back the rug reveals a note from Harvey"
+    },
+    "empty_shag_rug": {
+      "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
+      "desc": "A soft shag rug in a dingy shade of brown",
+      "actions": ["pull"],
+      "pull": "Pulling back the rug reveals nothing but a dusty floor"
     },
     "house_manager_note": {
-      "name": ["note","house manager note","note from house manager","Harvey note","note from Harvey"],
+      "name": ["note", "house manager note", "note from house manager", "note house manager", "Harvey note", "note from Harvey", "note Harvey"],
       "desc": "A note from Marvin's house manager, Harvey",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "covered_portrait": {
       "name": ["covered portrait","portrait","covered frame","covered painting","painting","frame"],
