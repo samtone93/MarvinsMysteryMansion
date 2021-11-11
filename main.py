@@ -174,7 +174,7 @@ def put(item):
     if item in inventory_list["objects"]:
         current_room["objects"].append(item)
         inventory_list["objects"].remove(item)
-        print(f"You put down the {objects_list[item]['name'][0]}")
+        print("You put down the {objects_list[item]['name'][0]}")
     else:
         print("No item to put.")
     return current_room
@@ -296,6 +296,14 @@ def unlock(item):
     else:
         print("You can't unlock that.")
         return current_room
+    
+    
+# Help shows the user all the actions in the game & a short description of what they do
+def help():
+    for verb in action_list:
+        print(verb + ": (other inputs: " + str(action_list[verb]["aliases"]) + ")")
+        print("  " + action_list[verb]["description"])
+    return current_room
 
 
 print()

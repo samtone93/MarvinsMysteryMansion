@@ -1,46 +1,62 @@
 {
     "go": {
         "aliases": ["go", "move", "head"],
-        "takes_arg": true
+        "takes_arg": true,
+        "description": "allows the user to exit room using cardinal direction or exit description"
     },
     "smash": {
         "aliases": ["smash", "destroy", "break"],
-        "takes_arg": true
+        "takes_arg": true,
+        "description": "allows the user to break an item in their inventory or the current room"
     },
     "put": {
         "aliases":  ["put"],
-        "takes_arg": true
+        "takes_arg": true,
+        "description": "allows the user to place an item in their inventory into the current room"
     },
     "take": {
         "aliases": ["take"],
-        "takes_arg": true
+        "takes_arg": true,
+        "description": "allows the user to pick up an item in the current room into their inventory"
     },
     "smell": {
         "aliases": ["smell", "sniff"],
-        "takes_arg": false
+        "takes_arg": false,
+        "description": "allows the user to smell the current room to learn more about their surroundings"
     },
     "listen": {
         "aliases": ["listen", "hear"],
-        "takes_arg": false
+        "takes_arg": false,
+        "description": "allows the user to listen in the current room to learn more about their surroundings"
     },
     "look": {
         "aliases": ["look"],
-        "takes_arg": false
+        "takes_arg": false,
+        "description": "allows the user to look around the current room to learn more about their surroundings"
     },
     "look_at": {
         "aliases": ["look_at"],
-        "takes_arg": true
+        "takes_arg": true,
+        "description": "allows the user to look at an item in their inventory or the current room"
     },
     "inventory": {
         "aliases": ["inventory"],
-        "takes_arg": false
+        "takes_arg": false,
+        "description": "allows the user to open their inventory and view the items within it"
     },
     "play": {
         "aliases": ["play"],
-        "takes_arg": true
+        "takes_arg": true,
+        "description": "allows the user to play an item in their inventory or the current room"
     },
     "unlock": {
         "aliases": ["unlock"],
-        "takes_arg": true
+        "takes_arg": true,
+        "description": "allows the user to unlock an item in their inventory or the current room"
+    },
+    "help":  {
+        "aliases": ["help"],
+        "takes_arg": false,
+        "description": "allows the user to view all usable actions in the game"
     }
 }
