@@ -1,11 +1,12 @@
 {
     "room": 7,
     "roomName": "Art Gallery",
-    "shortDesc": "A room full of paintings. There is a painted glass door to the west, a hallway to the north, and brass doors to the south",
-    "longDesc": "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nAt on of the corners of the room, a gray vase sits on a pedestal. There is a long dimly lit hallway leading to the north. On the south wall are huge double brass doors with polished long golden handles.",
+    "firstEntry": true,
+    "shortDesc": "A room full of paintings on the walls. There is a painted glass door to the west, a hallway to the north, and brass doors to the south",
+    "longDesc": "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nAt on of the corners of the room, you see a tall object covered by a blue sheet. There is a long dimly lit hallway leading to the north. On the south wall are huge double brass doors with polished long golden handles.",
     "smell": "The gallery gives off a faint scent of deodorizer from the carpet flooring",
     "sound": "You can still faintly hear the piano from the ballroom",
-    "objects" : ["piano_bench_doodle", "vase"],
+    "objects" : ["blue_sheet_covering_vase"],
     "exits": {
         "north": [8,0],
         "hallway": [8,0],

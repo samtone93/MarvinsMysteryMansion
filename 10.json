@@ -1,6 +1,7 @@
 {
   "room": 10,
   "roomName": "Library",
+  "firstEntry": true,
   "shortDesc": "A cozy room with armchairs and lamps and bookshelves lining the walls.\nThere is a hardwood door with gold markings to the east, and brass doors to the north.",
   "longDesc": "Giant, towering bookshelves line the walls in this room and you spot a fireplace at the west wall.\nArmchairs and lamps are placed in groups around the room for readers to enjoy. There is a cozy cabin ambience to the room. A folded ladder lays upon one of the bookshelves\n To the east is a fancy hardwood door with golden markings etched on the surface. Behind you to the north is the hallway to the art gallery.",
   "smell": "You smell a very nice earthy aroma from the burning fireplace. It reminds you of a cabin",

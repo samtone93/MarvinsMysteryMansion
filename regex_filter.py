@@ -12,10 +12,10 @@ def filter_prep(pi, exits):
     pi = re.sub("look at", "look_at", pi)
 
     # find and sub out articles/prepositions
-    # filters out: a, an, at, by, for, from, in, of, on, out, that, the, to, toward, towards, with
+    # filters out: a, an, at, by, for, from, in, of, off, on, out, that, the, to, toward, towards, with
     pi = re.sub(
         r"\bthe\b|\bin\b|\bto\b|\baway\b|\ba\b|\ban\b|\bby\b|\bfor\b|\bon\b|\bfrom\b|\bof\b|\bout\b|\bwith\b|\bat\b|"
-        r"\btoward\b|\btowards\b|\bthat\b",
+        r"\btoward\b|\btowards\b|\bthat\b|\boff\b",
         "",
         pi)
 

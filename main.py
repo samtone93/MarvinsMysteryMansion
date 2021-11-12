@@ -3,6 +3,7 @@
 import json
 import random
 from regex_filter import filter_prep
+from helper_functions import uncover_vase
 
 looping = True
 
@@ -161,7 +162,11 @@ def go(argument):
     if argument in current_room["exits"]:
         new_data = room_data_list[current_room["exits"][argument][0]]
         print("\nYou enter the " + new_data["roomName"] + ".")
-        print(new_data["shortDesc"])
+        if new_data["firstEntry"]:
+            print(new_data["longDesc"])
+            new_data["firstEntry"] = False
+        else:
+            print(new_data["shortDesc"])
     else:
         print("You cannot go there.")
         new_data = current_room
@@ -306,6 +311,8 @@ def pull(item):
         if item == "lion_hook" and "locked_foyer_chest" in current_room["objects"]:
             current_room["objects"].remove("locked_foyer_chest")
             current_room["objects"].append("unlocked_foyer_chest")
+        elif item == "blue_sheet_covering_vase":
+            uncover_vase(current_room)
     else:
         print("Item can't be pulled")
     return current_room
@@ -316,7 +323,6 @@ def help():
         print(verb + ": (other inputs: " + str(action_list[verb]["aliases"]) + ")")
         print("  " + action_list[verb]["description"])
     return current_room
-
 
 print()
 print("While you were going about your day, you were abducted and dropped off at an unknown location.")
@@ -330,7 +336,7 @@ print("Prevail, and you shall inherit it all; fail, and you will return to what 
 print()
 
 print("\nYou enter the " + current_room['roomName'] + ".")
-print(current_room['shortDesc'])
+print(current_room['longDesc'])
 while looping:
 
     # print(current_room['longDesc'])

@@ -212,10 +212,21 @@
       "desc": "A dark red key with a lion's head engraved on the key handle",
       "actions": ["take", "put"]
     },
+    "blue_sheet_covering_vase": {
+      "name": ["sheet", "cover", "covered object", "covered vase", "blue sheet", "blue cover"],
+      "desc": "A plain blue sheet placed over and completely covering something slim and tall. The covered object is about 4 feet tall",
+      "actions": ["pull"],
+      "pull": "You pull off the blue sheet to reveal a white porcelain vase. It is rather large and looks quite heavy.\nThe sides of the vase have lion motifs etched into it. You notice a note taped to the vase handle.\nThe writing on the note says \"Don\\'t break me ;)\""
+    },
     "vase": {
-      "name": ["vase"],
-      "desc": "A plain white vase with a crack on one side of the lip. It looks old and about to shatter.",
-      "actions": ["take", "put"]
+      "name": ["vase", "uncovered vase", "lion vase", "white vase"],
+      "desc": "A large, heavy, white porcelain vase. The sides of the vase have lion motifs etched into it. The thing looked like an antique from a museum.\nA note is taped to the vase handle that says \"Don\\'t break me ;)\"",
+      "actions": []
+    },
+    "blue_sheet": {
+      "name": ["blue sheet", "blue cover", "sheet", "cover"],
+      "desc": "A large plain blue sheet that was covering a vase in the art gallery",
+      "actions": []
     },
     "piano_bench_doodle" : {
       "name": ["piano bench doodle", "doodle", "doodle of piano bench"],

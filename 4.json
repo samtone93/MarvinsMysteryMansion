@@ -1,6 +1,7 @@
 {
     "room": 4,
     "roomName": "Greenhouse",
+    "firstEntry": true,
     "shortDesc": "A massive greenhouse with several rows of plants, a koi pond, and groundskeeper cleaning with a glass door back to the kitchen to the south and a worn wooden door to the west.",
     "longDesc": "The greenhouse is just that: bright green and full of life. There's several rows of plants including tomatoes, corn, green beans, lavender, marigolds, and mint. A massive koi pond with a waterfall sits off behind the rows of plants. A groundskeeper seems busy cleaning off to the side. To your south is the glass door back to the kitchen. To your west is a worn wooden door to what appears to be a utility closet.",
     "smell": "The smell of the garden floods into your nostrils. Specifically, the lavender and mint make the room smell like it's been flooded with essential oils.",
