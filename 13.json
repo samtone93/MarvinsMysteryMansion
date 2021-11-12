@@ -1,6 +1,7 @@
 {
     "room": 13,
     "roomName": "Study",
+    "firstEntry": true,
     "shortDesc": "A neatly furnished office containing a single computer",
     "longDesc": "A single computer occupies the study. On the computer screen you notice a video game running in a Lionux terminal.",
     "smell": "It smells a bit dusty.",

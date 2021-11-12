@@ -1,6 +1,7 @@
 {
     "room": 14,
     "roomName": "Wine Cellar",
+    "firstEntry": true,
     "shortDesc": "A collection of wine bottles cover the wall as far as the eye can see.",
     "longDesc": "Wine bottles cover the walls as far as the eye can see. Your great-grandfather's collection has wines from every decade, starting from 1930. ",
     "smell": "The smell of wine overpowers your nostrils. ",

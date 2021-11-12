@@ -1,6 +1,7 @@
 {
     "room": 1,
     "roomName": "Foyer",
+    "firstEntry": false,
     "shortDesc": "A small foyer with 3 animal-themed coat hooks above a large chest and an archway to the east",
     "longDesc": "The foyer is a cozy entrance into the much larger mansion. The floor is covered by an soft shag rug. On the wall, you see 3 hooks, a lion, a tiger, and a bear (oh my!) above a large, old chest. To the east, there is a large archway leading into the much larger living room",
     "smell": "The room smells a bit musty and outdoorsy from all the guests who have entered before you. There's also a faint smell of something cooking a few rooms over.",

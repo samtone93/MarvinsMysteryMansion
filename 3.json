@@ -1,6 +1,7 @@
 {
     "room": 3,
     "roomName": "Kitchen",
+    "firstEntry": true,
     "shortDesc": "A large kitchen with a kind old man at the island cooking next to a fridge with family photos",
     "longDesc": "The kitchen feels like a warm hug from home. It's full of life and welcoming compared to the other now empty rooms. A kind, old man stands behind the island is furiously cooking while something bakes in the oven. There's a fridge with 3 photos on it. To your north is a glass door leading to a greenhouse. To your south are the saloon doors back to the living room.",
     "smell": "The smell of food is overwhelming at this point. The smell the vegetables sauteing on the stove and some sort of baked good in the oven have your mouth watering.",
