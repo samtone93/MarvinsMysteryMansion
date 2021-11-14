@@ -5,43 +5,44 @@
     "will": {
       "name": ["will", "marvin's will"],
       "desc": "The will left to you by your great-grandfather Marvin.",
-      "actions": ["look_at", "put", "take", "read"]
+      "actions": ["put", "take", "read"]
     },
     "lion_hook": {
       "name": ["lion hook", "lion"],
       "desc": "A coat hook with a lion's head decorating the top",
-      "actions": ["look_at", "pull"],
+      "actions": ["pull"],
       "pull": "As you pull the lion hook, you hear a popping sound from behind the chest before the hook snaps back into place"
     },
     "tiger_hook": {
       "name": ["tiger hook", "tiger"],
       "desc": "A coat hook with a tiger's head decorating the top",
-      "actions": ["look_at", "pull"],
+      "actions": ["pull"],
       "pull": "As you pull the tiger hook, it just barely tilts downward before snapping back into place"
     },
     "bear_hook": {
       "name": ["bear hook", "bear"],
       "desc": "A coat hook with a bear's head decorating the top",
-      "actions": ["look_at", "pull"],
+      "actions": ["pull"],
       "pull": "As you attempt to pull the bear hook, it just barely tilts downward before snapping back into place"
     },
     "locked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large, old chest with no handle to open it",
-      "actions": ["look_at"]
+      "actions": ["pry"],
+      "pry": "You try to pry open the locked chest with the crowbar, but it's too heavy for you to lift even with the crowbar"
     },
     "unlocked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large old chest that has popped open",
-      "actions": ["open", "look_at"]
+      "actions": ["open"]
     },
     "empty_unlocked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large old chest that has popped open",
-      "actions": ["open", "look_at"]
+      "actions": ["open"]
     },
     "recipe_book": {
-      "name": ["recipe book", "book", "cookbook", "worn book", "worn cookbook", "worn recipe book", "recipe"],
+      "name": ["recipe book", "cookbook", "worn cookbook", "worn recipe book", "recipe"],
       "desc": "A worn recipe book covered with splashes of sauces & grease covering it from use throughout the years",
       "actions": ["take", "put", "read"]
     },
@@ -49,7 +50,7 @@
       "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
       "desc": "A soft shag rug in a dingy shade of brown",
       "actions": ["pull"],
-      "pull": "Pulling back the rug reveals a note from Harvey"
+      "pull": "Pulling back the rug reveals a memo from Harvey Hawkins"
     },
     "empty_shag_rug": {
       "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
@@ -57,135 +58,147 @@
       "actions": ["pull"],
       "pull": "Pulling back the rug reveals nothing but a dusty floor"
     },
-    "house_manager_note": {
-      "name": ["note", "house manager note", "note from house manager", "note house manager", "Harvey note", "note from Harvey", "note Harvey"],
-      "desc": "A note from Marvin's house manager, Harvey",
-      "actions": ["take", "put"]
+    "house_manager_memo": {
+      "name": ["memo", "house manager memo", "memo from house manager", "memo house manager", "Harvey memo", "memo from Harvey", "memo Harvey", "Harvey Hawkins memo", "memo from Harvey Hawkins", "memo Harvey Hawkins"],
+      "desc": "A memo from Marvin's house manager, Harvey",
+      "actions": ["take", "put", "read"]
     },
     "covered_portrait": {
       "name": ["covered portrait","portrait","covered frame","covered painting","painting","frame"],
       "desc": "A portrait with a golden frame covered by a thin white sheet",
-      "actions": []
+      "actions": ["uncover"]
     },
     "uncovered_portrait": {
       "name": ["uncovered portrait","portrait","uncovered frame","uncovered painting","painting","frame"],
       "desc": "A black and white portrait of a young bride and groom with the nameplate reading 'Julie & John '32' surrounded by a golden frame",
       "actions": []
     },
-    "lion_statue": {
-      "name": ["statue","lion","lion statue","large lion statue"],
+    "covered_lion_statue": {
+      "name": ["statue","lion","lion statue","large lion statue", "gold statue", "gold lion", "gold lion statue", "large gold lion statue"],
+      "desc": "A large statue coated in a gold finish covered by a thin white sheet",
+      "actions": ["uncover"]
+    },
+    "uncovered_lion_statue": {
+      "name": ["statue", "lion", "lion statue", "large lion statue", "gold statue", "gold lion", "gold lion statue", "large gold lion statue"],
       "desc": "A large lion statue coated in a gold finish",
       "actions": []
     },
     "nailed_boards": {
-      "name": ["nailed boards","boards","nails"],
-      "desc": "Boards covering an exit from the living room",
-      "actions": []
+      "name": ["nailed boards", "boards", "nails"],
+      "desc": "Boards covering an exit from the living room - perhaps you can find something to remove them",
+      "actions": ["pry"],
+      "pry": "You maneuver the crow bar underneath each of the nailed boards popping them off one at a time.\nFinally, you clear the mysterious red door."
     },
     "house_manager": {
-      "name": ["Harvey","house manager","kind old man","old man","cook","chef","manager"],
+      "name": ["Harvey", "house manager", "kind old man", "old man", "cook", "chef", "manager"],
       "desc": "A kind-looking old man and Marvin's house manager, Harvey",
-      "actions": []
+      "actions": ["talk"]
     },
     "oven": {
-      "name": ["oven","stove"],
+      "name": ["oven", "stove"],
       "desc": "An oven with vegetables sauteing on the stove top and baked goods heating inside",
-      "actions": []
+      "actions": ["open"]
     },
     "fridge": {
-      "name": ["fridge","refrigerator"],
+      "name": ["fridge", "refrigerator"],
       "desc": "A fridge with 3 photos: a family photo, a wedding photo, and a mountain photo",
-      "actions": []
+      "actions": ["open"]
     },
     "family_photo": {
-      "name": ["family photo","family picture","family pic"],
+      "name": ["family photo", "family picture", "family pic"],
       "desc": "A black and white family photo of two adults and two children in front of a large apple tree",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "wedding_photo": {
-      "name": ["wedding photo","wedding picture","wedding pic"],
+      "name": ["wedding photo", "wedding picture", "wedding pic"],
       "desc": "A black and white photo of a young Marvin and his bride in front of a small white chapel",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "mountain_photo": {
-      "name": ["mountain photo","mountain picture","mountain pic","mountain landscape photo","mountain landscape picture","mountain landscape pic","cabin photo","cabin picture","cabin pic"],
+      "name": ["mountain photo", "mountain picture", "mountain pic", "mountain landscape photo", "mountain landscape picture", "mountain landscape pic", "cabin photo", "cabin picture", "cabin pic"],
       "desc": "A photo of a mountain landscape with an older woman sitting on the steps of a cabin in the foreground",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "tomatoes": {
-      "name": ["tomatoes","tomato"],
+      "name": ["tomatoes", "tomato"],
       "desc": "3 rows of 2 tomatoes",
       "actions": [""]
     },
     "corn": {
-      "name": ["corn","corn stalks","sweet corn","sweet corn stalks"],
+      "name": ["corn", "corn stalks", "sweet corn", "sweet corn stalks"],
       "desc": "2 rows of 3 sweet corn stalks",
       "actions": [""]
     },
     "green_beans": {
-      "name": ["beans","green beans","bean stalks","green bean stalks","bean","green bean","bean stalk","green bean stalk"],
+      "name": ["beans", "green beans", "bean stalks", "green bean stalks", "bean", "green bean", "bean stalk", "green bean stalk"],
       "desc": "2 rows of 3 green bean stocks",
       "actions": [""]
     },
     "lavender": {
-      "name": ["lavender","lavender bushes","lavender bush","bush"],
+      "name": ["lavender", "lavender bushes", "lavender bush", "bush"],
       "desc": "2 rows of 3 green bean stocks",
-      "actions": ["2 rows of 3 lavender bushes"]
+      "actions": [""]
     },
     "marigolds": {
-      "name": ["marigolds","marigold","marigold plants","marigold plant"],
+      "name": ["marigolds", "marigold", "marigold plants", "marigold plant"],
       "desc": "1 row of 6 marigold plants",
       "actions": [""]
     },
     "mint": {
-      "name": ["mint","mint leaf","mint leaves","mint leaf bundles","bundle","mint leaf bundle","mint bundle"],
+      "name": ["mint", "mint leaf", "mint leaves", "mint leaf bundles", "bundle", "mint leaf bundle", "mint bundle"],
       "desc": "1 row of 6 mint leaf bundles",
       "actions": [""]
     },
     "koi_pond": {
-      "name": ["koi pond","pond","koi","koi fish","kois","koi fishes","fish","fishes"],
+      "name": ["koi pond", "pond", "koi", "koi fish", "kois", "koi fishes", "fish", "fishes"],
       "desc": "6 koi fish swim in a large pond while water drops from the loud waterfall",
       "actions": [""]
     },
     "combo_lock": {
-      "name": ["combo lock","lock","combo"],
+      "name": ["combo lock", "lock", "combo", "combination", "combination lock"],
       "desc": "A combo lock hooked to the wooden door",
-      "actions": [""]
+      "actions": ["unlock"],
+      "unlock": "The combo lock pops open and you remove it from the wooden door, unlocking the Utility Closet"
     },
     "groundskeeper": {
-      "name": ["groundskeeper","gardener","Greg"],
+      "name": ["groundskeeper", "gardener", "Greg"],
       "desc": "A groundskeeper, Greg",
-      "actions": ["A groundskeeper, Greg"]
+      "actions": ["talk"]
     },
     "todo_list": {
-      "name": ["list","to-do list","todo list","to do list"],
+      "name": ["list", "to-do list", "todo list", "to do list"],
       "desc": "A to-do list of items to plant with check marks next to each of the 6 items: 6 corn, 6 green beans, 6 tomatoes, 6 lavender, 6 marigolds, 6 mint",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "screwdriver": {
-      "name": ["screwdriver","red screwdriver","red handled screwdriver","red handle screwdriver"],
+      "name": ["screwdriver", "red screwdriver", "red handled screwdriver", "red handle screwdriver"],
       "desc": "A screwdriver with a red handle",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "crowbar": {
-      "name": ["crowbar","rusty crowbar"],
+      "name": ["crowbar", "rusty crowbar", "crow bar", "rusty crow bar"],
       "desc": "A rusty crowbar",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "gloves": {
-      "name": ["gardening gloves","gloves","green gloves","green gardening gloves"],
+      "name": ["gardening gloves", "gloves", "green gloves", "green gardening gloves"],
       "desc": "A pair of green gardening gloves",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "gardening_book": {
-      "name": ["book","gardening book"],
+      "name": ["book", "gardening book"],
       "desc": "An old gardening book that appear to be falling apart",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
-    "family_note": {
-      "name": ["note","family note"],
-      "desc": "A note with details about your family history from Harvey",
-      "actions": ["take","put"]
+    "empty_gardening_book": {
+      "name": ["gardening book"],
+      "desc": "An old gardening book that appear to be falling apart",
+      "actions": ["take", "put"]
+    },
+    "family_letter": {
+      "name": ["letter", "family letter", "Martin letter", "letter Martin", "letter from Martin"],
+      "desc": "A letter with details about your family history from Martin",
+      "actions": ["take", "put"]
     },
     "piano": {
       "name": ["piano", "grand piano"],
@@ -212,20 +225,14 @@
       "desc": "A dark red key with a lion's head engraved on the key handle",
       "actions": ["take", "put"]
     },
-    "blue_sheet_covering_vase": {
-      "name": ["sheet", "cover", "covered object", "covered vase", "blue sheet", "blue cover"],
-      "desc": "A plain blue sheet placed over and completely covering something slim and tall. The covered object is about 4 feet tall",
-      "actions": ["pull"],
-      "pull": "You pull off the blue sheet to reveal a white porcelain vase. It is rather large and looks quite heavy.\nThe sides of the vase have lion motifs etched into it. You notice a note taped to the vase handle.\nThe writing on the note says \"Don\\'t break me ;)\""
+    "covered_vase": {
+      "name": ["vase", "covered vase", "lion vase", "white vase"],
+      "desc": "A large vase (or what appears to be one) underneath a blue sheet",
+      "actions": ["uncover"]
     },
-    "vase": {
+    "uncovered_vase": {
       "name": ["vase", "uncovered vase", "lion vase", "white vase"],
       "desc": "A large, heavy, white porcelain vase. The sides of the vase have lion motifs etched into it. The thing looked like an antique from a museum.\nA note is taped to the vase handle that says \"Don\\'t break me ;)\"",
-      "actions": []
-    },
-    "blue_sheet": {
-      "name": ["blue sheet", "blue cover", "sheet", "cover"],
-      "desc": "A large plain blue sheet that was covering a vase in the art gallery",
       "actions": []
     },
     "piano_bench_doodle" : {
@@ -346,7 +353,8 @@
     "master_chest": {
       "name": ["master chest"],
       "desc": "A lion engraved grandiose chest. It looks like a large key is required.",
-      "actions": ["take", "put"]
+      "actions": ["take", "put", "unlock"],
+      "unlock": "You unlock the chest with the master key.\nInside, you find a note left by your great-grandfather. A type of manifesto?"
     },
     "empty_box": {
       "name": ["empty box", "box"],

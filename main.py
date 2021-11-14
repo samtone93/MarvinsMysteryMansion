@@ -156,6 +156,29 @@ def item_convert(item_str):
     return item
 
 
+# checks the room for the item & ability to use verb on that item
+# where specifies if item can only be in inventory, room, or both
+def obj_check(item, verb, where):
+    if item == '':
+        print("Item not available - try again")
+        return False
+    if verb == "look_at" and (item in current_room["objects"] or item in inventory_list["objects"]):
+        return True
+    if where == "both" and (item in current_room["objects"] or item in inventory_list["objects"]) and verb in objects_list[item]["actions"]:
+        return True
+    elif where == "inventory" and item in inventory_list["objects"] and verb in objects_list[item]["actions"]:
+        return True
+    elif where == "room" and item in current_room["objects"] and verb in objects_list[item]["actions"]:
+        return True
+    elif verb in objects_list[item]["actions"]:
+        if where == "both":
+            where = "room or inventory"
+        print(objects_list[item]["name"][0] + " is not present in " + where + " - " + verb + " cannot be performed")
+        return False
+    else:
+        print(verb + " is not a valid action for " + objects_list[item]["name"][0] + " - try again")
+        return False
+
 # Handles both directions & entryways
 # Edit room files to include aliases for entryways under "exits"
 def go(argument):
@@ -176,26 +199,20 @@ def go(argument):
 # Object removed from inventory, placed in room.
 def put(item):
     item = item_convert(item)
-    if item in inventory_list["objects"]:
+    if obj_check(item, "put", "inventory"):
         current_room["objects"].append(item)
         inventory_list["objects"].remove(item)
-        print("You put down the {objects_list[item]['name'][0]}")
-    else:
-        print("No item to put.")
+        print("You put down the " + objects_list[item]['name'][0])
     return current_room
 
 
 # Object removed from room, placed in inventory.
 def take(item):
     item = item_convert(item)
-    if item in current_room["objects"] and "take" in objects_list[item]["actions"]:
+    if obj_check(item, "take", "room"):
         inventory_list["objects"].append(item)
         current_room["objects"].remove(item)
-        print(f"You take the {objects_list[item]['name'][0]}")
-    elif item in current_room["objects"] and "take" not in objects_list[item]["actions"]:
-        print("You cannot take that.")
-    else:
-        print("No item to take.")
+        print("You take the "+ objects_list[item]['name'][0])
     return current_room
 
 
@@ -226,96 +243,138 @@ def inventory():
 # Description of the object.
 def look_at(item):
     item = item_convert(item)
-    if item in current_room["objects"] or item in inventory_list["objects"]:
+    if obj_check(item, "look_at", "both"):
         print(objects_list[item]["desc"])
-    else:
-        print("No item to look at.")
     return current_room
 
 
 # Play the game on the PC
 def play(item):
     item = item_convert(item)
-    if item == "pc":
-        print("Enter the correct code to continue: ")
-        print("There are three numbers to the code \n")
-
-        code_a = random.randint(1, 5)
-        code_b = random.randint(1, 5)
-        code_c = random.randint(1, 5)
-        code_sum = code_a + code_b + code_c
-        code_prod = code_a * code_b * code_c
-
-        print("The codes add-up to " + str(code_sum))
-        print("The product of the codes is " + str(code_prod) + "\n")
-
-        guess_a = int(input("Guess first number: "))
-        guess_b = int(input("Guess second number: "))
-        guess_c = int(input("Guess third number: "))
-
-        guess_sum = guess_a + guess_b + guess_c
-        guess_prod = guess_a * guess_b * guess_c
-
-        if guess_sum == code_sum and guess_prod == guess_prod:
-            print("Correct! For your quick wit, you are awarded with the number 1950.")
-            return current_room
-        else:
-            print("Wrong! Better luck next time!\n")
-            return current_room
-    else:
-        print("You can't play that.\n")
-        return current_room
+    if obj_check(item, "play", "room"):
+        if item == "pc":
+            print("Enter the correct code to continue: ")
+            print("There are three numbers to the code \n")
+    
+            code_a = random.randint(1, 5)
+            code_b = random.randint(1, 5)
+            code_c = random.randint(1, 5)
+            code_sum = code_a + code_b + code_c
+            code_prod = code_a * code_b * code_c
+    
+            print("The codes add-up to " + str(code_sum))
+            print("The product of the codes is " + str(code_prod) + "\n")
+    
+            guess_a = int(input("Guess first number: "))
+            guess_b = int(input("Guess second number: "))
+            guess_c = int(input("Guess third number: "))
+    
+            guess_sum = guess_a + guess_b + guess_c
+            guess_prod = guess_a * guess_b * guess_c
+    
+            if guess_sum == code_sum and guess_prod == guess_prod:
+                print("Correct! For your quick wit, you are awarded with the number 1950.")
+            else:
+                print("Wrong! Better luck next time!\n")
+    return current_room
 
 
 # Smash the 1950 wine bottle in the wine cellar for the album key
 def smash(item):
     item = item_convert(item)
-    if item in inventory_list["objects"] and item == "wine_1950":
-        print("You smash the 1950 wine bottle open.")
-        inventory_list["objects"].remove(item)
-        print("You find a large key of sorts was inside.")
-        for object in objects_list:
-            if object == "master_key":
-                inventory_list["objects"].append(object)
-        return current_room
-    else:
-        print("You can't smash that")
-        return current_room
+    if obj_check(item, "smash", "inventory"):
+        if item == "wine_1950":
+            print("You smash the 1950 wine bottle open.")
+            inventory_list["objects"].remove(item)
+            print("You find a large key of sorts was inside.")
+            for object in objects_list:
+                if object == "master_key":
+                    inventory_list["objects"].append(object)
+    return current_room
 
 
 # Unlock the album in the garage and obtain "Marvin's Manifesto"
 # Reading the Manifesto ends the game.
 def unlock(item):
     item = item_convert(item)
-    if item in current_room["objects"] and item == "master_chest":
-        if "master_key" in inventory_list["objects"]:
-            print("You unlock the chest with the master key.")
-            print("Inside, you find a note left by your great-grandfather. A type of manifesto?")
-            for object in objects_list:
-                if object == "marvin_manifesto":
-                    inventory_list["objects"].append(object)
-                    return current_room
-        else:
-            print("You can't unlock the album without a key.")
-            return current_room
-    else:
-        print("You can't unlock that.")
-        return current_room
+    if obj_check(item, "unlock", "room"):
+        if item == "master_chest":
+            if "master_key" in inventory_list["objects"]:
+                print(objects_list[item]["unlock"])
+                for object in objects_list:
+                    if object == "marvin_manifesto":
+                        inventory_list["objects"].append(object)
+                        return current_room
+            else:
+                print("You can't unlock the album without a key.")
+        elif obj_check(item, "unlock", "room") and item == "combo_lock":
+            locked = True
+            print("You look at the combo lock and begin to decode it:")
+            while locked == True:
+                print("Type 3 numbers from 0-39 with spaces (i.e. '1 2 3') to attempt unlocking or 'leave' to exit")
+                player_input = input(">").lower()
+                if player_input == 'leave':
+                    print("You've given up & headed back to the Greenhouse")
+                    break
+                input_list = player_input.split()
+                if len(input_list) != 3:
+                    print("Invalid input - you didn't enter 3 numbers")
+                else:
+                    num_list = []
+                    for num in input_list:
+                        if num.isnumeric() and int(num) >= 0 and int(num) <=39:
+                            num_list.append(int(num))
+                        else:
+                            print("Invalid number: " + num + " is not in the range 0-39")
+                            num_list.append(40)
+                    if num_list[0] == 32 and num_list[1] == 17 and num_list[2] == 6:
+                        locked = False
+                        current_room["objects"].remove("combo_lock")
+                        print(objects_list[item]["unlock"])
+                    else:
+                        print("Wrong combination - please try again")
+    return current_room
     
     
-# Help shows the user all
 def pull(item):
     item = item_convert(item)
-    if item in current_room["objects"] and 'pull' in objects_list[item]["actions"]:
+    if obj_check(item, "pull", "room"):
         print(objects_list[item]["pull"])
         if item == "lion_hook" and "locked_foyer_chest" in current_room["objects"]:
             current_room["objects"].remove("locked_foyer_chest")
             current_room["objects"].append("unlocked_foyer_chest")
+        if item == "shag_rug":
+            current_room["objects"].append("house_manager_memo")
         elif item == "blue_sheet_covering_vase":
             uncover_vase(current_room)
     else:
         print("Item can't be pulled")
     return current_room
+
+
+def uncover(item):
+    item = item_convert(item)
+    if obj_check(item, "uncover", "room"):
+        new_item = "un" + item
+        current_room["objects"].remove(item)
+        current_room["objects"].append(new_item)
+        print("You've revealed a new item:")
+        print(objects_list[new_item]["desc"])
+    return current_room
+
+
+def pry(item):
+    item = item_convert(item)
+    if obj_check(item, "pry", "room"):
+        if "crowbar" in inventory_list["objects"]:
+            print(objects_list[item]["pry"])
+            if item == "nailed_boards":
+                current_room["objects"].remove(item)
+        else:
+            print("You try prying the " + objects_list[item]["name"][0] + " with your hands and fail")
+            print("Hmm... Perhaps you should find a tool, such as a crowbar, to pry this item")
+    return current_room
+    
     
 # Help shows the user all the actions in the game & a short description of what they do
 def help():
