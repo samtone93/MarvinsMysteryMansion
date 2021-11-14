@@ -28,7 +28,8 @@
     "locked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large, old chest with no handle to open it",
-      "actions": []
+      "actions": ["pry"],
+      "pry": "You try to pry open the locked chest with the crowbar, but it's too heavy for you to lift even with the crowbar"
     },
     "unlocked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
@@ -84,8 +85,9 @@
     },
     "nailed_boards": {
       "name": ["nailed boards", "boards", "nails"],
-      "desc": "Boards covering an exit from the living room",
-      "actions": ["pry"]
+      "desc": "Boards covering an exit from the living room - perhaps you can find something to remove them",
+      "actions": ["pry"],
+      "pry": "You maneuver the crow bar underneath each of the nailed boards popping them off one at a time.\nFinally, you clear the mysterious red door."
     },
     "house_manager": {
       "name": ["Harvey", "house manager", "kind old man", "old man", "cook", "chef", "manager"],
@@ -153,9 +155,10 @@
       "actions": [""]
     },
     "combo_lock": {
-      "name": ["combo lock", "lock", "combo"],
+      "name": ["combo lock", "lock", "combo", "combination", "combination lock"],
       "desc": "A combo lock hooked to the wooden door",
-      "actions": ["unlock"]
+      "actions": ["unlock"],
+      "unlock": "The combo lock pops open and you remove it from the wooden door, unlocking the Utility Closet"
     },
     "groundskeeper": {
       "name": ["groundskeeper", "gardener", "Greg"],
@@ -173,7 +176,7 @@
       "actions": ["take", "put"]
     },
     "crowbar": {
-      "name": ["crowbar", "rusty crowbar"],
+      "name": ["crowbar", "rusty crowbar", "crow bar", "rusty crow bar"],
       "desc": "A rusty crowbar",
       "actions": ["take", "put"]
     },
@@ -187,7 +190,12 @@
       "desc": "An old gardening book that appear to be falling apart",
       "actions": ["take", "put"]
     },
-    "family_note": {
+    "empty_gardening_book": {
+      "name": ["gardening book"],
+      "desc": "An old gardening book that appear to be falling apart",
+      "actions": ["take", "put"]
+    },
+    "family_letter": {
       "name": ["letter", "family letter", "Martin letter", "letter Martin", "letter from Martin"],
       "desc": "A letter with details about your family history from Martin",
       "actions": ["take", "put"]
@@ -345,7 +353,8 @@
     "master_chest": {
       "name": ["master chest"],
       "desc": "A lion engraved grandiose chest. It looks like a large key is required.",
-      "actions": ["take", "put", "unlock"]
+      "actions": ["take", "put", "unlock"],
+      "unlock": "You unlock the chest with the master key.\nInside, you find a note left by your great-grandfather. A type of manifesto?"
     },
     "empty_box": {
       "name": ["empty box", "box"],

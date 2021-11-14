@@ -251,47 +251,45 @@ def look_at(item):
 # Play the game on the PC
 def play(item):
     item = item_convert(item)
-    if item == "pc":
-        print("Enter the correct code to continue: ")
-        print("There are three numbers to the code \n")
-
-        code_a = random.randint(1, 5)
-        code_b = random.randint(1, 5)
-        code_c = random.randint(1, 5)
-        code_sum = code_a + code_b + code_c
-        code_prod = code_a * code_b * code_c
-
-        print("The codes add-up to " + str(code_sum))
-        print("The product of the codes is " + str(code_prod) + "\n")
-
-        guess_a = int(input("Guess first number: "))
-        guess_b = int(input("Guess second number: "))
-        guess_c = int(input("Guess third number: "))
-
-        guess_sum = guess_a + guess_b + guess_c
-        guess_prod = guess_a * guess_b * guess_c
-
-        if guess_sum == code_sum and guess_prod == guess_prod:
-            print("Correct! For your quick wit, you are awarded with the number 1950.")
-            return current_room
-        else:
-            print("Wrong! Better luck next time!\n")
-            return current_room
-    else:
-        print("You can't play that.\n")
-        return current_room
+    if obj_check(item, "play", "room"):
+        if item == "pc":
+            print("Enter the correct code to continue: ")
+            print("There are three numbers to the code \n")
+    
+            code_a = random.randint(1, 5)
+            code_b = random.randint(1, 5)
+            code_c = random.randint(1, 5)
+            code_sum = code_a + code_b + code_c
+            code_prod = code_a * code_b * code_c
+    
+            print("The codes add-up to " + str(code_sum))
+            print("The product of the codes is " + str(code_prod) + "\n")
+    
+            guess_a = int(input("Guess first number: "))
+            guess_b = int(input("Guess second number: "))
+            guess_c = int(input("Guess third number: "))
+    
+            guess_sum = guess_a + guess_b + guess_c
+            guess_prod = guess_a * guess_b * guess_c
+    
+            if guess_sum == code_sum and guess_prod == guess_prod:
+                print("Correct! For your quick wit, you are awarded with the number 1950.")
+            else:
+                print("Wrong! Better luck next time!\n")
+    return current_room
 
 
 # Smash the 1950 wine bottle in the wine cellar for the album key
 def smash(item):
     item = item_convert(item)
-    if obj_check(item, "smash", "inventory") and item == "wine_1950":
-        print("You smash the 1950 wine bottle open.")
-        inventory_list["objects"].remove(item)
-        print("You find a large key of sorts was inside.")
-        for object in objects_list:
-            if object == "master_key":
-                inventory_list["objects"].append(object)
+    if obj_check(item, "smash", "inventory"):
+        if item == "wine_1950":
+            print("You smash the 1950 wine bottle open.")
+            inventory_list["objects"].remove(item)
+            print("You find a large key of sorts was inside.")
+            for object in objects_list:
+                if object == "master_key":
+                    inventory_list["objects"].append(object)
     return current_room
 
 
@@ -302,8 +300,7 @@ def unlock(item):
     if obj_check(item, "unlock", "room"):
         if item == "master_chest":
             if "master_key" in inventory_list["objects"]:
-                print("You unlock the chest with the master key.")
-                print("Inside, you find a note left by your great-grandfather. A type of manifesto?")
+                print(objects_list[item]["unlock"])
                 for object in objects_list:
                     if object == "marvin_manifesto":
                         inventory_list["objects"].append(object)
@@ -333,7 +330,7 @@ def unlock(item):
                     if num_list[0] == 32 and num_list[1] == 17 and num_list[2] == 6:
                         locked = False
                         current_room["objects"].remove("combo_lock")
-                        print("The combo lock pops open and you remove it from the wooden door, unlocking the Utility Closet")
+                        print(objects_list[item]["unlock"])
                     else:
                         print("Wrong combination - please try again")
     return current_room
@@ -347,6 +344,8 @@ def pull(item):
         if item == "lion_hook" and "locked_foyer_chest" in current_room["objects"]:
             current_room["objects"].remove("locked_foyer_chest")
             current_room["objects"].append("unlocked_foyer_chest")
+        if item == "shag_rug":
+            current_room["objects"].append("house_manager_memo")
         elif item == "blue_sheet_covering_vase":
             uncover_vase(current_room)
     else:
@@ -362,6 +361,19 @@ def uncover(item):
         print("You've revealed a new item:")
         print(objects_list[new_item]["desc"])
     return current_room
+
+def pry(item):
+    item = item_convert(item)
+    if obj_check(item, "pry", "room"):
+        if "crowbar" in inventory_list["objects"]:
+            print(objects_list[item]["pry"])
+            if item == "nailed_boards":
+                current_room["objects"].remove(item)
+        else:
+            print("You try prying the " + objects_list[item]["name"][0] + " with your hands and fail")
+            print("Hmm... Perhaps you should find a tool, such as a crowbar, to pry this item")
+    return current_room
+    
     
 # Help shows the user all the actions in the game & a short description of what they do
 def help():
