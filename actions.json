@@ -50,9 +50,14 @@
         "description": "allows the user to unlock an item in their inventory or the current room"
     },
     "pull": {
-        "aliases": ["pull"],
+        "aliases": ["pull", "lift"],
         "takes_arg": true,
         "description": "allows the user to pull on an item in their inventory or the current room"
+    },
+    "uncover": {
+        "aliases": ["uncover", "reveal"],
+        "takes_arg": true,
+        "description": "allows the user to uncover an item in their inventory or the current room"
     },
     "inventory": {
         "aliases": ["inventory"],

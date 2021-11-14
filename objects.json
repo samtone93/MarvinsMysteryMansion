@@ -5,43 +5,43 @@
     "will": {
       "name": ["will", "marvin's will"],
       "desc": "The will left to you by your great-grandfather Marvin.",
-      "actions": ["look_at", "put", "take", "read"]
+      "actions": ["put", "take", "read"]
     },
     "lion_hook": {
       "name": ["lion hook", "lion"],
       "desc": "A coat hook with a lion's head decorating the top",
-      "actions": ["look_at", "pull"],
+      "actions": ["pull"],
       "pull": "As you pull the lion hook, you hear a popping sound from behind the chest before the hook snaps back into place"
     },
     "tiger_hook": {
       "name": ["tiger hook", "tiger"],
       "desc": "A coat hook with a tiger's head decorating the top",
-      "actions": ["look_at", "pull"],
+      "actions": ["pull"],
       "pull": "As you pull the tiger hook, it just barely tilts downward before snapping back into place"
     },
     "bear_hook": {
       "name": ["bear hook", "bear"],
       "desc": "A coat hook with a bear's head decorating the top",
-      "actions": ["look_at", "pull"],
+      "actions": ["pull"],
       "pull": "As you attempt to pull the bear hook, it just barely tilts downward before snapping back into place"
     },
     "locked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large, old chest with no handle to open it",
-      "actions": ["look_at"]
+      "actions": []
     },
     "unlocked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large old chest that has popped open",
-      "actions": ["open", "look_at"]
+      "actions": ["open"]
     },
     "empty_unlocked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large old chest that has popped open",
-      "actions": ["open", "look_at"]
+      "actions": ["open"]
     },
     "recipe_book": {
-      "name": ["recipe book", "book", "cookbook", "worn book", "worn cookbook", "worn recipe book", "recipe"],
+      "name": ["recipe book", "cookbook", "worn cookbook", "worn recipe book", "recipe"],
       "desc": "A worn recipe book covered with splashes of sauces & grease covering it from use throughout the years",
       "actions": ["take", "put", "read"]
     },
@@ -49,7 +49,7 @@
       "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
       "desc": "A soft shag rug in a dingy shade of brown",
       "actions": ["pull"],
-      "pull": "Pulling back the rug reveals a note from Harvey"
+      "pull": "Pulling back the rug reveals a memo from Harvey Hawkins"
     },
     "empty_shag_rug": {
       "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
@@ -57,23 +57,28 @@
       "actions": ["pull"],
       "pull": "Pulling back the rug reveals nothing but a dusty floor"
     },
-    "house_manager_note": {
-      "name": ["note", "house manager note", "note from house manager", "note house manager", "Harvey note", "note from Harvey", "note Harvey"],
-      "desc": "A note from Marvin's house manager, Harvey",
-      "actions": ["take", "put"]
+    "house_manager_memo": {
+      "name": ["memo", "house manager memo", "memo from house manager", "memo house manager", "Harvey memo", "memo from Harvey", "memo Harvey", "Harvey Hawkins memo", "memo from Harvey Hawkins", "memo Harvey Hawkins"],
+      "desc": "A memo from Marvin's house manager, Harvey",
+      "actions": ["take", "put", "read"]
     },
     "covered_portrait": {
       "name": ["covered portrait","portrait","covered frame","covered painting","painting","frame"],
       "desc": "A portrait with a golden frame covered by a thin white sheet",
-      "actions": []
+      "actions": ["uncover"]
     },
     "uncovered_portrait": {
       "name": ["uncovered portrait","portrait","uncovered frame","uncovered painting","painting","frame"],
       "desc": "A black and white portrait of a young bride and groom with the nameplate reading 'Julie & John '32' surrounded by a golden frame",
       "actions": []
     },
-    "lion_statue": {
-      "name": ["statue","lion","lion statue","large lion statue"],
+    "covered_lion_statue": {
+      "name": ["statue","lion","lion statue","large lion statue", "gold statue", "gold lion", "gold lion statue", "large gold lion statue"],
+      "desc": "A large statue coated in a gold finish covered by a thin white sheet",
+      "actions": ["uncover"]
+    },
+    "uncovered_lion_statue": {
+      "name": ["statue","lion","lion statue","large lion statue", "gold statue", "gold lion", "gold lion statue", "large gold lion statue"],
       "desc": "A large lion statue coated in a gold finish",
       "actions": []
     },
@@ -212,20 +217,14 @@
       "desc": "A dark red key with a lion's head engraved on the key handle",
       "actions": ["take", "put"]
     },
-    "blue_sheet_covering_vase": {
-      "name": ["sheet", "cover", "covered object", "covered vase", "blue sheet", "blue cover"],
-      "desc": "A plain blue sheet placed over and completely covering something slim and tall. The covered object is about 4 feet tall",
-      "actions": ["pull"],
-      "pull": "You pull off the blue sheet to reveal a white porcelain vase. It is rather large and looks quite heavy.\nThe sides of the vase have lion motifs etched into it. You notice a note taped to the vase handle.\nThe writing on the note says \"Don\\'t break me ;)\""
+    "covered_vase": {
+      "name": ["vase", "covered vase", "lion vase", "white vase"],
+      "desc": "A large vase (or what appears to be one) underneath a blue sheet",
+      "actions": ["uncover"]
     },
-    "vase": {
+    "uncovered_vase": {
       "name": ["vase", "uncovered vase", "lion vase", "white vase"],
       "desc": "A large, heavy, white porcelain vase. The sides of the vase have lion motifs etched into it. The thing looked like an antique from a museum.\nA note is taped to the vase handle that says \"Don\\'t break me ;)\"",
-      "actions": []
-    },
-    "blue_sheet": {
-      "name": ["blue sheet", "blue cover", "sheet", "cover"],
-      "desc": "A large plain blue sheet that was covering a vase in the art gallery",
       "actions": []
     },
     "piano_bench_doodle" : {
@@ -346,7 +345,7 @@
     "master_chest": {
       "name": ["master chest"],
       "desc": "A lion engraved grandiose chest. It looks like a large key is required.",
-      "actions": ["take", "put"]
+      "actions": ["take", "put", "unlock"]
     },
     "empty_box": {
       "name": ["empty box", "box"],

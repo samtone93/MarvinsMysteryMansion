@@ -156,6 +156,29 @@ def item_convert(item_str):
     return item
 
 
+# checks the room for the item & ability to use verb on that item
+# where specifies if item can only be in inventory, room, or both
+def obj_check(item, verb, where):
+    if item == '':
+        print("Item not available - try again")
+        return False
+    if verb == "look_at" and (item in current_room["objects"] or item in inventory_list["objects"]):
+        return True
+    if where == "both" and (item in current_room["objects"] or item in inventory_list["objects"]) and verb in objects_list[item]["actions"]:
+        return True
+    elif where == "inventory" and item in inventory_list["objects"] and verb in objects_list[item]["actions"]:
+        return True
+    elif where == "room" and item in current_room["objects"] and verb in objects_list[item]["actions"]:
+        return True
+    elif verb in objects_list[item]["actions"]:
+        if where == "both":
+            where = "room or inventory"
+        print(objects_list[item]["name"][0] + " is not present in " + where + " - " + verb + " cannot be performed")
+        return False
+    else:
+        print(verb + " is not a valid action for " + objects_list[item]["name"][0] + " - try again")
+        return False
+
 # Handles both directions & entryways
 # Edit room files to include aliases for entryways under "exits"
 def go(argument):
@@ -176,26 +199,20 @@ def go(argument):
 # Object removed from inventory, placed in room.
 def put(item):
     item = item_convert(item)
-    if item in inventory_list["objects"]:
+    if obj_check(item, "put", "inventory"):
         current_room["objects"].append(item)
         inventory_list["objects"].remove(item)
-        print("You put down the {objects_list[item]['name'][0]}")
-    else:
-        print("No item to put.")
+        print("You put down the " + objects_list[item]['name'][0])
     return current_room
 
 
 # Object removed from room, placed in inventory.
 def take(item):
     item = item_convert(item)
-    if item in current_room["objects"] and "take" in objects_list[item]["actions"]:
+    if obj_check(item, "take", "room"):
         inventory_list["objects"].append(item)
         current_room["objects"].remove(item)
-        print(f"You take the {objects_list[item]['name'][0]}")
-    elif item in current_room["objects"] and "take" not in objects_list[item]["actions"]:
-        print("You cannot take that.")
-    else:
-        print("No item to take.")
+        print("You take the "+ objects_list[item]['name'][0])
     return current_room
 
 
@@ -226,10 +243,8 @@ def inventory():
 # Description of the object.
 def look_at(item):
     item = item_convert(item)
-    if item in current_room["objects"] or item in inventory_list["objects"]:
+    if obj_check(item, "look_at", "both"):
         print(objects_list[item]["desc"])
-    else:
-        print("No item to look at.")
     return current_room
 
 
@@ -270,24 +285,21 @@ def play(item):
 # Smash the 1950 wine bottle in the wine cellar for the album key
 def smash(item):
     item = item_convert(item)
-    if item in inventory_list["objects"] and item == "wine_1950":
+    if obj_check(item, "smash", "inventory") and item == "wine_1950":
         print("You smash the 1950 wine bottle open.")
         inventory_list["objects"].remove(item)
         print("You find a large key of sorts was inside.")
         for object in objects_list:
             if object == "master_key":
                 inventory_list["objects"].append(object)
-        return current_room
-    else:
-        print("You can't smash that")
-        return current_room
+    return current_room
 
 
 # Unlock the album in the garage and obtain "Marvin's Manifesto"
 # Reading the Manifesto ends the game.
 def unlock(item):
     item = item_convert(item)
-    if item in current_room["objects"] and item == "master_chest":
+    if obj_check(item, "unlock", "room") and item == "master_chest":
         if "master_key" in inventory_list["objects"]:
             print("You unlock the chest with the master key.")
             print("Inside, you find a note left by your great-grandfather. A type of manifesto?")
@@ -297,16 +309,13 @@ def unlock(item):
                     return current_room
         else:
             print("You can't unlock the album without a key.")
-            return current_room
-    else:
-        print("You can't unlock that.")
-        return current_room
+    return current_room
     
     
 # Help shows the user all
 def pull(item):
     item = item_convert(item)
-    if item in current_room["objects"] and 'pull' in objects_list[item]["actions"]:
+    if obj_check(item, "pull", "room"):
         print(objects_list[item]["pull"])
         if item == "lion_hook" and "locked_foyer_chest" in current_room["objects"]:
             current_room["objects"].remove("locked_foyer_chest")
@@ -315,6 +324,16 @@ def pull(item):
             uncover_vase(current_room)
     else:
         print("Item can't be pulled")
+    return current_room
+
+def uncover(item):
+    item = item_convert(item)
+    if obj_check(item, "uncover", "room"):
+        new_item = "un" + item
+        current_room["objects"].remove(item)
+        current_room["objects"].append(new_item)
+        print("You've revealed a new item:")
+        print(objects_list[new_item]["desc"])
     return current_room
     
 # Help shows the user all the actions in the game & a short description of what they do
