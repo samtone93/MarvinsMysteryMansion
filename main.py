@@ -336,7 +336,6 @@ def unlock(item):
     return current_room
     
     
-# Help shows the user all
 def pull(item):
     item = item_convert(item)
     if obj_check(item, "pull", "room"):
@@ -352,6 +351,7 @@ def pull(item):
         print("Item can't be pulled")
     return current_room
 
+
 def uncover(item):
     item = item_convert(item)
     if obj_check(item, "uncover", "room"):
@@ -361,6 +361,7 @@ def uncover(item):
         print("You've revealed a new item:")
         print(objects_list[new_item]["desc"])
     return current_room
+
 
 def pry(item):
     item = item_convert(item)
