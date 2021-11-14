@@ -78,119 +78,119 @@
       "actions": ["uncover"]
     },
     "uncovered_lion_statue": {
-      "name": ["statue","lion","lion statue","large lion statue", "gold statue", "gold lion", "gold lion statue", "large gold lion statue"],
+      "name": ["statue", "lion", "lion statue", "large lion statue", "gold statue", "gold lion", "gold lion statue", "large gold lion statue"],
       "desc": "A large lion statue coated in a gold finish",
       "actions": []
     },
     "nailed_boards": {
-      "name": ["nailed boards","boards","nails"],
+      "name": ["nailed boards", "boards", "nails"],
       "desc": "Boards covering an exit from the living room",
-      "actions": []
+      "actions": ["pry"]
     },
     "house_manager": {
-      "name": ["Harvey","house manager","kind old man","old man","cook","chef","manager"],
+      "name": ["Harvey", "house manager", "kind old man", "old man", "cook", "chef", "manager"],
       "desc": "A kind-looking old man and Marvin's house manager, Harvey",
-      "actions": []
+      "actions": ["talk"]
     },
     "oven": {
-      "name": ["oven","stove"],
+      "name": ["oven", "stove"],
       "desc": "An oven with vegetables sauteing on the stove top and baked goods heating inside",
-      "actions": []
+      "actions": ["open"]
     },
     "fridge": {
-      "name": ["fridge","refrigerator"],
+      "name": ["fridge", "refrigerator"],
       "desc": "A fridge with 3 photos: a family photo, a wedding photo, and a mountain photo",
-      "actions": []
+      "actions": ["open"]
     },
     "family_photo": {
-      "name": ["family photo","family picture","family pic"],
+      "name": ["family photo", "family picture", "family pic"],
       "desc": "A black and white family photo of two adults and two children in front of a large apple tree",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "wedding_photo": {
-      "name": ["wedding photo","wedding picture","wedding pic"],
+      "name": ["wedding photo", "wedding picture", "wedding pic"],
       "desc": "A black and white photo of a young Marvin and his bride in front of a small white chapel",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "mountain_photo": {
-      "name": ["mountain photo","mountain picture","mountain pic","mountain landscape photo","mountain landscape picture","mountain landscape pic","cabin photo","cabin picture","cabin pic"],
+      "name": ["mountain photo", "mountain picture", "mountain pic", "mountain landscape photo", "mountain landscape picture", "mountain landscape pic", "cabin photo", "cabin picture", "cabin pic"],
       "desc": "A photo of a mountain landscape with an older woman sitting on the steps of a cabin in the foreground",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "tomatoes": {
-      "name": ["tomatoes","tomato"],
+      "name": ["tomatoes", "tomato"],
       "desc": "3 rows of 2 tomatoes",
       "actions": [""]
     },
     "corn": {
-      "name": ["corn","corn stalks","sweet corn","sweet corn stalks"],
+      "name": ["corn", "corn stalks", "sweet corn", "sweet corn stalks"],
       "desc": "2 rows of 3 sweet corn stalks",
       "actions": [""]
     },
     "green_beans": {
-      "name": ["beans","green beans","bean stalks","green bean stalks","bean","green bean","bean stalk","green bean stalk"],
+      "name": ["beans", "green beans", "bean stalks", "green bean stalks", "bean", "green bean", "bean stalk", "green bean stalk"],
       "desc": "2 rows of 3 green bean stocks",
       "actions": [""]
     },
     "lavender": {
-      "name": ["lavender","lavender bushes","lavender bush","bush"],
+      "name": ["lavender", "lavender bushes", "lavender bush", "bush"],
       "desc": "2 rows of 3 green bean stocks",
-      "actions": ["2 rows of 3 lavender bushes"]
+      "actions": [""]
     },
     "marigolds": {
-      "name": ["marigolds","marigold","marigold plants","marigold plant"],
+      "name": ["marigolds", "marigold", "marigold plants", "marigold plant"],
       "desc": "1 row of 6 marigold plants",
       "actions": [""]
     },
     "mint": {
-      "name": ["mint","mint leaf","mint leaves","mint leaf bundles","bundle","mint leaf bundle","mint bundle"],
+      "name": ["mint", "mint leaf", "mint leaves", "mint leaf bundles", "bundle", "mint leaf bundle", "mint bundle"],
       "desc": "1 row of 6 mint leaf bundles",
       "actions": [""]
     },
     "koi_pond": {
-      "name": ["koi pond","pond","koi","koi fish","kois","koi fishes","fish","fishes"],
+      "name": ["koi pond", "pond", "koi", "koi fish", "kois", "koi fishes", "fish", "fishes"],
       "desc": "6 koi fish swim in a large pond while water drops from the loud waterfall",
       "actions": [""]
     },
     "combo_lock": {
-      "name": ["combo lock","lock","combo"],
+      "name": ["combo lock", "lock", "combo"],
       "desc": "A combo lock hooked to the wooden door",
-      "actions": [""]
+      "actions": ["unlock"]
     },
     "groundskeeper": {
-      "name": ["groundskeeper","gardener","Greg"],
+      "name": ["groundskeeper", "gardener", "Greg"],
       "desc": "A groundskeeper, Greg",
-      "actions": ["A groundskeeper, Greg"]
+      "actions": ["talk"]
     },
     "todo_list": {
-      "name": ["list","to-do list","todo list","to do list"],
+      "name": ["list", "to-do list", "todo list", "to do list"],
       "desc": "A to-do list of items to plant with check marks next to each of the 6 items: 6 corn, 6 green beans, 6 tomatoes, 6 lavender, 6 marigolds, 6 mint",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "screwdriver": {
-      "name": ["screwdriver","red screwdriver","red handled screwdriver","red handle screwdriver"],
+      "name": ["screwdriver", "red screwdriver", "red handled screwdriver", "red handle screwdriver"],
       "desc": "A screwdriver with a red handle",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "crowbar": {
-      "name": ["crowbar","rusty crowbar"],
+      "name": ["crowbar", "rusty crowbar"],
       "desc": "A rusty crowbar",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "gloves": {
-      "name": ["gardening gloves","gloves","green gloves","green gardening gloves"],
+      "name": ["gardening gloves", "gloves", "green gloves", "green gardening gloves"],
       "desc": "A pair of green gardening gloves",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "gardening_book": {
-      "name": ["book","gardening book"],
+      "name": ["book", "gardening book"],
       "desc": "An old gardening book that appear to be falling apart",
-      "actions": ["take","put"]
+      "actions": ["take", "put"]
     },
     "family_note": {
-      "name": ["note","family note"],
-      "desc": "A note with details about your family history from Harvey",
-      "actions": ["take","put"]
+      "name": ["letter", "family letter", "Martin letter", "letter Martin", "letter from Martin"],
+      "desc": "A letter with details about your family history from Martin",
+      "actions": ["take", "put"]
     },
     "piano": {
       "name": ["piano", "grand piano"],

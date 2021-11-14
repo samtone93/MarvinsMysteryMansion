@@ -299,16 +299,43 @@ def smash(item):
 # Reading the Manifesto ends the game.
 def unlock(item):
     item = item_convert(item)
-    if obj_check(item, "unlock", "room") and item == "master_chest":
-        if "master_key" in inventory_list["objects"]:
-            print("You unlock the chest with the master key.")
-            print("Inside, you find a note left by your great-grandfather. A type of manifesto?")
-            for object in objects_list:
-                if object == "marvin_manifesto":
-                    inventory_list["objects"].append(object)
-                    return current_room
-        else:
-            print("You can't unlock the album without a key.")
+    if obj_check(item, "unlock", "room"):
+        if item == "master_chest":
+            if "master_key" in inventory_list["objects"]:
+                print("You unlock the chest with the master key.")
+                print("Inside, you find a note left by your great-grandfather. A type of manifesto?")
+                for object in objects_list:
+                    if object == "marvin_manifesto":
+                        inventory_list["objects"].append(object)
+                        return current_room
+            else:
+                print("You can't unlock the album without a key.")
+        elif obj_check(item, "unlock", "room") and item == "combo_lock":
+            locked = True
+            print("You look at the combo lock and begin to decode it:")
+            while locked == True:
+                print("Type 3 numbers from 0-39 with spaces (i.e. '1 2 3') to attempt unlocking or 'leave' to exit")
+                player_input = input(">").lower()
+                if player_input == 'leave':
+                    print("You've given up & headed back to the Greenhouse")
+                    break
+                input_list = player_input.split()
+                if len(input_list) != 3:
+                    print("Invalid input - you didn't enter 3 numbers")
+                else:
+                    num_list = []
+                    for num in input_list:
+                        if num.isnumeric() and int(num) >= 0 and int(num) <=39:
+                            num_list.append(int(num))
+                        else:
+                            print("Invalid number: " + num + " is not in the range 0-39")
+                            num_list.append(40)
+                    if num_list[0] == 32 and num_list[1] == 17 and num_list[2] == 6:
+                        locked = False
+                        current_room["objects"].remove("combo_lock")
+                        print("The combo lock pops open and you remove it from the wooden door, unlocking the Utility Closet")
+                    else:
+                        print("Wrong combination - please try again")
     return current_room
     
     
