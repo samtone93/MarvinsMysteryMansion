@@ -221,7 +221,7 @@
     "vase": {
       "name": ["vase", "uncovered vase", "lion vase", "white vase"],
       "desc": "A large, heavy, white porcelain vase. The sides of the vase have lion motifs etched into it. The thing looked like an antique from a museum.\nA note is taped to the vase handle that says \"Don\\'t break me ;)\"",
-      "actions": []
+      "actions": ["smash"]
     },
     "blue_sheet": {
       "name": ["blue sheet", "blue cover", "sheet", "cover"],

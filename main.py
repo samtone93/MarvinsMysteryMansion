@@ -3,7 +3,7 @@
 import json
 import random
 from regex_filter import filter_prep
-from helper_functions import uncover_vase
+from helper_functions import uncover_vase, smash_vase
 
 looping = True
 
@@ -277,6 +277,10 @@ def smash(item):
         for object in objects_list:
             if object == "master_key":
                 inventory_list["objects"].append(object)
+        return current_room
+    elif item == "vase":
+        smash_vase(current_room)
+        take("piano bench doodle")
         return current_room
     else:
         print("You can't smash that")
