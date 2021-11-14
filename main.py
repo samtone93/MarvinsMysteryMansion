@@ -151,7 +151,7 @@ def item_convert(item_str):
     item = ""
     for key in objects_list:
         for name in objects_list[key]["name"]:
-            if name == item_str and (key in current_room["objects"] or key in inventory_list["objects"]):
+            if name == item_str and (key in current_room["objects"] or key in room_data_list[0]["objects"]):
                 item = key
     return item
 
@@ -270,13 +270,13 @@ def play(item):
 # Smash the 1950 wine bottle in the wine cellar for the album key
 def smash(item):
     item = item_convert(item)
-    if item in inventory_list["objects"] and item == "wine_1950":
+    if item in room_data_list[0]["objects"] and item == "wine_1950":
         print("You smash the 1950 wine bottle open.")
-        inventory_list["objects"].remove(item)
+        room_data_list[0]["objects"].remove(item)
         print("You find a large key of sorts was inside.")
         for object in objects_list:
             if object == "master_key":
-                inventory_list["objects"].append(object)
+                room_data_list[0]["objects"].append(object)
         return current_room
     else:
         print("You can't smash that")
@@ -288,12 +288,12 @@ def smash(item):
 def unlock(item):
     item = item_convert(item)
     if item in current_room["objects"] and item == "master_chest":
-        if "master_key" in inventory_list["objects"]:
+        if "master_key" in room_data_list[0]["objects"]:
             print("You unlock the chest with the master key.")
             print("Inside, you find a note left by your great-grandfather. A type of manifesto?")
             for object in objects_list:
                 if object == "marvin_manifesto":
-                    inventory_list["objects"].append(object)
+                    room_data_list[0]["objects"].append(object)
                     return current_room
         else:
             print("You can't unlock the album without a key.")
