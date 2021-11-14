@@ -64,6 +64,16 @@
         "takes_arg": true,
         "description": "allows the user to pry an item in their current room - requires crow bar"
     },
+    "open": {
+        "aliases": ["open"],
+        "takes_arg": true,
+        "description": "allows the user to open an item in their current room"
+    },
+    "talk": {
+        "aliases": ["talk", "speak", "chat"],
+        "takes_arg": true,
+        "description": "allows the user to talk to a human in their current room"
+    },
     "inventory": {
         "aliases": ["inventory"],
         "takes_arg": false,
