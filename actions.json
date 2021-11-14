@@ -63,5 +63,15 @@
         "aliases": ["help"],
         "takes_arg": false,
         "description": "allows the user to view all usable actions in the game"
+    },
+    "savegame": {
+        "aliases": ["savegame"],
+        "takes_arg": false,
+        "description": "save the game"
+    },
+    "loadgame": {
+        "aliases": ["loadgame"],
+        "takes_arg": false,
+        "description": "Load a saved game"
     }
 }

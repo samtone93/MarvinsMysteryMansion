@@ -176,10 +176,10 @@ def go(argument):
 # Object removed from inventory, placed in room.
 def put(item):
     item = item_convert(item)
-    if item in inventory_list["objects"]:
+    if item in room_data_list[0]["objects"]:
         current_room["objects"].append(item)
-        inventory_list["objects"].remove(item)
-        print("You put down the {objects_list[item]['name'][0]}")
+        room_data_list[0]["objects"].remove(item)
+        print(f"You put down the {objects_list[item]['name'][0]}")
     else:
         print("No item to put.")
     return current_room
@@ -189,7 +189,7 @@ def put(item):
 def take(item):
     item = item_convert(item)
     if item in current_room["objects"] and "take" in objects_list[item]["actions"]:
-        inventory_list["objects"].append(item)
+        room_data_list[0]["objects"].append(item)
         current_room["objects"].remove(item)
         print(f"You take the {objects_list[item]['name'][0]}")
     elif item in current_room["objects"] and "take" not in objects_list[item]["actions"]:
@@ -219,14 +219,14 @@ def look():
 
 # Prints out the current items in the inventory.
 def inventory():
-    print("Inventory: " + str(inventory_list["objects"]))
+    print("Inventory: " + str(room_data_list[0]["objects"]))
     return current_room
 
 
 # Description of the object.
 def look_at(item):
     item = item_convert(item)
-    if item in current_room["objects"] or item in inventory_list["objects"]:
+    if item in current_room["objects"] or item in room_data_list[0]["objects"]:
         print(objects_list[item]["desc"])
     else:
         print("No item to look at.")
@@ -301,8 +301,8 @@ def unlock(item):
     else:
         print("You can't unlock that.")
         return current_room
-    
-    
+
+
 # Help shows the user all
 def pull(item):
     item = item_convert(item)
@@ -316,13 +316,63 @@ def pull(item):
     else:
         print("Item can't be pulled")
     return current_room
-    
+
+
 # Help shows the user all the actions in the game & a short description of what they do
 def help():
     for verb in action_list:
         print(verb + ": (other inputs: " + str(action_list[verb]["aliases"]) + ")")
         print("  " + action_list[verb]["description"])
     return current_room
+
+
+def savegame():
+    data_list = room_data_list
+    data_list.append(current_room)
+    save_data_json = json.dumps(data_list)
+    save_file = open("saveFile\\saved_data_file.json", "w")
+    save_file.write(save_data_json)
+    save_file.close()
+
+    print("Game saved")
+    return current_room
+
+
+def loadgame():
+    try:
+        save_file = open("saveFile\\saved_data_file.json")
+        save_data_list = json.load(save_file)
+
+        new_curr_room = save_data_list.pop()
+        room_data_list.clear()
+        for room in save_data_list:
+            room_data_list.append(room)
+
+        # print("Loaded data:")
+        # print(f"current room: #{new_curr_room}")
+        # for i in room_data_list:
+        #     print(i)
+
+        print(f"\nYou are in the {new_curr_room['roomName']}")
+        print(new_curr_room["longDesc"])
+        print(f"\nYour inventory: {room_data_list[0]['objects']}")
+    except FileNotFoundError:
+        print("No saved game data")
+        new_curr_room = current_room
+
+    return new_curr_room
+
+
+print("""
+  __  __                  _       _       __  __           _                    __  __                 _             
+ |  \/  |                (_)     ( )     |  \/  |         | |                  |  \/  |               (_)            
+ | \  / | __ _ _ ____   ___ _ __ |/ ___  | \  / |_   _ ___| |_ ___ _ __ _   _  | \  / | __ _ _ __  ___ _  ___  _ __  
+ | |\/| |/ _` | '__\ \ / / | '_ \  / __| | |\/| | | | / __| __/ _ \ '__| | | | | |\/| |/ _` | '_ \/ __| |/ _ \| '_ \ 
+ | |  | | (_| | |   \ V /| | | | | \__ \ | |  | | |_| \__ \ ||  __/ |  | |_| | | |  | | (_| | | | \__ \ | (_) | | | |
+ |_|  |_|\__,_|_|    \_/ |_|_| |_| |___/ |_|  |_|\__, |___/\__\___|_|   \__, | |_|  |_|\__,_|_| |_|___/_|\___/|_| |_|
+                                                  __/ |                  __/ |                                       
+                                                 |___/                  |___/                              
+""")
 
 print()
 print("While you were going about your day, you were abducted and dropped off at an unknown location.")
