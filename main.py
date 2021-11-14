@@ -391,7 +391,7 @@ def talk(item):
     if obj_check(item, "talk", "room"):
         if item == "house_manager":
             harvey_chat(inventory_list["objects"])
-        if item == "groundskeeper":
+        elif item == "groundskeeper":
             greg_chat(inventory_list["objects"])
     return current_room
     
