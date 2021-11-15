@@ -1,3 +1,5 @@
+import random
+
 # Helper functions that have specific uses or functions outside of main verbs
 harvey_chats = [
     "You: Hello! \nHarvey: Oh hello there! Marvin's told me so much about you & we're excited to have you at the mansion. \nHarvey: My name is Harvey, I was Marvin's great friend and house manager. \nHarvey: Please let me know if you have questions as you explore and discover new things in the mansion!",
@@ -79,3 +81,42 @@ def greg_chat(curr_inventory):
                 talking = False
         else:
             print("Sorry - that's not a valid input between 0 and " + str(option) + ". Please try again!")
+
+
+def play_pc():
+    while True:
+        print("\nEnter the correct code to continue: ")
+        print("There are three numbers to the code, each ranging from 1 to 5.\n")
+
+        code_a = random.randint(1, 5)
+        code_b = random.randint(1, 5)
+        code_c = random.randint(1, 5)
+        code_sum = code_a + code_b + code_c
+        code_prod = code_a * code_b * code_c
+
+        print("The sum of the numbers is " + str(code_sum))
+        print("The product of the numbers is " + str(code_prod) + "\n")
+        print("Type \'exit\' to give up.")
+        print("Please enter three numbers separated by spaces.")
+        code_input = input(">").lower().split()
+
+        if code_input[0] == 'exit':
+            print("You've given up for now.")
+            break
+        # Check for three valid integers
+        if len(code_input) == 3 and code_input[0].isnumeric() and code_input[1].isnumeric() and code_input[2].isnumeric():
+            guess_a = int(code_input[0])
+            guess_b = int(code_input[1])
+            guess_c = int(code_input[2])
+
+            guess_sum = guess_a + guess_b + guess_c
+            guess_prod = guess_a * guess_b * guess_c
+
+            if guess_sum == code_sum and guess_prod == code_prod:
+                print("Correct! For your quick wit, you are awarded with the number 1950.")
+                print("The program exits.\n")
+                break
+            else:
+                print("Wrong! The code has changed.\n")
+        else:
+            print("Invalid input - you didn't enter 3 numbers! The code has changed.\n")
