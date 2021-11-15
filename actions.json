@@ -64,7 +64,7 @@
         "takes_arg": true,
         "description": "allows the user to pry an item in the current room - requires crowbar"
     },
-    "open": {
+    "open_object": {
         "aliases": ["open"],
         "takes_arg": true,
         "description": "allows the user to open an item in the current room"
@@ -83,5 +83,15 @@
         "aliases": ["help"],
         "takes_arg": false,
         "description": "allows the user to view all usable actions in the game"
+    },
+    "savegame": {
+        "aliases": ["savegame"],
+        "takes_arg": false,
+        "description": "save the game"
+    },
+    "loadgame": {
+        "aliases": ["loadgame"],
+        "takes_arg": false,
+        "description": "Load a saved game"
     }
 }

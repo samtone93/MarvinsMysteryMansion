@@ -34,13 +34,13 @@
     "unlocked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large old chest that has popped open",
-      "actions": ["open"],
+      "actions": ["open_object"],
       "open": "You gently lift the popped top of the old foyer chest revealing an empty inside aside from an worn recipe book sitting at the empty bottom."
     },
     "empty_unlocked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large old chest that has popped open",
-      "actions": ["open"],
+      "actions": ["open_object"],
       "open": "You gently lift the popped top of the old foyer chest revealing an empty inside with dust outlining where the recipe book once sat"
     },
     "recipe_book": {
@@ -101,13 +101,13 @@
     "oven": {
       "name": ["oven", "stove"],
       "desc": "An oven with vegetables sauteing on the stove top and baked goods heating inside",
-      "actions": ["open"],
+      "actions": ["open_object"],
       "open": "You lift the heavy oven door open filling the room with a heavenly aroma. \n'Chicken Pot Pie - Marvin's favorite,' Harvey states while smiling. 'Now please close the door before you cool the oven!' \nYou nod and close the door to the oven."
     },
     "fridge": {
       "name": ["fridge", "refrigerator"],
       "desc": "A fridge covered with family photos - you specifically notice 3 photos, though: a family photo, wedding photo, and mountain photo",
-      "actions": ["open"],
+      "actions": ["open_object"],
       "open": "You open the fridge to see a small bag of vegetables with a 'Do Not Take' post-it on the front.\n'Ah - I see you've found my haul from the farmers' market,' Harvey calls. 'Please leave those in there. I'm finishing up a meal for our remaining staff.' \nYou nod and close the door to the fridge."
     },
     "family_photo": {
