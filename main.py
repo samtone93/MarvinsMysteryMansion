@@ -151,7 +151,7 @@ def item_convert(item_str):
     item = ""
     for key in objects_list:
         for name in objects_list[key]["name"]:
-            if name == item_str and (key in current_room["objects"] or key in inventory_list["objects"]):
+            if name == item_str and (key in current_room["objects"] or key in room_data_list[0]["objects"]):
                 item = key
     return item
 
@@ -162,11 +162,11 @@ def obj_check(item, verb, where):
     if item == '':
         print("Item not available - try again")
         return False
-    if verb == "look_at" and (item in current_room["objects"] or item in inventory_list["objects"]):
+    if verb == "look_at" and (item in current_room["objects"] or item in room_data_list[0]["objects"]):
         return True
-    if where == "both" and (item in current_room["objects"] or item in inventory_list["objects"]) and verb in objects_list[item]["actions"]:
+    if where == "both" and (item in current_room["objects"] or item in room_data_list[0]["objects"]) and verb in objects_list[item]["actions"]:
         return True
-    elif where == "inventory" and item in inventory_list["objects"] and verb in objects_list[item]["actions"]:
+    elif where == "inventory" and item in room_data_list[0]["objects"] and verb in objects_list[item]["actions"]:
         return True
     elif where == "room" and item in current_room["objects"] and verb in objects_list[item]["actions"]:
         return True
@@ -202,7 +202,7 @@ def put(item):
     item = item_convert(item)
     if obj_check(item, "put", "inventory"):
         current_room["objects"].append(item)
-        inventory_list["objects"].remove(item)
+        room_data_list[0]["objects"].remove(item)
         print("You put down the " + objects_list[item]['name'][0])
     return current_room
 
@@ -211,7 +211,7 @@ def put(item):
 def take(item):
     item = item_convert(item)
     if obj_check(item, "take", "room"):
-        inventory_list["objects"].append(item)
+        room_data_list[0]["objects"].append(item)
         current_room["objects"].remove(item)
         print("You take the "+ objects_list[item]['name'][0])
         if item in ["house_manager_memo","recipe_book"]:
@@ -241,7 +241,7 @@ def look():
 
 # Prints out the current items in the inventory.
 def inventory():
-    print("Inventory: " + str(inventory_list["objects"]))
+    print("Inventory: " + str(room_data_list[0]["objects"]))
     return current_room
 
 
@@ -290,11 +290,11 @@ def smash(item):
     if obj_check(item, "smash", "inventory"):
         if item == "wine_1950":
             print("You smash the 1950 wine bottle open.")
-            inventory_list["objects"].remove(item)
+            room_data_list[0]["objects"].remove(item)
             print("You find a large key of sorts was inside.")
             for object in objects_list:
                 if object == "master_key":
-                    inventory_list["objects"].append(object)
+                    room_data_list[0]["objects"].append(object)
     return current_room
 
 
@@ -304,11 +304,11 @@ def unlock(item):
     item = item_convert(item)
     if obj_check(item, "unlock", "room"):
         if item == "master_chest":
-            if "master_key" in inventory_list["objects"]:
+            if "master_key" in room_data_list[0]["objects"]:
                 print(objects_list[item]["unlock"])
                 for object in objects_list:
                     if object == "marvin_manifesto":
-                        inventory_list["objects"].append(object)
+                        room_data_list[0]["objects"].append(object)
                         return current_room
             else:
                 print("You can't unlock the album without a key.")
@@ -348,7 +348,7 @@ def pull(item):
         if item == "lion_hook" and "locked_foyer_chest" in current_room["objects"]:
             current_room["objects"].remove("locked_foyer_chest")
             current_room["objects"].append("unlocked_foyer_chest")
-        elif item == "shag_rug" and ("house_manager_memo" in current_room["objects"] or "house_manager_memo" in inventory_list["objects"]) == False:
+        elif item == "shag_rug" and ("house_manager_memo" in current_room["objects"] or "house_manager_memo" in room_data_list[0]["objects"]) == False:
             current_room["objects"].append("house_manager_memo")
     return current_room
 
@@ -367,7 +367,7 @@ def uncover(item):
 def pry(item):
     item = item_convert(item)
     if obj_check(item, "pry", "room"):
-        if "crowbar" in inventory_list["objects"]:
+        if "crowbar" in room_data_list[0]["objects"]:
             print(objects_list[item]["pry"])
             if item == "nailed_boards":
                 current_room["objects"].remove(item)
@@ -377,11 +377,11 @@ def pry(item):
     return current_room
 
 
-def open(item):
+def open_object(item):
     item = item_convert(item)
-    if obj_check(item, "open", "room"):
+    if obj_check(item, "open_object", "room"):
         print(objects_list[item]["open"])
-        if item == "unlocked_foyer_chest" and ("recipe_book" in current_room["objects"] or "recipe_book" in inventory_list["objects"]) == False:
+        if item == "unlocked_foyer_chest" and ("recipe_book" in current_room["objects"] or "recipe_book" in room_data_list[0]["objects"]) == False:
             current_room["objects"].append("recipe_book")
     return current_room
 
@@ -390,9 +390,9 @@ def talk(item):
     item = item_convert(item)
     if obj_check(item, "talk", "room"):
         if item == "house_manager":
-            harvey_chat(inventory_list["objects"])
+            harvey_chat(room_data_list[0]["objects"])
         elif item == "groundskeeper":
-            greg_chat(inventory_list["objects"])
+            greg_chat(room_data_list[0]["objects"])
     return current_room
     
     
@@ -402,6 +402,56 @@ def help():
         print(verb + ": (other inputs: " + str(action_list[verb]["aliases"]) + ")")
         print("  " + action_list[verb]["description"])
     return current_room
+
+
+def savegame():
+    data_list = room_data_list
+    data_list.append(current_room)
+    save_data_json = json.dumps(data_list)
+    save_file = open("saved_data_file.json", "w")
+    save_file.write(save_data_json)
+    save_file.close()
+
+    print("Game saved")
+    return current_room
+
+
+def loadgame():
+    try:
+        save_file = open("saved_data_file.json")
+        save_data_list = json.load(save_file)
+
+        new_curr_room = save_data_list.pop()
+        room_data_list.clear()
+        for room in save_data_list:
+            room_data_list.append(room)
+
+        # print("Loaded data:")
+        # print(f"current room: #{new_curr_room}")
+        # for i in room_data_list:
+        #     print(i)
+
+        print(f"\nYou are in the {new_curr_room['roomName']}")
+        print(new_curr_room["longDesc"])
+        print(f"\nYour inventory: {room_data_list[0]['objects']}")
+    except FileNotFoundError:
+        print("No saved game data")
+        new_curr_room = current_room
+
+    return new_curr_room
+
+
+print("""
+  __  __                  _       _       __  __           _                    __  __                 _             
+ |  \/  |                (_)     ( )     |  \/  |         | |                  |  \/  |               (_)            
+ | \  / | __ _ _ ____   ___ _ __ |/ ___  | \  / |_   _ ___| |_ ___ _ __ _   _  | \  / | __ _ _ __  ___ _  ___  _ __  
+ | |\/| |/ _` | '__\ \ / / | '_ \  / __| | |\/| | | | / __| __/ _ \ '__| | | | | |\/| |/ _` | '_ \/ __| |/ _ \| '_ \ 
+ | |  | | (_| | |   \ V /| | | | | \__ \ | |  | | |_| \__ \ ||  __/ |  | |_| | | |  | | (_| | | | \__ \ | (_) | | | |
+ |_|  |_|\__,_|_|    \_/ |_|_| |_| |___/ |_|  |_|\__, |___/\__\___|_|   \__, | |_|  |_|\__,_|_| |_|___/_|\___/|_| |_|
+                                                  __/ |                  __/ |                                       
+                                                 |___/                  |___/                              
+""")
+
 
 print()
 print("While you were going about your day, you were abducted and dropped off at an unknown location.")

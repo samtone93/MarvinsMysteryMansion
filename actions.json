@@ -64,7 +64,7 @@
         "takes_arg": true,
         "description": "allows the user to pry an item in their current room - requires crow bar"
     },
-    "open": {
+    "open_object": {
         "aliases": ["open"],
         "takes_arg": true,
         "description": "allows the user to open an item in their current room"
