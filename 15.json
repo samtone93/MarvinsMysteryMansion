@@ -2,14 +2,15 @@
     "room": 15,
     "roomName": "Garage",
     "firstEntry": true,
-    "shortDesc": "The walls of the garage are filled with various albums and storage boxes. There appears to be a master chest in the corner.",
+    "shortDesc": "The walls of the garage are filled with various albums and storage boxes. There appears to be a master chest in the corner. The wardrobe wardrobe lies to the east.",
     "longDesc": "To your right, you notice albums filling every shelf on the wall. On the opposite wall, boxes upon boxes are stacked towards the ceiling. The master chest hides in the corner.",
     "smell": "The smell of laundry detergent and fabric softener fills the air.",
     "sound": "The tumbling of the dryer blares into your ears.",
-    "objects" : ["master_chest", "empty_box"],
+    "objects" : ["master_chest", "empty_box", "wardrobe_wardrobe"],
     "exits": {
       "west": [12,0],
       "wardrobe": [12,0],
-      "wardrobe room": [12,0]
+      "wardrobe room": [12,0],
+      "wardrobe wardrobe": [2,0]
     }
 }

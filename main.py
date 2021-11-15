@@ -1,9 +1,8 @@
 # Marvin's Mystery Mansion
 
 import json
-import random
 from regex_filter import filter_prep
-from helper_functions import uncover_vase, harvey_chat, greg_chat
+from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc
 
 looping = True
 
@@ -258,29 +257,7 @@ def play(item):
     item = item_convert(item)
     if obj_check(item, "play", "room"):
         if item == "pc":
-            print("Enter the correct code to continue: ")
-            print("There are three numbers to the code \n")
-    
-            code_a = random.randint(1, 5)
-            code_b = random.randint(1, 5)
-            code_c = random.randint(1, 5)
-            code_sum = code_a + code_b + code_c
-            code_prod = code_a * code_b * code_c
-    
-            print("The codes add-up to " + str(code_sum))
-            print("The product of the codes is " + str(code_prod) + "\n")
-    
-            guess_a = int(input("Guess first number: "))
-            guess_b = int(input("Guess second number: "))
-            guess_c = int(input("Guess third number: "))
-    
-            guess_sum = guess_a + guess_b + guess_c
-            guess_prod = guess_a * guess_b * guess_c
-    
-            if guess_sum == code_sum and guess_prod == guess_prod:
-                print("Correct! For your quick wit, you are awarded with the number 1950.")
-            else:
-                print("Wrong! Better luck next time!\n")
+            play_pc()
     return current_room
 
 
@@ -315,7 +292,8 @@ def unlock(item):
         elif obj_check(item, "unlock", "room") and item == "combo_lock":
             locked = True
             print("You look at the combo lock and begin to decode it:")
-            while locked == True:
+            # while locked == True -> while locked:
+            while locked:
                 print("Type 3 numbers from 0-39 with spaces (i.e. '1 2 3') to attempt unlocking or 'leave' to exit")
                 player_input = input(">").lower()
                 if player_input == 'leave':
@@ -327,7 +305,8 @@ def unlock(item):
                 else:
                     num_list = []
                     for num in input_list:
-                        if num.isnumeric() and int(num) >= 0 and int(num) <=39:
+                        # combined two and statements; 0<=num and num>= 39 -> 0 <= num <= 39
+                        if num.isnumeric() and (0 <= int(num) <= 39):
                             num_list.append(int(num))
                         else:
                             print("Invalid number: " + num + " is not in the range 0-39")
