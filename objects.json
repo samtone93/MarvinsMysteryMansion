@@ -17,7 +17,7 @@
       "name": ["tiger hook", "tiger"],
       "desc": "A coat hook with a tiger's head decorating the top",
       "actions": ["pull"],
-      "pull": "As you pull the tiger hook, it just barely tilts downward before snapping back into place"
+      "pull": "As you attempt to pull the tiger hook, it just barely tilts downward before snapping back into place"
     },
     "bear_hook": {
       "name": ["bear hook", "bear"],
@@ -34,17 +34,20 @@
     "unlocked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large old chest that has popped open",
-      "actions": ["open"]
+      "actions": ["open"],
+      "open": "You gently lift the popped top of the old foyer chest revealing an empty inside aside from an worn recipe book sitting at the empty bottom."
     },
     "empty_unlocked_foyer_chest": {
       "name": ["foyer chest", "chest", "old chest", "large chest", "large old chest"],
       "desc": "A large old chest that has popped open",
-      "actions": ["open"]
+      "actions": ["open"],
+      "open": "You gently lift the popped top of the old foyer chest revealing an empty inside with dust outlining where the recipe book once sat"
     },
     "recipe_book": {
       "name": ["recipe book", "cookbook", "worn cookbook", "worn recipe book", "recipe"],
       "desc": "A worn recipe book covered with splashes of sauces & grease covering it from use throughout the years",
-      "actions": ["take", "put", "read"]
+      "actions": ["take", "put", "read"],
+      "take": "unlocked_foyer_chest"
     },
     "shag_rug": {
       "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
@@ -61,7 +64,8 @@
     "house_manager_memo": {
       "name": ["memo", "house manager memo", "memo from house manager", "memo house manager", "Harvey memo", "memo from Harvey", "memo Harvey", "Harvey Hawkins memo", "memo from Harvey Hawkins", "memo Harvey Hawkins"],
       "desc": "A memo from Marvin's house manager, Harvey",
-      "actions": ["take", "put", "read"]
+      "actions": ["take", "put", "read"],
+      "take": "shag_rug"
     },
     "covered_portrait": {
       "name": ["covered portrait","portrait","covered frame","covered painting","painting","frame"],
@@ -90,19 +94,21 @@
       "pry": "You maneuver the crow bar underneath each of the nailed boards popping them off one at a time.\nFinally, you clear the mysterious red door."
     },
     "house_manager": {
-      "name": ["Harvey", "house manager", "kind old man", "old man", "cook", "chef", "manager"],
+      "name": ["harvey", "house manager", "kind old man", "old man", "cook", "chef", "manager"],
       "desc": "A kind-looking old man and Marvin's house manager, Harvey",
       "actions": ["talk"]
     },
     "oven": {
       "name": ["oven", "stove"],
       "desc": "An oven with vegetables sauteing on the stove top and baked goods heating inside",
-      "actions": ["open"]
+      "actions": ["open"],
+      "open": "You lift the heavy oven door open filling the room with a heavenly aroma. \n'Chicken Pot Pie - Marvin's favorite,' Harvey states while smiling. 'Now please close the door before you cool the oven!' \nYou nod and close the door to the oven."
     },
     "fridge": {
       "name": ["fridge", "refrigerator"],
-      "desc": "A fridge with 3 photos: a family photo, a wedding photo, and a mountain photo",
-      "actions": ["open"]
+      "desc": "A fridge covered with family photos - you specifically notice 3 photos, though: a family photo, wedding photo, and mountain photo",
+      "actions": ["open"],
+      "open": "You open the fridge to see a small bag of vegetables with a 'Do Not Take' post-it on the front.\n'Ah - I see you've found my haul from the farmers' market,' Harvey calls. 'Please leave those in there. I'm finishing up a meal for our remaining staff.' \nYou nod and close the door to the fridge."
     },
     "family_photo": {
       "name": ["family photo", "family picture", "family pic"],
@@ -161,13 +167,13 @@
       "unlock": "The combo lock pops open and you remove it from the wooden door, unlocking the Utility Closet"
     },
     "groundskeeper": {
-      "name": ["groundskeeper", "gardener", "Greg"],
+      "name": ["groundskeeper", "gardener", "greg"],
       "desc": "A groundskeeper, Greg",
       "actions": ["talk"]
     },
     "todo_list": {
       "name": ["list", "to-do list", "todo list", "to do list"],
-      "desc": "A to-do list of items to plant with check marks next to each of the 6 items: 6 corn, 6 green beans, 6 tomatoes, 6 lavender, 6 marigolds, 6 mint",
+      "desc": "A to-do list of items to plant with check marks next to each of them",
       "actions": ["take", "put"]
     },
     "screwdriver": {

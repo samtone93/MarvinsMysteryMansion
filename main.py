@@ -3,7 +3,7 @@
 import json
 import random
 from regex_filter import filter_prep
-from helper_functions import uncover_vase
+from helper_functions import uncover_vase, harvey_chat, greg_chat
 
 looping = True
 
@@ -179,6 +179,7 @@ def obj_check(item, verb, where):
         print(verb + " is not a valid action for " + objects_list[item]["name"][0] + " - try again")
         return False
 
+
 # Handles both directions & entryways
 # Edit room files to include aliases for entryways under "exits"
 def go(argument):
@@ -213,6 +214,10 @@ def take(item):
         inventory_list["objects"].append(item)
         current_room["objects"].remove(item)
         print("You take the "+ objects_list[item]['name'][0])
+        if item in ["house_manager_memo","recipe_book"]:
+            if objects_list[item]["take"] in current_room["objects"]:
+                current_room["objects"].remove(objects_list[item]["take"])
+                current_room["objects"].append(("empty_" + objects_list[item]["take"]))
     return current_room
 
 
@@ -343,12 +348,8 @@ def pull(item):
         if item == "lion_hook" and "locked_foyer_chest" in current_room["objects"]:
             current_room["objects"].remove("locked_foyer_chest")
             current_room["objects"].append("unlocked_foyer_chest")
-        if item == "shag_rug":
+        elif item == "shag_rug" and ("house_manager_memo" in current_room["objects"] or "house_manager_memo" in inventory_list["objects"]) == False:
             current_room["objects"].append("house_manager_memo")
-        elif item == "blue_sheet_covering_vase":
-            uncover_vase(current_room)
-    else:
-        print("Item can't be pulled")
     return current_room
 
 
@@ -373,6 +374,25 @@ def pry(item):
         else:
             print("You try prying the " + objects_list[item]["name"][0] + " with your hands and fail")
             print("Hmm... Perhaps you should find a tool, such as a crowbar, to pry this item")
+    return current_room
+
+
+def open(item):
+    item = item_convert(item)
+    if obj_check(item, "open", "room"):
+        print(objects_list[item]["open"])
+        if item == "unlocked_foyer_chest" and ("recipe_book" in current_room["objects"] or "recipe_book" in inventory_list["objects"]) == False:
+            current_room["objects"].append("recipe_book")
+    return current_room
+
+
+def talk(item):
+    item = item_convert(item)
+    if obj_check(item, "talk", "room"):
+        if item == "house_manager":
+            harvey_chat(inventory_list["objects"])
+        elif item == "groundskeeper":
+            greg_chat(inventory_list["objects"])
     return current_room
     
     
