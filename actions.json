@@ -7,12 +7,12 @@
     "put": {
         "aliases":  ["put"],
         "takes_arg": true,
-        "description": "allows the user to place an item in their inventory into the current room"
+        "description": "allows the user to place an item from their inventory into the current room"
     },
     "take": {
         "aliases": ["take"],
         "takes_arg": true,
-        "description": "allows the user to pick up an item in the current room into their inventory"
+        "description": "allows the user to pick up an item from the current room into their inventory"
     },
     "smell": {
         "aliases": ["smell", "sniff"],
@@ -22,7 +22,7 @@
     "listen": {
         "aliases": ["listen", "hear"],
         "takes_arg": false,
-        "description": "allows the user to listen in the current room to learn more about their surroundings"
+        "description": "allows the user to listen to the current room to learn more about their surroundings"
     },
     "look": {
         "aliases": ["look"],
@@ -32,36 +32,66 @@
     "look_at": {
         "aliases": ["look_at"],
         "takes_arg": true,
-        "description": "allows the user to look at an item in their inventory or the current room"
+        "description": "allows the user to look at an item in their inventory or in the current room"
     },
     "play": {
         "aliases": ["play"],
         "takes_arg": true,
-        "description": "allows the user to play an item in their inventory or the current room"
+        "description": "allows the user to play an item in the current room"
     },
     "smash": {
         "aliases": ["smash", "destroy", "break"],
         "takes_arg": true,
-        "description": "allows the user to break an item in their inventory or the current room"
+        "description": "allows the user to break an item in their inventory"
     },
     "unlock": {
         "aliases": ["unlock"],
         "takes_arg": true,
-        "description": "allows the user to unlock an item in their inventory or the current room"
+        "description": "allows the user to unlock an item in the current room"
     },
     "pull": {
-        "aliases": ["pull"],
+        "aliases": ["pull", "lift"],
         "takes_arg": true,
-        "description": "allows the user to pull on an item in their inventory or the current room"
+        "description": "allows the user to pull on an item in the current room"
+    },
+    "uncover": {
+        "aliases": ["uncover", "reveal"],
+        "takes_arg": true,
+        "description": "allows the user to uncover an item in the current room"
+    },
+    "pry": {
+        "aliases": ["pry"],
+        "takes_arg": true,
+        "description": "allows the user to pry an item in the current room - requires crowbar"
+    },
+    "open_object": {
+        "aliases": ["open"],
+        "takes_arg": true,
+        "description": "allows the user to open an item in the current room"
+    },
+    "talk": {
+        "aliases": ["talk", "speak", "chat"],
+        "takes_arg": true,
+        "description": "allows the user to talk to somebody in the current room"
     },
     "inventory": {
         "aliases": ["inventory"],
         "takes_arg": false,
-        "description": "allows the user to open their inventory and view the items within it"
+        "description": "allows the user to open their inventory and view the items within"
     },
     "help":  {
         "aliases": ["help"],
         "takes_arg": false,
         "description": "allows the user to view all usable actions in the game"
+    },
+    "savegame": {
+        "aliases": ["savegame"],
+        "takes_arg": false,
+        "description": "save the game"
+    },
+    "loadgame": {
+        "aliases": ["loadgame"],
+        "takes_arg": false,
+        "description": "Load a saved game"
     }
 }

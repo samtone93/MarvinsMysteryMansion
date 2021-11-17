@@ -2,14 +2,16 @@
     "room": 13,
     "roomName": "Study",
     "firstEntry": true,
-    "shortDesc": "A neatly furnished office containing a single computer",
+    "shortDesc": "A neatly furnished office containing a single computer. The lion wardrobe lies to the south.",
     "longDesc": "A single computer occupies the study. On the computer screen you notice a video game running in a Lionux terminal.",
     "smell": "It smells a bit dusty.",
     "sound": "The buzz of the computer's fan blades echo throughout the study.",
-    "objects" : ["pc"],
+    "objects" : ["pc","lion_wardrobe"],
     "exits": {
         "south": [12,0],
         "wardrobe": [12,0],
-        "wardrobe room": [12,0]
+        "wardrobe room": [12,0],
+        "lion wardrobe": [12,0],
+        "lion": [12,0]
     }
   }
