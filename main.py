@@ -2,7 +2,7 @@
 
 import json
 from regex_filter import filter_prep
-from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase
+from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector
 
 looping = True
 
@@ -163,7 +163,8 @@ def obj_check(item, verb, where):
         return False
     if verb == "look_at" and (item in current_room["objects"] or item in room_data_list[0]["objects"]):
         return True
-    if where == "both" and (item in current_room["objects"] or item in room_data_list[0]["objects"]) and verb in objects_list[item]["actions"]:
+    if where == "both" and (item in current_room["objects"] or item in room_data_list[0]["objects"]) and verb in \
+            objects_list[item]["actions"]:
         return True
     elif where == "inventory" and item in room_data_list[0]["objects"] and verb in objects_list[item]["actions"]:
         return True
@@ -212,8 +213,8 @@ def take(item):
     if obj_check(item, "take", "room"):
         room_data_list[0]["objects"].append(item)
         current_room["objects"].remove(item)
-        print("You take the "+ objects_list[item]['name'][0])
-        if item in ["house_manager_memo","recipe_book"]:
+        print("You take the " + objects_list[item]['name'][0])
+        if item in ["house_manager_memo", "recipe_book", "film_reel"]:
             if objects_list[item]["take"] in current_room["objects"]:
                 current_room["objects"].remove(objects_list[item]["take"])
                 current_room["objects"].append(("empty_" + objects_list[item]["take"]))
@@ -264,6 +265,11 @@ def play(item):
 # Smash the 1950 wine bottle in the wine cellar for the album key
 def smash(item):
     item = item_convert(item)
+    if obj_check(item, "smash", "room") and item == "uncovered_vase":
+        smash_vase(current_room)
+        take("piano bench doodle")
+        return current_room
+
     if obj_check(item, "smash", "inventory"):
         if item == "wine_1950":
             print("You smash the 1950 wine bottle open.")
@@ -272,9 +278,6 @@ def smash(item):
             for object in objects_list:
                 if object == "master_key":
                     room_data_list[0]["objects"].append(object)
-        elif item == "vase":
-            smash_vase(current_room)
-            take("piano bench doodle")
     return current_room
 
 
@@ -321,7 +324,7 @@ def unlock(item):
                     else:
                         print("Wrong combination - please try again")
     return current_room
-    
+
 
 def pull(item):
     item = item_convert(item)
@@ -330,19 +333,52 @@ def pull(item):
         if item == "lion_hook" and "locked_foyer_chest" in current_room["objects"]:
             current_room["objects"].remove("locked_foyer_chest")
             current_room["objects"].append("unlocked_foyer_chest")
-        elif item == "shag_rug" and ("house_manager_memo" in current_room["objects"] or "house_manager_memo" in room_data_list[0]["objects"]) == False:
+        elif item == "shag_rug" and (
+                "house_manager_memo" in current_room["objects"] or "house_manager_memo" in room_data_list[0][
+            "objects"]) == False:
             current_room["objects"].append("house_manager_memo")
     return current_room
 
 
+# Press the button on piano bench
+def press_button():
+    if obj_check("piano_bench", "press_button", "room"):
+        print("You press the button on the piano bench, and the cushioned top opens and swings up to reveal the storage space underneath inside the bench.")
+        print("There is a film reel stored in the space.")
+        current_room["objects"].remove("piano_bench")
+        current_room["objects"].append("opened_piano_bench")
+        current_room["objects"].append("film_reel")
+    else:
+        print("There's no button to press")
+    return current_room
+
+
+# Load object
+def load_object(item):
+    item = item_convert(item)
+    if item == "empty_projector" and obj_check(item, "load_object", "room"):
+        if "film_reel" in room_data_list[0]["objects"]:
+            load_projector(current_room)
+            room_data_list[0]["objects"].remove("film_reel")
+        else:
+            print("There is nothing to load the projector with")
+    else:
+        print("Nothing to load")
+    return current_room
+
+
+# Uncover an item
 def uncover(item):
     item = item_convert(item)
     if obj_check(item, "uncover", "room"):
         new_item = "un" + item
         current_room["objects"].remove(item)
         current_room["objects"].append(new_item)
-        print("You've revealed a new item:")
-        print(objects_list[new_item]["desc"])
+        if new_item == "uncovered_vase":
+            uncover_vase(current_room)
+        else:
+            print("You've revealed a new item:")
+            print(objects_list[new_item]["desc"])
     return current_room
 
 
@@ -363,7 +399,8 @@ def open_object(item):
     item = item_convert(item)
     if obj_check(item, "open_object", "room"):
         print(objects_list[item]["open"])
-        if item == "unlocked_foyer_chest" and ("recipe_book" in current_room["objects"] or "recipe_book" in room_data_list[0]["objects"]) == False:
+        if item == "unlocked_foyer_chest" and (
+                "recipe_book" in current_room["objects"] or "recipe_book" in room_data_list[0]["objects"]) == False:
             current_room["objects"].append("recipe_book")
     return current_room
 
@@ -376,7 +413,7 @@ def talk(item):
         elif item == "groundskeeper":
             greg_chat(room_data_list[0]["objects"])
     return current_room
-    
+
 
 # Help shows the user all the actions in the game & a short description of what they do
 def help():
@@ -434,7 +471,6 @@ print("""
                                                  |___/                  |___/                              
 """)
 
-
 print()
 print("While you were going about your day, you were abducted and dropped off at an unknown location.")
 print("You feel the car stop and the driver leaves you with a letter before driving off in the distance.")
@@ -458,3 +494,4 @@ while looping:
         looping = quit_game()
     else:
         current_room = parse(player_input)
+        print(current_room["objects"])

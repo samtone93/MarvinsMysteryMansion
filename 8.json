@@ -11,7 +11,10 @@
         "north": [9,0],
         "double black doors": [9,0],
         "double doors": [9,0],
+        "theater": [9,0],
         "south": [7,0],
-        "hallway": [7,0]
+        "hallway": [7,0],
+        "gallery": [7,0],
+        "art gallery": [7,0]
     }
 }

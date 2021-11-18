@@ -10,6 +10,8 @@ def filter_prep(pi, exits):
     """pi stands for player input"""
     # if there is look at, replace with look_at so not to filter out
     pi = re.sub("look at", "look_at", pi)
+    pi = re.sub("press button", "press_button", pi)
+    pi = re.sub("push button", "press_button", pi)
 
     # find and sub out articles/prepositions
     # filters out: a, an, at, by, for, from, in, of, off, on, out, that, the, to, toward, towards, with

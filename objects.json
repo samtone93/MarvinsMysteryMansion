@@ -208,12 +208,7 @@
     },
     "piano": {
       "name": ["piano", "grand piano"],
-      "desc": "A grand piano with polished mahogany finish. A piano bench is stowed under the keyboard",
-      "actions": []
-    },
-    "piano_bench": {
-      "name": ["piano bench"],
-      "desc": "A deluxe black cushioned bench meant to be used to play piano. There is a button on one side slightly below the cushion.",
+      "desc": "A grand piano with polished mahogany finish. A piano bench is stowed besides its keyboard. The piano is playing a melody by itself.",
       "actions": []
     },
     "chandelier": {
@@ -221,10 +216,26 @@
       "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling. It brightly illuminates the entire room",
       "actions": []
     },
+    "piano_bench": {
+      "name": ["piano bench", "bench"],
+      "desc": "A deluxe black cushioned bench meant to be used to play piano. There is a button on one side slightly below the cushion.",
+      "actions": ["press_button"]
+    },
+    "opened_piano_bench": {
+      "name": ["piano bench", "bench"],
+      "desc": "A piano bench with the cushioned top opened to reveal storage space inside. You can see a film reel stored inside.",
+      "actions": []
+    },
+    "empty_opened_piano_bench": {
+      "name": ["piano bench", "bench"],
+      "desc": "A piano bench with the top opened to reveal storage space under the cushioning.",
+      "actions": []
+    },
     "film_reel" : {
-      "name": ["film reel", "film"],
+      "name": ["film reel", "film", "reel"],
       "desc": "A film rolled on a reel that goes on a projector",
-      "actions": ["take", "put"]
+      "actions": ["take", "put"],
+      "take": "opened_piano_bench"
     },
     "master_bedroom_key": {
       "name": ["master_bedroom_key"],
@@ -238,7 +249,7 @@
     },
     "uncovered_vase": {
       "name": ["vase", "uncovered vase", "lion vase", "white vase"],
-      "desc": "A large, heavy, white porcelain vase. The sides of the vase have lion motifs etched into it. The thing looked like an antique from a museum.\nA note is taped to the vase handle that says \"Don't break me ;)\"",
+      "desc": "A large, heavy, white porcelain vase. The sides of the vase have lion motifs etched into it. The vase looked like an antique from a museum.\nA note is taped to the vase handle that says \"Don't break me ;)\"",
       "actions": ["smash"]
     },
     "piano_bench_doodle" : {
@@ -261,9 +272,24 @@
       "desc": "A nice black leather armchair.",
       "actions": []
     },
-    "projector": {
+    "empty_projector": {
       "name": ["projector", "film projector", "movie projector"],
-      "desc": "A film projector with two spools and lens pointed at the giant projection screen.",
+      "desc": "A film projector pointed at the giant projection screen. It has an empty slot where a film reel can be loaded into.",
+      "actions": ["load_object"]
+    },
+    "loaded_projector": {
+      "name": ["projector", "film projector", "movie projector"],
+      "desc": "A film projector pointed at the giant projection screen. It has an empty slot where a film reel can be loaded into.",
+      "actions": ["load_object"]
+    },
+    "blank_screen": {
+      "name": ["screen", "projector screen", "movie screen"],
+      "desc": "A very large blank screen hanging above the stage, meant for projecting movies on.",
+      "actions": []
+    },
+    "screen_with_projector_on": {
+      "name": ["screen", "projector screen", "movie screen"],
+      "desc": "A screen with a short film being projected on a loop. The grainy film shows a shadowy figure putting a small object on top of a chandelier.",
       "actions": []
     },
     "ladder": {
