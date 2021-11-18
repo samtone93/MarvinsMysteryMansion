@@ -19,11 +19,20 @@ greg_chats = [
 
 
 def uncover_vase(room):
-    if "blue_sheet_covering_vase" in room["objects"]:
-        room["objects"].remove("blue_sheet_covering_vase")
-        room["objects"].append("blue_sheet")
-        room["objects"].append("vase")
-        room["longDesc"] = "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nThere is a tall white vase in the corner. There is a long dimly lit hallway leading to the north. On the south wall are huge double brass doors with polished long golden handles."
+    """Uncover the vase in the Art Gallery"""
+    print("You pull away the blue sheet, uncovering a large, heavy, white porcelain vase with intricate lion motifs etched into its sides.")
+    print("The vase looked like an antique from a museum and looked quite heavy due to its size.\nA note is taped to the vase handle that says \"Don't break me ;)\"")
+    room["longDesc"] = "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nThere is a tall white vase in the corner. There is a long dimly lit hallway leading to the north. On the south wall are huge double brass doors with polished long golden handles."
+
+
+def smash_vase(room):
+    """Smash the vase in the Art Gallery"""
+    room["objects"].remove("uncovered_vase")
+    room["objects"].append("piano_bench_doodle")
+    print("You smash the vase by tipping it over forcefully. It shatters completely, revealing a piece of paper from inside the vase.")
+    print("It is a hand drawn doodle of a piano bench. It looks kind of familiar. And where could you have seen it?")
+    room["longDesc"] = "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nThe remains of a shattered vase can be seen in the corner. There is a long dimly lit hallway leading to the north. On the south wall are huge double brass doors with polished long golden handles."
+
 
 def harvey_chat(curr_inventory):
     talking = True
@@ -120,3 +129,16 @@ def play_pc():
                 print("Wrong! The code has changed.\n")
         else:
             print("Invalid input - you didn't enter 3 numbers! The code has changed.\n")
+
+
+def load_projector(room):
+    room["objects"].remove("empty_projector")
+    room["objects"].append("loaded_projector")
+    room["objects"].remove("blank_screen")
+    room["objects"].append("screen_with_projector_on")
+    print("You load up the projector with the film reel. The projector starts to project a grainy film onto the screen across the room")
+    print("The film shows a dark shadowy figure. The mysterious man is in a large room full of boxes and objects covered by white sheets. He walks up to a large box.")
+    print("On top of the large box is a magnificent chandelier placed on some styrofoam. The man then takes something out of his pocket, and places the mystery item on top of one of the chandelier lights.")
+    print("The film ends, and then loops and plays again from the beginning.")
+    room["longDesc"] = "You see a large home theater with descending rows of comfy padded seats facing north where a stage is. There is a gigantic screen on the stage with a film being projected on it by the film projector on the other side of the room behind the seats.\n The double doors at the south wall in which you entered are the only exit."
+    room["sound"] = "The low hum of the project running and the film reel spinning can be heard in the room. The film being projected on is a silent film."

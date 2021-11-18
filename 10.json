@@ -10,8 +10,11 @@
   "exits": {
     "north": [7,0],
     "brass doors": [7,0],
+    "gallery": [7,0],
+    "art gallery": [7,0],
     "east": [11,0],
     "hardwood door": [11,0],
-    "golden door": [11,0]
+    "golden door": [11,0],
+    "master room": [11,0]
   }
 }

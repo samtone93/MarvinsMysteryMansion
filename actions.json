@@ -74,6 +74,16 @@
         "takes_arg": true,
         "description": "allows the user to talk to somebody in the current room"
     },
+    "press_button": {
+        "aliases": ["press_button", "push_button"],
+        "takes_arg": false,
+        "description": "allows the user to press a button"
+    },
+    "load_object": {
+        "aliases": ["load"],
+        "takes_arg": true,
+        "description": "allows the user to load something"
+    },
     "inventory": {
         "aliases": ["inventory"],
         "takes_arg": false,
