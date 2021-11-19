@@ -415,7 +415,7 @@ def talk(item):
     return current_room
 
 
-def read(item):
+def read_object(item):
     item = item_convert(item)
     if obj_check(item, "read", "both"):
         print(objects_list[item]["read"])

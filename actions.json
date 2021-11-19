@@ -74,7 +74,7 @@
         "takes_arg": true,
         "description": "allows the user to talk to somebody in the current room"
     },
-    "read": {
+    "read_object": {
         "aliases": ["read"],
         "takes_arg": true,
         "description": "allows the use to read an item in their inventory or in the current room"
