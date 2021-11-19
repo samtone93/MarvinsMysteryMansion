@@ -415,6 +415,21 @@ def talk(item):
     return current_room
 
 
+def read(item):
+    item = item_convert(item)
+    if obj_check(item, "read", "both"):
+        print(objects_list[item]["read"])
+        if item == "gardening_book":
+            current_room["objects"].append("family_letter")
+            if item in current_room["objects"]:
+                current_room["objects"].remove(item)
+                current_room["objects"].append("empty_gardening_book")
+            elif item in room_data_list[0]["objects"]:
+                room_data_list[0]["objects"].remove(item)
+                room_data_list[0]["objects"].append("empty_gardening_book")
+    return current_room
+
+
 # Help shows the user all the actions in the game & a short description of what they do
 def help():
     for verb in action_list:
@@ -471,15 +486,10 @@ print("""
                                                  |___/                  |___/                              
 """)
 
-print()
-print("While you were going about your day, you were abducted and dropped off at an unknown location.")
+print("\nWhile you were going about your day, you were abducted and dropped off at an unknown location.")
 print("You feel the car stop and the driver leaves you with a letter before driving off in the distance.")
-print("It reads: “Hello Player, I hope this letter finds you well.")
-print(
-    "As my last remaining kin, I have left you the entirety of my fortune, which includes the mansion you currently stand at.")
-print(
-    "Inside, I hope you’ll find, decipher, and solve the clues I’ve left behind, to which will truly determine whether or not you are worthy of the Lehane family legacy.")
-print("Prevail, and you shall inherit it all; fail, and you will return to what you once were.")
+print("It reads:\n")
+print(objects_list["will"]["read"])
 print()
 
 print("\nYou enter the " + current_room['roomName'] + ".")

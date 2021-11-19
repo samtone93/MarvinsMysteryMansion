@@ -5,7 +5,8 @@
     "will": {
       "name": ["will", "marvin's will"],
       "desc": "The will left to you by your great-grandfather Marvin.",
-      "actions": ["put", "take", "read"]
+      "actions": ["put", "take", "read"],
+      "read": "Hello, I hope this letter finds you well.\n\nAs my last remaining kin, I have left you the entirety of my fortune, which includes the mansion you currently stand at.\n\nInside, I hope you’ll find, decipher, and solve the clues I’ve left behind, to which will truly determine whether or not you are worthy of the Lehane family legacy.\n\nPrevail, and you shall inherit it all; fail, and you will return to what you once were.\n\nGood luck,\nMartin Lehane"
     },
     "lion_hook": {
       "name": ["lion hook", "lion"],
@@ -47,7 +48,8 @@
       "name": ["recipe book", "cookbook", "worn cookbook", "worn recipe book", "recipe"],
       "desc": "A worn recipe book covered with splashes of sauces & grease covering it from use throughout the years",
       "actions": ["take", "put", "read"],
-      "take": "unlocked_foyer_chest"
+      "take": "unlocked_foyer_chest",
+      "read": "You open the worn recipe book. On the back of the cover is a short message in cursive:\n\n'To my dearest Martin, the only thing more warm than your love is your kitchen. - Melinda'\n\nOn the first page there's a handwritten table of contents:\n\nTable of Contents:\nButtery Cornbread .......... 3\nStuffed Pepper Soup ........ 5\nCheesy Ham Chowder ......... 8\nShrimp Scampi ............. 13\nChicken Pot Pie ........... 17\nMeaty Lasagna ............. 22\nDutch Apple Pie ........... 27\n\nYou quickly skim the rest of the book & see numerous handwritten recipes with polaroids of the final dishes taped to every recipe."
     },
     "shag_rug": {
       "name": ["rug", "shag rug", "shag carpet","soft shag rug","soft rug","brown rug","brown shag rug","brown carpet"],
@@ -65,7 +67,8 @@
       "name": ["memo", "house manager memo", "memo from house manager", "memo house manager", "Harvey memo", "memo from Harvey", "memo Harvey", "Harvey Hawkins memo", "memo from Harvey Hawkins", "memo Harvey Hawkins"],
       "desc": "A memo from Marvin's house manager, Harvey",
       "actions": ["take", "put", "read"],
-      "take": "shag_rug"
+      "take": "shag_rug",
+      "read": "Martin -\n\nThank you for the dinner the other night, the whole staff could not be more thankful for your generosity.\n\nI've left you some gifts from the Farmer's Market in the fridge to repay the favor.\n\nEnjoy!\nHarvey"
     },
     "covered_portrait": {
       "name": ["covered portrait","portrait","covered frame","covered painting","painting","frame"],
@@ -194,17 +197,20 @@
     "gardening_book": {
       "name": ["book", "gardening book"],
       "desc": "An old gardening book that appear to be falling apart",
-      "actions": ["take", "put"]
+      "actions": ["take", "put","read"],
+      "read": "As you begin to flip through the book, a letter falls to the floor."
     },
     "empty_gardening_book": {
       "name": ["gardening book"],
       "desc": "An old gardening book that appear to be falling apart",
-      "actions": ["take", "put"]
+      "actions": ["take", "put", "read"],
+      "read": "As you flip through the book, you see pages on pages with highlighted text and ear marked corners. It's clear that Marvin was very into his gardening research."
     },
     "family_letter": {
       "name": ["letter", "family letter", "Martin letter", "letter Martin", "letter from Martin"],
-      "desc": "A letter with details about your family history from Martin",
-      "actions": ["take", "put"]
+      "desc": "A letter with details about your family history from Martin to Melinda",
+      "actions": ["take", "put", "read"],
+      "read": "Dearest Melinda,\n\nAs you lay ill in your hospital bed, I cannot help but think of all the memories we shared and the life we created. We've traveled all around the world, all while raising our two beautiful children, Emory & Amber. I used to always say I wanted a love like my mother & father's, but even they could not have loved each other as deeply as I love you.\n\nI know the end is near, and my heart breaks knowing how empty our home will be without you. It is not fair for a woman with so much love left to give to be taken so soon. Even with you here in the hospital, I can still hear your blissful humming throughout the mansions & smell wafts of your sweet perfume.\n\nI will miss you, as will Emory & Amber, but we will honor your memory forever.\n\nYour love,\nMarvin"
     },
     "piano": {
       "name": ["piano", "grand piano"],
