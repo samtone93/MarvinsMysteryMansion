@@ -2,7 +2,7 @@
 
 import json
 from regex_filter import filter_prep
-from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector
+from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit, locked_exit_output, unlock_combo
 
 looping = True
 
@@ -183,7 +183,7 @@ def obj_check(item, verb, where):
 # Handles both directions & entryways
 # Edit room files to include aliases for entryways under "exits"
 def go(argument):
-    if argument in current_room["exits"]:
+    if argument in current_room["exits"] and current_room["exits"][argument][1] == 0:
         new_data = room_data_list[current_room["exits"][argument][0]]
         print("\nYou enter the " + new_data["roomName"] + ".")
         if new_data["firstEntry"]:
@@ -191,6 +191,9 @@ def go(argument):
             new_data["firstEntry"] = False
         else:
             print(new_data["shortDesc"])
+    elif argument in current_room["exits"] and current_room["exits"][argument][1] == 1:
+        locked_exit_output(current_room["exits"][argument][0])
+        new_data = current_room
     else:
         print("You cannot go there.")
         new_data = current_room
@@ -296,33 +299,11 @@ def unlock(item):
             else:
                 print("You can't unlock the album without a key.")
         elif obj_check(item, "unlock", "room") and item == "combo_lock":
-            locked = True
-            print("You look at the combo lock and begin to decode it:")
-            # while locked == True -> while locked:
-            while locked:
-                print("Type 3 numbers from 0-39 with spaces (i.e. '1 2 3') to attempt unlocking or 'leave' to exit")
-                player_input = input(">").lower()
-                if player_input == 'leave':
-                    print("You've given up & headed back to the Greenhouse")
-                    break
-                input_list = player_input.split()
-                if len(input_list) != 3:
-                    print("Invalid input - you didn't enter 3 numbers")
-                else:
-                    num_list = []
-                    for num in input_list:
-                        # combined two and statements; 0<=num and num>= 39 -> 0 <= num <= 39
-                        if num.isnumeric() and (0 <= int(num) <= 39):
-                            num_list.append(int(num))
-                        else:
-                            print("Invalid number: " + num + " is not in the range 0-39")
-                            num_list.append(40)
-                    if num_list[0] == 32 and num_list[1] == 17 and num_list[2] == 6:
-                        locked = False
-                        current_room["objects"].remove("combo_lock")
-                        print(objects_list[item]["unlock"])
-                    else:
-                        print("Wrong combination - please try again")
+            locked = unlock_combo()
+            if not locked:
+                current_room["objects"].remove("combo_lock")
+                print(objects_list[item]["unlock"])
+                return unlock_exit(current_room, 5)
     return current_room
 
 
@@ -389,6 +370,7 @@ def pry(item):
             print(objects_list[item]["pry"])
             if item == "nailed_boards":
                 current_room["objects"].remove(item)
+                return unlock_exit(current_room, 6)
         else:
             print("You try prying the " + objects_list[item]["name"][0] + " with your hands and fail")
             print("Hmm... Perhaps you should find a tool, such as a crowbar, to pry this item")

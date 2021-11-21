@@ -18,12 +18,12 @@
         "archway": [1,0],
         "large archway": [1,0],
 
-        "east": [6,0],
-        "ballroom": [6,0],
-        "red door": [6,0],
-        "nailed door": [6,0],
-        "mysterious door": [6,0],
-        "mysterious red door": [6,0],
-        "door": [6,0]
+        "east": [6,1],
+        "ballroom": [6,1],
+        "red door": [6,1],
+        "nailed door": [6,1],
+        "mysterious door": [6,1],
+        "mysterious red door": [6,1],
+        "door": [6,1]
     }
 }
