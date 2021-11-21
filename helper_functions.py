@@ -142,3 +142,46 @@ def load_projector(room):
     print("The film ends, and then loops and plays again from the beginning.")
     room["longDesc"] = "You see a large home theater with descending rows of comfy padded seats facing north where a stage is. There is a gigantic screen on the stage with a film being projected on it by the film projector on the other side of the room behind the seats.\n The double doors at the south wall in which you entered are the only exit."
     room["sound"] = "The low hum of the project running and the film reel spinning can be heard in the room. The film being projected on is a silent film."
+    
+    
+def unlock_exit(current_room, room_num):
+    for room_exit in current_room["exits"]:
+        if current_room["exits"][room_exit][0] == room_num:
+            current_room["exits"][room_exit][1] = 0
+    return current_room
+
+
+def locked_exit_output(room_num):
+    if room_num == 6:
+        print("Nailed boards cover the mysterious red door preventing you from exiting the living room. Perhaps there is a way to remove them.")
+    elif room_num == 5:
+        print("A combo lock is hooked to the wooden door preventing you from exiting the greenhouse. Perhaps you can crack the combo.")
+        
+    
+def unlock_combo():
+    locked = True
+    print("You look at the combo lock and begin to decode it:")
+    # while locked == True -> while locked:
+    while locked:
+        print("Type 3 numbers from 0-39 with spaces (i.e. '1 2 3') to attempt unlocking or 'leave' to exit")
+        player_input = input(">").lower()
+        if player_input == 'leave':
+            print("You've given up & headed back to the greenhouse")
+            return locked
+        input_list = player_input.split()
+        if len(input_list) != 3:
+            print("Invalid input - you didn't enter 3 numbers")
+        else:
+            num_list = []
+            for num in input_list:
+                # combined two and statements; 0<=num and num>= 39 -> 0 <= num <= 39
+                if num.isnumeric() and (0 <= int(num) <= 39):
+                    num_list.append(int(num))
+                else:
+                    print("Invalid number: " + num + " is not in the range 0-39")
+                    num_list.append(40)
+            if num_list[0] == 32 and num_list[1] == 17 and num_list[2] == 6:
+                locked = False
+            else:
+                print("Wrong combination - please try again")
+    return locked
