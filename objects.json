@@ -6,7 +6,7 @@
       "name": ["will", "marvin's will"],
       "desc": "The will left to you by your great-grandfather Marvin.",
       "actions": ["put", "take", "read"],
-      "read": "Hello, I hope this letter finds you well.\n\nAs my last remaining kin, I have left you the entirety of my fortune, which includes the mansion you currently stand at.\n\nInside, I hope you’ll find, decipher, and solve the clues I’ve left behind, to which will truly determine whether or not you are worthy of the Lehane family legacy.\n\nPrevail, and you shall inherit it all; fail, and you will return to what you once were.\n\nGood luck,\nMartin Lehane"
+      "read": "Hello, I hope this letter finds you well.\n\nAs my last remaining kin, I have left you the entirety of my fortune, which includes the mansion you currently stand at.\n\nInside, I hope you'll find, decipher, and solve the clues I've left behind, to which will truly determine whether or not you are worthy of the Lehane family legacy.\n\nPrevail, and you shall inherit it all; fail, and you will return to what you once were.\n\nGood luck,\nMartin Lehane"
     },
     "lion_hook": {
       "name": ["lion hook", "lion"],
@@ -407,7 +407,8 @@
      "marvin_manifesto": {
       "name": ["manifesto", "marvin manifesto"],
       "desc": "Marvin's last words to the player.",
-      "actions": ["take", "put", "read"]
+      "actions": ["take", "put", "read"],
+       "read": "\nIn the beginning, you were challenged to see if you were worthy of the Lehane name and legacy.\nIn the end, I present to you one last mystery. The mystery of life itself. \nIn life, I believe that it matters not where we come from, but rather where we choose to go. \nYou chose to come here, you chose to find answers, you chose to challenge this fate. \nAgain, the choice is yours; so tell me: what do you believe in?\nIf you find yourself without an answer, then perhaps the words of my favorite author can provide one: \n\"We are what we believe we are.\" \n "
     }
 
 }
