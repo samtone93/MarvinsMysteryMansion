@@ -2,7 +2,8 @@
 
 import json
 from regex_filter import filter_prep
-from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit, locked_exit_output, unlock_combo
+from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit
+from helper_functions import locked_exit_output, unlock_combo, take_ladder_room_revision
 
 looping = True
 
@@ -23,95 +24,87 @@ inventory_json_file = open("inventory.json")
 inventory_list = json.load(inventory_json_file)
 inventory_json_file.close()
 
-room_data_list = [inventory_list]
 
-for num in range(1, 16):
-    room_num = str(num)
-    room_json_file = open(room_num + ".json")
-    room_data = json.load(room_json_file)
-    room_json_file.close()
-    room_data_list.append(room_data)
+room_json_file = open("1.json")
+room_data_1 = json.load(room_json_file)
+room_json_file.close()
 
-# room_json_file = open("1.json")
-# room_data_1 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("2.json")
-# room_data_2 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("3.json")
-# room_data_3 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("4.json")
-# room_data_4 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("5.json")
-# room_data_5 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("6.json")
-# room_data_6 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("7.json")
-# room_data_7 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("8.json")
-# room_data_8 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("9.json")
-# room_data_9 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("10.json")
-# room_data_10 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("11.json")
-# room_data_11 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("12.json")
-# room_data_12 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("13.json")
-# room_data_13 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("14.json")
-# room_data_14 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_json_file = open("15.json")
-# room_data_15 = json.load(room_json_file)
-# room_json_file.close()
-#
-# room_data_list = [
-#     inventory_list,
-#     room_data_1,
-#     room_data_2,
-#     room_data_3,
-#     room_data_4,
-#     room_data_5,
-#     room_data_6,
-#     room_data_7,
-#     room_data_8,
-#     room_data_9,
-#     room_data_10,
-#     room_data_11,
-#     room_data_12,
-#     room_data_13,
-#     room_data_14,
-#     room_data_15
-# ]
+room_json_file = open("2.json")
+room_data_2 = json.load(room_json_file)
+room_json_file.close()
 
-current_room = room_data_list[1]
+room_json_file = open("3.json")
+room_data_3 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("4.json")
+room_data_4 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("5.json")
+room_data_5 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("6.json")
+room_data_6 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("7.json")
+room_data_7 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("8.json")
+room_data_8 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("9.json")
+room_data_9 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("10.json")
+room_data_10 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("11.json")
+room_data_11 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("12.json")
+room_data_12 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("13.json")
+room_data_13 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("14.json")
+room_data_14 = json.load(room_json_file)
+room_json_file.close()
+
+room_json_file = open("15.json")
+room_data_15 = json.load(room_json_file)
+room_json_file.close()
+
+room_data_list = [
+    inventory_list,
+    room_data_1,
+    room_data_2,
+    room_data_3,
+    room_data_4,
+    room_data_5,
+    room_data_6,
+    room_data_7,
+    room_data_8,
+    room_data_9,
+    room_data_10,
+    room_data_11,
+    room_data_12,
+    room_data_13,
+    room_data_14,
+    room_data_15
+]
+
+current_room = room_data_list[6]
 
 
 # Quit game
@@ -224,6 +217,9 @@ def put(item):
 def take(item):
     item = item_convert(item)
     if obj_check(item, "take", "room"):
+        if item == "ladder":
+            take_ladder_room_revision(current_room)
+
         room_data_list[0]["objects"].append(item)
         current_room["objects"].remove(item)
         print("You take the " + objects_list[item]['name'][0])
@@ -426,6 +422,10 @@ def read_object(item):
             quit_game()
     return current_room
 
+
+def climb(item):
+    item = item_convert(item)
+    if obj_check(item, "climb",)
 
 # Help shows the user all the actions in the game & a short description of what they do
 def help():

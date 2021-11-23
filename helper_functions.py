@@ -144,7 +144,8 @@ def load_projector(room, ballroom):
     room["sound"] = "The low hum of the project running and the film reel spinning can be heard in the room. The film being projected on is a silent film."
     ballroom["objects"].remove("chandelier")
     ballroom["objects"].append("chandelier_after_watch_film")
-    
+
+
 def unlock_exit(current_room, room_num):
     for room_exit in current_room["exits"]:
         if current_room["exits"][room_exit][0] == room_num:
@@ -188,4 +189,7 @@ def unlock_combo():
     return locked
 
 
-# def take_ladder_room_revision(room):
+def take_ladder_room_revision(room):
+    if room["roomName"] == "Library":
+        room["shortDesc"] = "A cozy room with armchairs and lamps and bookshelves lining the walls.\nThere is a hardwood door with gold markings to the east, and brass doors to the north."
+        room["longDesc"] = "Giant, towering bookshelves line the walls in this room and you spot a fireplace at the west wall.\nArmchairs and lamps are placed in groups around the room for readers to enjoy. There is a cozy cabin ambience to the room.\nTo the east is a fancy hardwood door with golden markings etched on the surface. Behind you to the north is the hallway to the art gallery."
