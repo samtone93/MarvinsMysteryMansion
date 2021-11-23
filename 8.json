@@ -2,9 +2,9 @@
     "room": 8,
     "roomName": "Recreation Room",
     "firstEntry": true,
-    "shortDesc": "A recreation room with a pool table. The north wall has a double black doors and the south leads to a hallway.",
-    "longDesc": "The room is brightly lit and very spacious. There are groups of armchairs spread around the corners.\n In the center of the room, you see a fancy billiards table with red felt. You see something on the otherwise empty table. There is a bar along the west wall with a popcorn machine on it and a refrigerator behind the bar.\nOn the north side there are double doors, padded with black leather with bronze plating on the bottom.",
-    "objects" : ["cue_stick", "armchair"],
+    "shortDesc": "A recreation room with a pool table and bar. The north wall has a double black doors and the south leads to a hallway.",
+    "longDesc": "The room is brightly lit and very spacious. There are groups of armchairs spread around the corners. In the center of the room, you see a fancy billiards table with red felt.\nBesides the billiards table is a rack meant to hold cue sticks and billiards equipment. There is a bar along the west wall with a popcorn machine on it and a refrigerator behind the bar.\nOn the north side there are double doors, padded with black leather with bronze plating on the bottom.",
+    "objects" : ["cue_rack", "cue_stick", "armchair"],
     "smell": "There is the smell of butter emanating from the popcorn machine.",
     "sound": "There are low humming sounds from the running refrigerator.",
     "exits": {

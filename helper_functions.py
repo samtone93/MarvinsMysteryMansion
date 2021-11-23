@@ -131,18 +131,19 @@ def play_pc():
             print("Invalid input - you didn't enter 3 numbers! The code has changed.\n")
 
 
-def load_projector(room):
+def load_projector(room, ballroom):
     room["objects"].remove("empty_projector")
     room["objects"].append("loaded_projector")
     room["objects"].remove("blank_screen")
     room["objects"].append("screen_with_projector_on")
     print("You load up the projector with the film reel. The projector starts to project a grainy film onto the screen across the room")
     print("The film shows a dark shadowy figure. The mysterious man is in a large room full of boxes and objects covered by white sheets. He walks up to a large box.")
-    print("On top of the large box is a magnificent chandelier placed on some styrofoam. The man then takes something out of his pocket, and places the mystery item on top of one of the chandelier lights.")
+    print("On top of the large box is a magnificent chandelier placed on some styrofoam. The man then takes something out of his pocket, and places the mystery item on top of one of the chandelier light fixtures.")
     print("The film ends, and then loops and plays again from the beginning.")
     room["longDesc"] = "You see a large home theater with descending rows of comfy padded seats facing north where a stage is. There is a gigantic screen on the stage with a film being projected on it by the film projector on the other side of the room behind the seats.\n The double doors at the south wall in which you entered are the only exit."
     room["sound"] = "The low hum of the project running and the film reel spinning can be heard in the room. The film being projected on is a silent film."
-    
+    ballroom["objects"].remove("chandelier")
+    ballroom["objects"].append("chandelier_after_watch_film")
     
 def unlock_exit(current_room, room_num):
     for room_exit in current_room["exits"]:
@@ -185,3 +186,6 @@ def unlock_combo():
             else:
                 print("Wrong combination - please try again")
     return locked
+
+
+# def take_ladder_room_revision(room):

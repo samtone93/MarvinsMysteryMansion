@@ -219,7 +219,12 @@
     },
     "chandelier": {
       "name": ["chandelier"],
-      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling. It brightly illuminates the entire room",
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling. It has an extravagant design with crystals and light fixtures. It brightly illuminates the entire ballroom.",
+      "actions": []
+    },
+    "chandelier_after_watch_film": {
+      "name": ["chandelier"],
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling, illuminating the ballroom. You now notice a small object on top of one of the light fixtures. What is it?",
       "actions": []
     },
     "piano_bench": {
@@ -263,10 +268,21 @@
       "desc": "A small piece of paper with a doodle drawing of a piano bench",
       "actions": ["take", "put"]
     },
+    "cue_rack": {
+      "name": ["cue rack", "rack", "billiards rack", "cue stick rack"],
+      "desc": "A cue rack meant to hold cue sticks and billiards equipment. There is one cue stick on the otherwise empty rack.",
+      "actions": []
+    },
+    "empty_cue_rack": {
+      "name": ["cue rack", "rack", "billiards rack", "cue stick rack"],
+      "desc": "A cue rack meant to hold cue sticks and billiards equipment. The rack is empty.",
+      "actions": []
+    },
     "cue_stick": {
-      "name": ["cue stick"],
+      "name": ["cue stick", "stick"],
       "desc": "A cue stick that's used to play billiards or pool",
-      "actions": ["take", "put"]
+      "actions": ["take", "put"],
+      "take": "cue_rack"
     },
     "pool_table": {
       "name": ["pool table", "billiards table"],
@@ -300,8 +316,8 @@
     },
     "ladder": {
       "name": ["ladder"],
-      "desc": "A bookshelf ladder that is tall enough to reach the ceiling and top shelf. A closer look shows that in can be unfolded into four legs to stand on its own.",
-      "actions": ["take", "put"]
+      "desc": "A ladder that is meant to reach up to the top of the bookshelf. It can be placed and climbed on and tall enough to reach the ceiling.",
+      "actions": ["take", "put", "climb"]
     },
      "master_bed": {
       "name": ["master bed"],
