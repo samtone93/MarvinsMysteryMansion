@@ -22,86 +22,16 @@ inventory_json_file = open("inventory.json")
 inventory_list = json.load(inventory_json_file)
 inventory_json_file.close()
 
-room_json_file = open("1.json")
-room_data_1 = json.load(room_json_file)
-room_json_file.close()
+room_data_list = [inventory_list]
 
-room_json_file = open("2.json")
-room_data_2 = json.load(room_json_file)
-room_json_file.close()
+for num in range(1, 16):
+    room_num = str(num)
+    room_json_file = open(room_num + ".json")
+    room_data = json.load(room_json_file)
+    room_json_file.close()
+    room_data_list.append(room_data)
 
-room_json_file = open("3.json")
-room_data_3 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("4.json")
-room_data_4 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("5.json")
-room_data_5 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("6.json")
-room_data_6 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("7.json")
-room_data_7 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("8.json")
-room_data_8 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("9.json")
-room_data_9 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("10.json")
-room_data_10 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("11.json")
-room_data_11 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("12.json")
-room_data_12 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("13.json")
-room_data_13 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("14.json")
-room_data_14 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("15.json")
-room_data_15 = json.load(room_json_file)
-room_json_file.close()
-
-room_data_list = [
-    inventory_list,
-    room_data_1,
-    room_data_2,
-    room_data_3,
-    room_data_4,
-    room_data_5,
-    room_data_6,
-    room_data_7,
-    room_data_8,
-    room_data_9,
-    room_data_10,
-    room_data_11,
-    room_data_12,
-    room_data_13,
-    room_data_14,
-    room_data_15
-]
-
-current_room = room_data_12
+current_room = room_data_list[1]
 
 
 # Quit game
@@ -480,6 +410,7 @@ print()
 
 print("\nYou enter the " + current_room['roomName'] + ".")
 print(current_room['longDesc'])
+print()
 while looping:
 
     # print(current_room['longDesc'])
@@ -490,4 +421,5 @@ while looping:
         looping = quit_game()
     else:
         current_room = parse(player_input)
-        print(current_room["objects"])
+        print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
+        print()
