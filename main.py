@@ -101,7 +101,7 @@ room_data_list = [
     room_data_15
 ]
 
-current_room = room_data_1
+current_room = room_data_12
 
 
 # Quit game
@@ -409,6 +409,10 @@ def read_object(item):
             elif item in room_data_list[0]["objects"]:
                 room_data_list[0]["objects"].remove(item)
                 room_data_list[0]["objects"].append("empty_gardening_book")
+        # Read Marvin's Manifesto; print out game ending, ask player to continue or quit
+        if item == "marvin_manifesto":
+            #  quit the game after reading
+            quit_game()
     return current_room
 
 
