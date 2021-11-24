@@ -1,12 +1,12 @@
 # Marvin's Mystery Mansion
 
 import json
+import copy
 from regex_filter import filter_prep
 from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit
 from helper_functions import locked_exit_output, unlock_combo, take_ladder_room_revision
 
 looping = True
-
 
 action_json_file = open("actions.json")
 action_list = json.load(action_json_file)
@@ -24,85 +24,14 @@ inventory_json_file = open("inventory.json")
 inventory_list = json.load(inventory_json_file)
 inventory_json_file.close()
 
+room_data_list = [inventory_list]
 
-room_json_file = open("1.json")
-room_data_1 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("2.json")
-room_data_2 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("3.json")
-room_data_3 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("4.json")
-room_data_4 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("5.json")
-room_data_5 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("6.json")
-room_data_6 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("7.json")
-room_data_7 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("8.json")
-room_data_8 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("9.json")
-room_data_9 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("10.json")
-room_data_10 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("11.json")
-room_data_11 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("12.json")
-room_data_12 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("13.json")
-room_data_13 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("14.json")
-room_data_14 = json.load(room_json_file)
-room_json_file.close()
-
-room_json_file = open("15.json")
-room_data_15 = json.load(room_json_file)
-room_json_file.close()
-
-room_data_list = [
-    inventory_list,
-    room_data_1,
-    room_data_2,
-    room_data_3,
-    room_data_4,
-    room_data_5,
-    room_data_6,
-    room_data_7,
-    room_data_8,
-    room_data_9,
-    room_data_10,
-    room_data_11,
-    room_data_12,
-    room_data_13,
-    room_data_14,
-    room_data_15
-]
+for num in range(1, 16):
+    room_num = str(num)
+    room_json_file = open(room_num + ".json")
+    room_data = json.load(room_json_file)
+    room_json_file.close()
+    room_data_list.append(room_data)
 
 current_room = room_data_list[6]
 
@@ -186,7 +115,10 @@ def obj_check(item, verb, where):
 # Handles both directions & entryways
 # Edit room files to include aliases for entryways under "exits"
 def go(argument):
-    if argument in current_room["exits"] and current_room["exits"][argument][1] == 0:
+    if "climbed_up_status" and "climbed_object" in current_room:
+        print(f"\nYou have to climb down the {current_room['climbed_object']} first.")
+        new_data = current_room
+    elif argument in current_room["exits"] and current_room["exits"][argument][1] == 0:
         new_data = room_data_list[current_room["exits"][argument][0]]
         print("\nYou enter the " + new_data["roomName"] + ".")
         if new_data["firstEntry"]:
@@ -227,7 +159,6 @@ def take(item):
             if objects_list[item]["take"] in current_room["objects"]:
                 current_room["objects"].remove(objects_list[item]["take"])
                 current_room["objects"].append(("empty_" + objects_list[item]["take"]))
-
     return current_room
 
 
@@ -423,9 +354,24 @@ def read_object(item):
     return current_room
 
 
-def climb(item):
+def climb_up(item):
     item = item_convert(item)
-    if obj_check(item, "climb",)
+    if obj_check(item, "climb_up", "room"):
+        if "climbed_up_status" in current_room:
+            print(f"You've already climbed up the {objects_list[item]['name'][0]}.")
+        else:
+            print("You climb up the " + objects_list[item]["name"][0])
+            current_room["climbed_up_status"] = True
+            current_room["climbed_object"] = objects_list[item]["name"][0]
+
+    print(current_room)
+    return current_room
+
+
+def climb_down(item):
+    item = item_convert(item)
+    # if "climbed_up_status" in current_room:
+
 
 # Help shows the user all the actions in the game & a short description of what they do
 def help():
