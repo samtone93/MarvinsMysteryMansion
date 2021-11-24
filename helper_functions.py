@@ -189,7 +189,17 @@ def unlock_combo():
     return locked
 
 
+# Updates Library short and long desc when take ladder
 def take_ladder_room_revision(room):
     if room["roomName"] == "Library":
         room["shortDesc"] = "A cozy room with armchairs and lamps and bookshelves lining the walls.\nThere is a hardwood door with gold markings to the east, and brass doors to the north."
         room["longDesc"] = "Giant, towering bookshelves line the walls in this room and you spot a fireplace at the west wall.\nArmchairs and lamps are placed in groups around the room for readers to enjoy. There is a cozy cabin ambience to the room.\nTo the east is a fancy hardwood door with golden markings etched on the surface. Behind you to the north is the hallway to the art gallery."
+
+
+# Check if player is trying to take an item the player has climbed up on top on.
+def climbed_on_item_check(item, room):
+    if "climbed_up_status" in room:
+        if item == room['climbed_object']:
+            print("You can't take that while you are climbed up on top of it.")
+            return True
+    return False

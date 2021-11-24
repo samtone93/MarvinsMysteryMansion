@@ -1,10 +1,9 @@
 # Marvin's Mystery Mansion
 
 import json
-import copy
 from regex_filter import filter_prep
 from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit
-from helper_functions import locked_exit_output, unlock_combo, take_ladder_room_revision
+from helper_functions import locked_exit_output, unlock_combo, take_ladder_room_revision, climbed_on_item_check
 
 looping = True
 
@@ -116,7 +115,7 @@ def obj_check(item, verb, where):
 # Edit room files to include aliases for entryways under "exits"
 def go(argument):
     if "climbed_up_status" and "climbed_object" in current_room:
-        print(f"\nYou have to climb down the {current_room['climbed_object']} first.")
+        print(f"\nYou have to climb down the {objects_list[current_room['climbed_object']]['name'][0]} first.")
         new_data = current_room
     elif argument in current_room["exits"] and current_room["exits"][argument][1] == 0:
         new_data = room_data_list[current_room["exits"][argument][0]]
@@ -148,9 +147,12 @@ def put(item):
 # Object removed from room, placed in inventory.
 def take(item):
     item = item_convert(item)
+
     if obj_check(item, "take", "room"):
         if item == "ladder":
             take_ladder_room_revision(current_room)
+        if climbed_on_item_check(item, current_room):
+            return current_room
 
         room_data_list[0]["objects"].append(item)
         current_room["objects"].remove(item)
@@ -354,23 +356,23 @@ def read_object(item):
     return current_room
 
 
-def climb_up(item):
-    item = item_convert(item)
-    if obj_check(item, "climb_up", "room"):
+# Climbing up or down objects
+def climb(item):
+    if item == "down":
         if "climbed_up_status" in current_room:
-            print(f"You've already climbed up the {objects_list[item]['name'][0]}.")
-        else:
-            print("You climb up the " + objects_list[item]["name"][0])
-            current_room["climbed_up_status"] = True
-            current_room["climbed_object"] = objects_list[item]["name"][0]
-
-    print(current_room)
+            print(f"You climb down the {objects_list[current_room['climbed_object']]['name'][0]}.")
+            current_room.pop("climbed_up_status")
+            current_room.pop("climbed_object")
+    else:
+        item = item_convert(item)
+        if obj_check(item, "climb", "room"):
+            if "climbed_up_status" in current_room:
+                print(f"You've already climbed up the {objects_list[item]['name'][0]}.")
+            else:
+                print("You climb up the " + objects_list[item]["name"][0])
+                current_room["climbed_up_status"] = True
+                current_room["climbed_object"] = item
     return current_room
-
-
-def climb_down(item):
-    item = item_convert(item)
-    # if "climbed_up_status" in current_room:
 
 
 # Help shows the user all the actions in the game & a short description of what they do
@@ -436,7 +438,7 @@ print(objects_list["will"]["read"])
 print()
 
 print("\nYou enter the " + current_room['roomName'] + ".")
-print(current_room['longDesc'])
+print(current_room['longDesc'] + "\n")
 while looping:
 
     # print(current_room['longDesc'])
@@ -447,4 +449,5 @@ while looping:
         looping = quit_game()
     else:
         current_room = parse(player_input)
-        print(current_room["objects"])
+        print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
+        print()

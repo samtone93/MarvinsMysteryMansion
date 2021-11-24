@@ -317,7 +317,7 @@
     "ladder": {
       "name": ["ladder", "big ladder", "tall ladder"],
       "desc": "A big and tall ladder that is meant to reach up to the top of the bookshelf. It can be placed and climbed on and is tall enough to reach the ceiling.",
-      "actions": ["take", "put", "climb_up"]
+      "actions": ["take", "put", "climb"]
     },
      "master_bed": {
       "name": ["master bed"],

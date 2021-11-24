@@ -109,8 +109,8 @@
         "takes_arg": false,
         "description": "Load a saved game"
     },
-    "climb_up": {
-        "aliases": ["climb_up"],
+    "climb": {
+        "aliases": ["climb"],
         "takes_arg": true,
         "description": "allows the user to climb up an object that can be climbed"
     }

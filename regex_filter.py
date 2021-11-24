@@ -16,9 +16,10 @@ def filter_prep(pi, exits):
     pi = re.sub("push button", "press_button", pi)
 
     # and climb up and down
-    pi = re.sub("climb", "climb_up", pi)
-    pi = re.sub("climb up", "climb_up", pi)
-    pi = re.sub("climb down", "climb_up", pi)
+    if re.match("climb down", pi):
+        pi = "climb down"
+    pi = re.sub("climb up", "climb", pi)
+
     # find and sub out articles/prepositions
     # filters out: a, an, at, by, for, from, in, of, off, on, out, that, the, to, toward, towards, with
     pi = re.sub(
