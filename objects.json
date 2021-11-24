@@ -218,13 +218,18 @@
       "actions": []
     },
     "chandelier": {
-      "name": ["chandelier"],
+      "name": ["chandelier", "crystal chandelier"],
       "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling. It has an extravagant design with crystals and light fixtures. It brightly illuminates the entire ballroom.",
       "actions": []
     },
     "chandelier_after_watch_film": {
-      "name": ["chandelier"],
-      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling, illuminating the ballroom. You now notice a small object on top of one of the light fixtures. What is it?",
+      "name": ["chandelier", "crystal chandelier"],
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling, illuminating the ballroom.\nYou now notice a small mysterious object on top of one of the light fixtures. What is it?\nIf only there is some way to get up there and get a closer look.",
+      "actions": []
+    },
+    "mysterious_object": {
+      "name": ["object", "small object", "mysterious object", "small mysterious object"],
+      "desc": "A small mysterious object on top of one of the light fixtures of the chandelier. What is it?\nIf only there is some way to get up there and get a closer look.",
       "actions": []
     },
     "piano_bench": {

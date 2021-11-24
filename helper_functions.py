@@ -144,6 +144,7 @@ def load_projector(room, ballroom):
     room["sound"] = "The low hum of the project running and the film reel spinning can be heard in the room. The film being projected on is a silent film."
     ballroom["objects"].remove("chandelier")
     ballroom["objects"].append("chandelier_after_watch_film")
+    ballroom["objects"].append("mysterious_object")
 
 
 def unlock_exit(current_room, room_num):
@@ -192,8 +193,8 @@ def unlock_combo():
 # Updates Library short and long desc when take ladder
 def take_ladder_room_revision(room):
     if room["roomName"] == "Library":
-        room["shortDesc"] = "A cozy room with armchairs and lamps and bookshelves lining the walls.\nThere is a hardwood door with gold markings to the east, and brass doors to the north."
-        room["longDesc"] = "Giant, towering bookshelves line the walls in this room and you spot a fireplace at the west wall.\nArmchairs and lamps are placed in groups around the room for readers to enjoy. There is a cozy cabin ambience to the room.\nTo the east is a fancy hardwood door with golden markings etched on the surface. Behind you to the north is the hallway to the art gallery."
+        room["shortDesc"] = "A cozy room with armchairs and lamps and bookshelves lining the walls.\nThere is a dark red hardwood door with a golden doorknob and a lion's head etched on it to the east. There are double brass doors to the north."
+        room["longDesc"] = "Giant, towering bookshelves line the walls in this room and you spot a fireplace at the west wall.\nArmchairs and lamps are placed in groups around the room for readers to enjoy. There is a cozy cabin ambience to the room.\nTo the east is a fancy dark red hardwood door with a large golden doorknob with a lion's head etched on it. Behind you to the north are the double brass doors to the art gallery."
 
 
 # Check if player is trying to take an item the player has climbed up on top on.

@@ -147,11 +147,10 @@ def put(item):
 # Object removed from room, placed in inventory.
 def take(item):
     item = item_convert(item)
-
     if obj_check(item, "take", "room"):
         if item == "ladder":
             take_ladder_room_revision(current_room)
-        if climbed_on_item_check(item, current_room):
+        if climbed_on_item_check(item, current_room):  # prevent taking item that is climbed on
             return current_room
 
         room_data_list[0]["objects"].append(item)
