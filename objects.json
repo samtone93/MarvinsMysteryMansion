@@ -218,9 +218,35 @@
       "actions": []
     },
     "chandelier": {
-      "name": ["chandelier"],
-      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling. It brightly illuminates the entire room",
+      "name": ["chandelier", "crystal chandelier"],
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling. It has an extravagant design with crystals and light fixtures. It brightly illuminates the entire ballroom.",
       "actions": []
+    },
+    "chandelier_after_watch_film": {
+      "name": ["chandelier", "crystal chandelier"],
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling, illuminating the ballroom.\nYou now notice a small mysterious object on top of one of the light fixtures. What is it?\nIf only there is some way to get up there and get a closer look.",
+      "actions": []
+    },
+    "chandelier_after_climb_ladder": {
+      "name": ["chandelier", "crystal chandelier"],
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling, illuminating the ballroom.\nYou now see that a dark red key stuck on top of one of the light fixtures.",
+      "actions": []
+    },
+    "empty_chandelier_after_climb_ladder": {
+      "name": ["chandelier", "crystal chandelier"],
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling, illuminating the ballroom.",
+      "actions": []
+    },
+    "mysterious_object": {
+      "name": ["object", "small object", "mysterious object", "small mysterious object"],
+      "desc": "A small mysterious object on top of one of the light fixtures of the chandelier. What is it?\nIf only there is some way to get up there and get a closer look.",
+      "actions": []
+    },
+    "master_bedroom_key": {
+      "name": ["dark red key", "master_bedroom_key", "red key"],
+      "desc": "A dark red key with a lion's head engraved on the key handle",
+      "actions": ["take", "put"],
+      "take": "chandelier_after_climb_ladder"
     },
     "piano_bench": {
       "name": ["piano bench", "bench"],
@@ -243,11 +269,6 @@
       "actions": ["take", "put"],
       "take": "opened_piano_bench"
     },
-    "master_bedroom_key": {
-      "name": ["master_bedroom_key"],
-      "desc": "A dark red key with a lion's head engraved on the key handle",
-      "actions": ["take", "put"]
-    },
     "covered_vase": {
       "name": ["vase", "covered vase", "lion vase", "white vase", "exotic vase"],
       "desc": "A large blue sheet covering something slim and tall. A placard on the floor next to the covered object reads \"Exotic Vase\"",
@@ -263,10 +284,21 @@
       "desc": "A small piece of paper with a doodle drawing of a piano bench",
       "actions": ["take", "put"]
     },
+    "cue_rack": {
+      "name": ["cue rack", "rack", "billiards rack", "cue stick rack"],
+      "desc": "A cue rack meant to hold cue sticks and billiards equipment. There is one cue stick that looks to be almost 5 ft long on the otherwise empty rack.",
+      "actions": []
+    },
+    "empty_cue_rack": {
+      "name": ["cue rack", "rack", "billiards rack", "cue stick rack"],
+      "desc": "A cue rack meant to hold cue sticks and billiards equipment. The rack is empty.",
+      "actions": []
+    },
     "cue_stick": {
-      "name": ["cue stick"],
-      "desc": "A cue stick that's used to play billiards or pool",
-      "actions": ["take", "put"]
+      "name": ["cue stick", "stick"],
+      "desc": "A cue stick that's used to play billiards or pool. It looks to be almost 5 ft long.",
+      "actions": ["take", "put"],
+      "take": "cue_rack"
     },
     "pool_table": {
       "name": ["pool table", "billiards table"],
@@ -299,9 +331,9 @@
       "actions": []
     },
     "ladder": {
-      "name": ["ladder"],
-      "desc": "A bookshelf ladder that is tall enough to reach the ceiling and top shelf. A closer look shows that in can be unfolded into four legs to stand on its own.",
-      "actions": ["take", "put"]
+      "name": ["ladder", "big ladder", "tall ladder"],
+      "desc": "A big and tall ladder that is meant to reach up to the top of the bookshelf. It can be placed and climbed on and is tall enough to reach the ceiling.",
+      "actions": ["take", "put", "climb"]
     },
      "master_bed": {
       "name": ["master bed"],

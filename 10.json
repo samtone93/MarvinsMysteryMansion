@@ -2,19 +2,20 @@
   "room": 10,
   "roomName": "Library",
   "firstEntry": true,
-  "shortDesc": "A cozy room with armchairs and lamps and bookshelves lining the walls.\nThere is a hardwood door with gold markings to the east, and brass doors to the north.",
-  "longDesc": "Giant, towering bookshelves line the walls in this room and you spot a fireplace at the west wall.\nArmchairs and lamps are placed in groups around the room for readers to enjoy. There is a cozy cabin ambience to the room. A folded ladder lays upon one of the bookshelves\n To the east is a fancy hardwood door with golden markings etched on the surface. Behind you to the north is the hallway to the art gallery.",
+  "shortDesc": "A cozy room with armchairs and lamps and bookshelves lining the walls. A tall ladder is next to one of the bookshelves.\nThere is a dark red hardwood door with a golden doorknob and a lion's head etched on it to the east. There are double brass doors to the north.",
+  "longDesc": "Giant, towering bookshelves line the walls in this room and you spot a fireplace at the west wall.\nArmchairs and lamps are placed in groups around the room for readers to enjoy. The room has a cozy, cabin-like ambience, perfect for reading.\nThere is a big ladder next to one of the tall bookshelves.\nTo the east is a fancy dark red hardwood door with a large golden doorknob with a lion's head etched on it. Behind you to the north are the double brass doors to the art gallery.",
   "smell": "You smell a very nice earthy aroma from the burning fireplace. It reminds you of a cabin",
   "sound": "The sound of the crackling fireplace lends the whole room a comfortable vibe",
   "objects" : ["ladder", "armchair"],
   "exits": {
     "north": [7,0],
     "brass doors": [7,0],
+    "double brass doors": [7,0],
     "gallery": [7,0],
     "art gallery": [7,0],
     "east": [11,0],
     "hardwood door": [11,0],
-    "golden door": [11,0],
+    "dark red door": [11,0],
     "master room": [11,0]
   }
 }
