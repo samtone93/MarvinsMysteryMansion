@@ -251,7 +251,7 @@ def master_bedroom_key_take_check(item, room, inventory):
                 return False
             else:
                 print("The dark red key is still too high up to reach even while climbed up here under the chandelier.")
-                print("It is about another 5 feet out of your reach. If only there is something long enough to help.")
+                print("It is about another 4 feet out of your reach. If only there is something long enough to help.")
         else:
             print(
                 "The key is up on top of chandelier near the ceiling. If only there is something to climb up to reach it.")

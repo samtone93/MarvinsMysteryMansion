@@ -286,7 +286,7 @@
     },
     "cue_rack": {
       "name": ["cue rack", "rack", "billiards rack", "cue stick rack"],
-      "desc": "A cue rack meant to hold cue sticks and billiards equipment. There is one cue stick that looks to be almost 6 ft long on the otherwise empty rack.",
+      "desc": "A cue rack meant to hold cue sticks and billiards equipment. There is one cue stick that looks to be almost 5 ft long on the otherwise empty rack.",
       "actions": []
     },
     "empty_cue_rack": {
@@ -296,7 +296,7 @@
     },
     "cue_stick": {
       "name": ["cue stick", "stick"],
-      "desc": "A cue stick that's used to play billiards or pool. It looks to be almost 6 ft long.",
+      "desc": "A cue stick that's used to play billiards or pool. It looks to be almost 5 ft long.",
       "actions": ["take", "put"],
       "take": "cue_rack"
     },
