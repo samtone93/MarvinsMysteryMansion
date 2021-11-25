@@ -2,8 +2,8 @@
 
 import json
 from regex_filter import filter_prep
-from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit
-from helper_functions import locked_exit_output, unlock_combo, take_ladder_room_revision, climbed_on_item_check
+from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit, locked_exit_output, unlock_combo
+from helper_functions import take_ladder_room_revision, climbed_on_item_check, master_bedroom_key_take_check, ballroom_ladder_climb_event
 
 looping = True
 
@@ -32,7 +32,7 @@ for num in range(1, 16):
     room_json_file.close()
     room_data_list.append(room_data)
 
-current_room = room_data_list[1]
+current_room = room_data_list[6]
 
 
 # Quit game
@@ -152,11 +152,13 @@ def take(item):
             take_ladder_room_revision(current_room)
         if climbed_on_item_check(item, current_room):  # prevent taking item that is climbed on
             return current_room
+        if master_bedroom_key_take_check(item, current_room, room_data_list[0]["objects"]):
+            return current_room
 
         room_data_list[0]["objects"].append(item)
         current_room["objects"].remove(item)
         print("You take the " + objects_list[item]['name'][0])
-        if item in ["house_manager_memo", "recipe_book", "film_reel", "cue_stick"]:
+        if item in ["house_manager_memo", "recipe_book", "film_reel", "cue_stick", "master_bedroom_key"]:
             if objects_list[item]["take"] in current_room["objects"]:
                 current_room["objects"].remove(objects_list[item]["take"])
                 current_room["objects"].append(("empty_" + objects_list[item]["take"]))
@@ -183,7 +185,10 @@ def look():
 
 # Prints out the current items in the inventory.
 def inventory():
-    print("Inventory: " + str(room_data_list[0]["objects"]))
+    print("Inventory:")
+    for item in room_data_list[0]["objects"]:
+        print(objects_list[item]['name'][0], end="   ")
+    print()
     return current_room
 
 
@@ -283,7 +288,7 @@ def load_object(item):
         else:
             print("There is nothing to load the projector with")
     else:
-        print("Nothing to load")
+        print("No object to load right now")
     return current_room
 
 
@@ -371,6 +376,9 @@ def climb(item):
                 print("You climb up the " + objects_list[item]["name"][0])
                 current_room["climbed_up_status"] = True
                 current_room["climbed_object"] = item
+                if current_room["roomName"] == "Ballroom" and item == "ladder":
+                    ballroom_ladder_climb_event(current_room)
+
     return current_room
 
 
@@ -404,14 +412,9 @@ def loadgame():
         for room in save_data_list:
             room_data_list.append(room)
 
-        # print("Loaded data:")
-        # print(f"current room: #{new_curr_room}")
-        # for i in room_data_list:
-        #     print(i)
-
         print(f"\nYou are in the {new_curr_room['roomName']}")
-        print(new_curr_room["longDesc"])
-        print(f"\nYour inventory: {room_data_list[0]['objects']}")
+        print(new_curr_room["longDesc"] + "\n")
+        inventory()
     except FileNotFoundError:
         print("No saved game data")
         new_curr_room = current_room

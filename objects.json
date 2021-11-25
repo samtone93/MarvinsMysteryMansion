@@ -227,10 +227,26 @@
       "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling, illuminating the ballroom.\nYou now notice a small mysterious object on top of one of the light fixtures. What is it?\nIf only there is some way to get up there and get a closer look.",
       "actions": []
     },
+    "chandelier_after_climb_ladder": {
+      "name": ["chandelier", "crystal chandelier"],
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling, illuminating the ballroom.\nYou now see that a dark red key stuck on top of one of the light fixtures.",
+      "actions": []
+    },
+    "empty_chandelier_after_climb_ladder": {
+      "name": ["chandelier", "crystal chandelier"],
+      "desc": "A grandiose crystal chandelier hanging off a chain connected to the ceiling, illuminating the ballroom.",
+      "actions": []
+    },
     "mysterious_object": {
       "name": ["object", "small object", "mysterious object", "small mysterious object"],
       "desc": "A small mysterious object on top of one of the light fixtures of the chandelier. What is it?\nIf only there is some way to get up there and get a closer look.",
       "actions": []
+    },
+    "master_bedroom_key": {
+      "name": ["dark red key", "master_bedroom_key", "red key"],
+      "desc": "A dark red key with a lion's head engraved on the key handle",
+      "actions": ["take", "put"],
+      "take": "chandelier_after_climb_ladder"
     },
     "piano_bench": {
       "name": ["piano bench", "bench"],
@@ -253,11 +269,6 @@
       "actions": ["take", "put"],
       "take": "opened_piano_bench"
     },
-    "master_bedroom_key": {
-      "name": ["master_bedroom_key"],
-      "desc": "A dark red key with a lion's head engraved on the key handle",
-      "actions": ["take", "put"]
-    },
     "covered_vase": {
       "name": ["vase", "covered vase", "lion vase", "white vase", "exotic vase"],
       "desc": "A large blue sheet covering something slim and tall. A placard on the floor next to the covered object reads \"Exotic Vase\"",
@@ -275,7 +286,7 @@
     },
     "cue_rack": {
       "name": ["cue rack", "rack", "billiards rack", "cue stick rack"],
-      "desc": "A cue rack meant to hold cue sticks and billiards equipment. There is one cue stick on the otherwise empty rack.",
+      "desc": "A cue rack meant to hold cue sticks and billiards equipment. There is one cue stick that looks to be almost 6 ft long on the otherwise empty rack.",
       "actions": []
     },
     "empty_cue_rack": {
@@ -285,7 +296,7 @@
     },
     "cue_stick": {
       "name": ["cue stick", "stick"],
-      "desc": "A cue stick that's used to play billiards or pool",
+      "desc": "A cue stick that's used to play billiards or pool. It looks to be almost 6 ft long.",
       "actions": ["take", "put"],
       "take": "cue_rack"
     },

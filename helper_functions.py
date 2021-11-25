@@ -10,7 +10,6 @@ harvey_chats = [
     "You: Thanks for chatting! \nHarvey: Goodbye! Let me know if you need anything!"
 ]
 
-
 greg_chats = [
     "You: Hello! \nGreg: Welcome! You must be Marvin's grandchild. Harvey mentioned you'd be poking around. \nGreg: I'm Greg, and I've helped Marvin tend the garden for years. He was a curious old man, but so kind to all of us on staff. \nGreg: I'm quite busy cleaning up around the greenhouse, but let me know if you need anything, okay?",
     "You: Excuse me, but did you drop this over by the plants? \nGreg: Hmm. That looks like Marvin's handwriting. He was always making to-do lists and also always forgetting them places ironcially. \nGreg: We always had to plant things by the half dozen. That's why the entire list calls for 6 of everything. Not sure why, but Marvin liked it that way",
@@ -20,18 +19,23 @@ greg_chats = [
 
 def uncover_vase(room):
     """Uncover the vase in the Art Gallery"""
-    print("You pull away the blue sheet, uncovering a large, heavy, white porcelain vase with intricate lion motifs etched into its sides.")
-    print("The vase looked like an antique from a museum and looked quite heavy due to its size.\nA note is taped to the vase handle that says \"Don't break me ;)\"")
-    room["longDesc"] = "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nThere is a tall white vase in the corner. There is a long dimly lit hallway leading to the north. On the south wall are huge double brass doors with polished long golden handles."
+    print(
+        "You pull away the blue sheet, uncovering a large, heavy, white porcelain vase with intricate lion motifs etched into its sides.")
+    print(
+        "The vase looked like an antique from a museum and looked quite heavy due to its size.\nA note is taped to the vase handle that says \"Don't break me ;)\"")
+    room[
+        "longDesc"] = "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nThere is a tall white vase in the corner. There is a long dimly lit hallway leading to the north. On the south wall are huge double brass doors with polished long golden handles."
 
 
 def smash_vase(room):
     """Smash the vase in the Art Gallery"""
     room["objects"].remove("uncovered_vase")
     room["objects"].append("piano_bench_doodle")
-    print("You smash the vase by tipping it over forcefully. It shatters completely, revealing a piece of paper from inside the vase.")
+    print(
+        "You smash the vase by tipping it over forcefully. It shatters completely, revealing a piece of paper from inside the vase.")
     print("It is a hand drawn doodle of a piano bench. It looks kind of familiar. And where could you have seen it?")
-    room["longDesc"] = "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nThe remains of a shattered vase can be seen in the corner. There is a long dimly lit hallway leading to the north. On the south wall are huge double brass doors with polished long golden handles."
+    room[
+        "longDesc"] = "You see a long rectangular room with maroon colored walls. Framed paintings and portraits line the walls. You notice a majority feature lions in various art styles.\nThe remains of a shattered vase can be seen in the corner. There is a long dimly lit hallway leading to the north. On the south wall are huge double brass doors with polished long golden handles."
 
 
 def harvey_chat(curr_inventory):
@@ -45,7 +49,7 @@ def harvey_chat(curr_inventory):
         option = option + 1
         item_ct = 1
         # specifically checks for added talking points if certain items are in the inventory
-        for item in ["recipe_book","family_photo","wedding_photo","mountain_photo"]:
+        for item in ["recipe_book", "family_photo", "wedding_photo", "mountain_photo"]:
             if item in curr_inventory:
                 option_list.append(item_ct)
                 print("Type '" + str(option) + "': Ask about " + item.replace("_", " "))
@@ -113,7 +117,8 @@ def play_pc():
             print("You've given up for now.")
             break
         # Check for three valid integers
-        if len(code_input) == 3 and code_input[0].isnumeric() and code_input[1].isnumeric() and code_input[2].isnumeric():
+        if len(code_input) == 3 and code_input[0].isnumeric() and code_input[1].isnumeric() and code_input[
+            2].isnumeric():
             guess_a = int(code_input[0])
             guess_b = int(code_input[1])
             guess_c = int(code_input[2])
@@ -136,15 +141,23 @@ def load_projector(room, ballroom):
     room["objects"].append("loaded_projector")
     room["objects"].remove("blank_screen")
     room["objects"].append("screen_with_projector_on")
-    print("You load up the projector with the film reel. The projector starts to project a grainy film onto the screen across the room")
-    print("The film shows a dark shadowy figure. The mysterious man is in a large room full of boxes and objects covered by white sheets. He walks up to a large box.")
-    print("On top of the large box is a magnificent chandelier placed on some styrofoam. The man then takes something out of his pocket, and places the mystery item on top of one of the chandelier light fixtures.")
+    print(
+        "You load up the projector with the film reel. The projector starts to project a grainy film onto the screen across the room")
+    print(
+        "The film shows a dark shadowy figure. The mysterious man is in a large room full of boxes and objects covered by white sheets. He walks up to a large box.")
+    print(
+        "On top of the large box is a magnificent chandelier placed on some styrofoam. The man then takes something out of his pocket, and places the mystery item on top of one of the chandelier light fixtures.")
     print("The film ends, and then loops and plays again from the beginning.")
-    room["longDesc"] = "You see a large home theater with descending rows of comfy padded seats facing north where a stage is. There is a gigantic screen on the stage with a film being projected on it by the film projector on the other side of the room behind the seats.\n The double doors at the south wall in which you entered are the only exit."
-    room["sound"] = "The low hum of the project running and the film reel spinning can be heard in the room. The film being projected on is a silent film."
-    ballroom["objects"].remove("chandelier")
-    ballroom["objects"].append("chandelier_after_watch_film")
-    ballroom["objects"].append("mysterious_object")
+    room[
+        "longDesc"] = "You see a large home theater with descending rows of comfy padded seats facing north where a stage is. There is a gigantic screen on the stage with a film being projected on it by the film projector on the other side of the room behind the seats.\n The double doors at the south wall in which you entered are the only exit."
+    room[
+        "sound"] = "The low hum of the project running and the film reel spinning can be heard in the room. The film being projected on is a silent film."
+    if "chandelier" in ballroom["objects"]:
+        ballroom["objects"].remove("chandelier")
+    if "chandelier_after_climb_ladder" not in ballroom["objects"]:
+        ballroom["objects"].append("chandelier_after_watch_film")
+    if "master_bedroom_key" not in ballroom["objects"]:
+        ballroom["objects"].append("mysterious_object")
 
 
 def unlock_exit(current_room, room_num):
@@ -156,11 +169,13 @@ def unlock_exit(current_room, room_num):
 
 def locked_exit_output(room_num):
     if room_num == 6:
-        print("Nailed boards cover the mysterious red door preventing you from exiting the living room. Perhaps there is a way to remove them.")
+        print(
+            "Nailed boards cover the mysterious red door preventing you from exiting the living room. Perhaps there is a way to remove them.")
     elif room_num == 5:
-        print("A combo lock is hooked to the wooden door preventing you from exiting the greenhouse. Perhaps you can crack the combo.")
-        
-    
+        print(
+            "A combo lock is hooked to the wooden door preventing you from exiting the greenhouse. Perhaps you can crack the combo.")
+
+
 def unlock_combo():
     locked = True
     print("You look at the combo lock and begin to decode it:")
@@ -193,8 +208,10 @@ def unlock_combo():
 # Updates Library short and long desc when take ladder
 def take_ladder_room_revision(room):
     if room["roomName"] == "Library":
-        room["shortDesc"] = "A cozy room with armchairs and lamps and bookshelves lining the walls.\nThere is a dark red hardwood door with a golden doorknob and a lion's head etched on it to the east. There are double brass doors to the north."
-        room["longDesc"] = "Giant, towering bookshelves line the walls in this room and you spot a fireplace at the west wall.\nArmchairs and lamps are placed in groups around the room for readers to enjoy. There is a cozy cabin ambience to the room.\nTo the east is a fancy dark red hardwood door with a large golden doorknob with a lion's head etched on it. Behind you to the north are the double brass doors to the art gallery."
+        room[
+            "shortDesc"] = "A cozy room with armchairs and lamps and bookshelves lining the walls.\nThere is a dark red hardwood door with a golden doorknob and a lion's head etched on it to the east. There are double brass doors to the north."
+        room[
+            "longDesc"] = "Giant, towering bookshelves line the walls in this room and you spot a fireplace at the west wall.\nArmchairs and lamps are placed in groups around the room for readers to enjoy. There is a cozy cabin ambience to the room.\nTo the east is a fancy dark red hardwood door with a large golden doorknob with a lion's head etched on it. Behind you to the north are the double brass doors to the art gallery."
 
 
 # Check if player is trying to take an item the player has climbed up on top on.
@@ -203,4 +220,40 @@ def climbed_on_item_check(item, room):
         if item == room['climbed_object']:
             print("You can't take that while you are climbed up on top of it.")
             return True
+    return False
+
+
+# Specific event that happens when climb ladder in ballroom
+def ballroom_ladder_climb_event(room):
+    print("Now you can see that the chandelier has a dark red key stuck on top of one of the light fixtures.")
+    if "chandelier" in room["objects"]:
+        room["objects"].remove("chandelier")
+    if "chandelier_after_watch_film" in room["objects"]:
+        room["objects"].remove("chandelier_after_watch_film")
+    if "mysterious_object" in room["objects"]:
+        room["objects"].remove("mysterious_object")
+    if "chandelier_after_climb_ladder" not in room["objects"]:
+        room["objects"].append("chandelier_after_climb_ladder")
+    if "master_bedroom_key" not in room["objects"]:
+        room["objects"].append("master_bedroom_key")
+
+
+# Specific check when trying to take master bedroom key in ballroom
+def master_bedroom_key_take_check(item, room, inventory):
+    if item != "master_bedroom_key":
+        return False
+
+    if "chandelier_after_climb_ladder" in room["objects"]:
+        if "climbed_up_status" in room:
+            if "cue_stick" in inventory:
+                print("You are able to use the cue stick to poke the key off the light fixture of the chandelier.")
+                print("The dark red key falls down onto the palm of your hand")
+                return False
+            else:
+                print("The dark red key is still too high up to reach even while climbed up here under the chandelier.")
+                print("It is about another 5 feet out of your reach. If only there is something long enough to help.")
+        else:
+            print(
+                "The key is up on top of chandelier near the ceiling. If only there is something to climb up to reach it.")
+        return True
     return False
