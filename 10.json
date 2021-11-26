@@ -13,9 +13,10 @@
     "double brass doors": [7,0],
     "gallery": [7,0],
     "art gallery": [7,0],
-    "east": [11,0],
-    "hardwood door": [11,0],
-    "dark red door": [11,0],
-    "master room": [11,0]
+    "east": [11,1],
+    "hardwood door": [11,1],
+    "dark red door": [11,1],
+    "master": [11,1],
+    "master bedroom": [11,1]
   }
 }
