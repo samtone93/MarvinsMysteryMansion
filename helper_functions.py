@@ -162,6 +162,8 @@ def locked_exit_output(room_num):
         print("Nailed boards cover the mysterious red door preventing you from exiting the living room. Perhaps there is a way to remove them.")
     elif room_num == 5:
         print("A combo lock is hooked to the wooden door preventing you from exiting the greenhouse. Perhaps you can crack the combo.")
+    elif room_num == 11:
+        print("You try to open the dark red hardwood door, but it doesn't budge and seems to be locked.\nYou notice the keyhole on the doorknob with the etching of a lion's head.")
 
 
 def unlock_combo():
@@ -244,4 +246,13 @@ def master_bedroom_key_take_check(item, room, inventory):
             print(
                 "The key is up on top of chandelier near the ceiling. If only there is something to climb up to reach it.")
         return True
+    return False
+
+
+# Check for dark red key in inventory to unlock master bedroom
+def master_bedroom_unlock_check(exit_name, room, inventory):
+    if room["room"] == 10 and room["exits"][exit_name][0] == 11:
+        if "master_bedroom_key" in inventory:
+            unlock_exit(room, 11)
+            return True
     return False
