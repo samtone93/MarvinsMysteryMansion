@@ -456,5 +456,4 @@ while looping:
     else:
         current_room = parse(player_input)
         print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
-        print("Exits", current_room["exits"])
         print()
