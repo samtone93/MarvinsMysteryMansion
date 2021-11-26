@@ -4,6 +4,7 @@ import json
 from regex_filter import filter_prep
 from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit, locked_exit_output, unlock_combo
 from helper_functions import take_ladder_room_revision, climbed_on_item_check, master_bedroom_key_take_check, ballroom_ladder_climb_event
+from art import art
 
 looping = True
 
