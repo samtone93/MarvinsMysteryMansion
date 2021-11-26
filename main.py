@@ -3,7 +3,7 @@
 import json
 from regex_filter import filter_prep
 from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit, locked_exit_output, unlock_combo
-from helper_functions import take_ladder_room_revision, climbed_on_item_check, master_bedroom_key_take_check, ballroom_ladder_climb_event
+from helper_functions import take_ladder_room_revision, climbed_on_item_check, master_bedroom_key_take_check, ballroom_ladder_climb_event, master_bedroom_unlock_check
 
 looping = True
 
@@ -126,6 +126,8 @@ def go(argument):
         else:
             print(new_data["shortDesc"])
     elif argument in current_room["exits"] and current_room["exits"][argument][1] == 1:
+        if master_bedroom_unlock_check(argument, current_room, room_data_list[0]["objects"]):  # Specific check to unlock room 11
+            return go(argument)
         locked_exit_output(current_room["exits"][argument][0])
         new_data = current_room
     else:
@@ -406,11 +408,13 @@ def loadgame():
     try:
         save_file = open("saved_data_file.json")
         save_data_list = json.load(save_file)
+        saved_curr_room = save_data_list.pop()
+        save_file.close()
 
-        new_curr_room = save_data_list.pop()
         room_data_list.clear()
         for room in save_data_list:
             room_data_list.append(room)
+        new_curr_room = room_data_list[saved_curr_room["room"]]
 
         print(f"\nYou are in the {new_curr_room['roomName']}")
         print(new_curr_room["longDesc"] + "\n")
