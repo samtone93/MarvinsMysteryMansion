@@ -33,7 +33,7 @@ for num in range(1, 16):
     room_json_file.close()
     room_data_list.append(room_data)
 
-current_room = room_data_list[6]
+current_room = room_data_list[1]
 
 
 # Quit game
