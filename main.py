@@ -4,8 +4,10 @@ import json
 from regex_filter import filter_prep
 from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit, locked_exit_output, unlock_combo
 from helper_functions import take_ladder_room_revision, climbed_on_item_check, master_bedroom_key_take_check, ballroom_ladder_climb_event, master_bedroom_unlock_check
+from helper_functions import game_intro, main_menu, new_game_screen, load_game_screen
 
-looping = True
+game_running = True
+intro_needed = True
 
 action_json_file = open("actions.json")
 action_list = json.load(action_json_file)
@@ -426,34 +428,36 @@ def loadgame():
     return new_curr_room
 
 
-print("""
-  __  __                  _       _       __  __           _                    __  __                 _             
- |  \/  |                (_)     ( )     |  \/  |         | |                  |  \/  |               (_)            
- | \  / | __ _ _ ____   ___ _ __ |/ ___  | \  / |_   _ ___| |_ ___ _ __ _   _  | \  / | __ _ _ __  ___ _  ___  _ __  
- | |\/| |/ _` | '__\ \ / / | '_ \  / __| | |\/| | | | / __| __/ _ \ '__| | | | | |\/| |/ _` | '_ \/ __| |/ _ \| '_ \ 
- | |  | | (_| | |   \ V /| | | | | \__ \ | |  | | |_| \__ \ ||  __/ |  | |_| | | |  | | (_| | | | \__ \ | (_) | | | |
- |_|  |_|\__,_|_|    \_/ |_|_| |_| |___/ |_|  |_|\__, |___/\__\___|_|   \__, | |_|  |_|\__,_|_| |_|___/_|\___/|_| |_|
-                                                  __/ |                  __/ |                                       
-                                                 |___/                  |___/                              
-""")
-
-print("\nWhile you were going about your day, you were abducted and dropped off at an unknown location.")
-print("You feel the car stop and the driver leaves you with a letter before driving off in the distance.")
-print("It reads:\n")
-print(objects_list["will"]["read"])
-print()
-
-print("\nYou enter the " + current_room['roomName'] + ".")
-print(current_room['longDesc'] + "\n")
-while looping:
-
-    # print(current_room['longDesc'])
-    # print("Room items: " + str(current_room['objects']))
-
+while game_running:
+    looping = True
+    if intro_needed:
+        game_intro()
+    main_menu()
     player_input = input(">").lower()
-    if player_input == "quit":
-        looping = quit_game()
+    
+    if player_input == '0' or player_input == '1':
+        if player_input == '0':
+            new_game_screen(objects_list["will"]["read"], current_room['roomName'], current_room['longDesc'])
+        else:
+            load_game_screen(current_room['roomName'], current_room['longDesc'])
+            inventory()
+            
+        while looping:
+        
+            # print(current_room['longDesc'])
+            # print("Room items: " + str(current_room['objects']))
+        
+            player_input = input(">").lower()
+            if player_input == "quit":
+                looping = quit_game()
+            else:
+                current_room = parse(player_input)
+                print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
+                print()
+    elif player_input == '2':
+        print("Thanks for playing! Goodbye.")
+        game_running = False
     else:
-        current_room = parse(player_input)
-        print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
-        print()
+        print("I'm sorry, I do not understand that input. Let's try again.\n")
+        intro_needed = False
+    

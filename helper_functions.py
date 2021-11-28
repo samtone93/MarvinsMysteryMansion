@@ -256,3 +256,41 @@ def master_bedroom_unlock_check(exit_name, room, inventory):
             unlock_exit(room, 11)
             return True
     return False
+
+
+# Prints intro screen
+def game_intro():
+	print("""
+	  __  __                  _       _       __  __           _                    __  __                 _
+	 |  \/  |                (_)     ( )     |  \/  |         | |                  |  \/  |               (_)
+	 | \  / | __ _ _ ____   ___ _ __ |/ ___  | \  / |_   _ ___| |_ ___ _ __ _   _  | \  / | __ _ _ __  ___ _  ___  _ __
+	 | |\/| |/ _` | '__\ \ / / | '_ \  / __| | |\/| | | | / __| __/ _ \ '__| | | | | |\/| |/ _` | '_ \/ __| |/ _ \| '_ \.
+	 | |  | | (_| | |   \ V /| | | | | \__ \ | |  | | |_| \__ \ ||  __/ |  | |_| | | |  | | (_| | | | \__ \ | (_) | | | |
+	 |_|  |_|\__,_|_|    \_/ |_|_| |_| |___/ |_|  |_|\__, |___/\__\___|_|   \__, | |_|  |_|\__,_|_| |_|___/_|\___/|_| |_|
+	                                                  __/ |                  __/ |
+	                                                 |___/                  |___/
+	""")
+
+
+def main_menu():
+	print("*** MAIN MENU ***\nPlease select one of the following:")
+	print("Type '0': Start new game\nType '1': Load previous game\nType '2': Quit software\n")
+
+
+def new_game_screen(will, roomName, roomDesc):
+	print("*** STARTING NEW GAME... ***\n")
+	
+	print("\nWhile you were going about your day, you were abducted and dropped off at an unknown location.")
+	print("You feel the car stop and the driver leaves you with a letter before driving off in the distance.")
+	print("It reads:\n")
+	
+	print(will)
+	print()
+	print("\nYou enter the " + roomName + ".")
+	print(roomDesc + "\n")
+	
+	
+def load_game_screen(roomName, roomDesc):
+	print("*** LOADING PREVIOUS GAME... ***\n")
+	print("\nYou enter the " + roomName + ".")
+	print(roomDesc + "\n")
