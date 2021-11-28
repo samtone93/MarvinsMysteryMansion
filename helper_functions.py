@@ -1,4 +1,5 @@
 import random
+from art import art
 
 # Helper functions that have specific uses or functions outside of main verbs
 harvey_chats = [
@@ -136,6 +137,7 @@ def load_projector(room, ballroom):
     room["objects"].append("loaded_projector")
     room["objects"].remove("blank_screen")
     room["objects"].append("screen_with_projector_on")
+    print(art["loaded_projector"])
     print("You load up the projector with the film reel. The projector starts to project a grainy film onto the screen across the room")
     print("The film shows a dark shadowy figure. The mysterious man is in a large room full of boxes and objects covered by white sheets. He walks up to a large box.")
     print("On top of the large box is a magnificent chandelier placed on some styrofoam. The man then takes something out of his pocket, and places the mystery item on top of one of the chandelier light fixtures.")

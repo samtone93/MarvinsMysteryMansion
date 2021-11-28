@@ -33,7 +33,7 @@ for num in range(1, 16):
     room_json_file.close()
     room_data_list.append(room_data)
 
-current_room = room_data_list[1]
+current_room = room_data_list[6]
 
 
 # Quit game
@@ -199,6 +199,8 @@ def inventory():
 def look_at(item):
     item = item_convert(item)
     if obj_check(item, "look_at", "both"):
+        if "art" in objects_list[item]:
+            print(art[objects_list[item]["art"]])
         print(objects_list[item]["desc"])
     return current_room
 
@@ -271,6 +273,7 @@ def pull(item):
 # Press the button on piano bench
 def press_button():
     if obj_check("piano_bench", "press_button", "room"):
+        print(art["opened_piano_bench"])
         print("You press the button on the piano bench, and the cushioned top opens and swings up to reveal the storage space underneath inside the bench.")
         print("There is a film reel stored in the space.")
         current_room["objects"].remove("piano_bench")

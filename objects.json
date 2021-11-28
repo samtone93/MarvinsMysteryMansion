@@ -215,7 +215,8 @@
     "piano": {
       "name": ["piano", "grand piano"],
       "desc": "A grand piano with polished mahogany finish. A piano bench is stowed besides its keyboard. The piano is playing a melody by itself.",
-      "actions": []
+      "actions": [],
+      "art": "piano"
     },
     "chandelier": {
       "name": ["chandelier", "crystal chandelier"],
@@ -251,17 +252,20 @@
     "piano_bench": {
       "name": ["piano bench", "bench"],
       "desc": "A deluxe black cushioned bench meant to be used to play piano. There is a button on one side slightly below the cushion.",
-      "actions": ["press_button"]
+      "actions": ["press_button"],
+      "art": "piano_bench"
     },
     "opened_piano_bench": {
       "name": ["piano bench", "bench"],
       "desc": "A piano bench with the cushioned top opened to reveal storage space inside. You can see a film reel stored inside.",
-      "actions": []
+      "actions": [],
+      "art": "opened_piano_bench"
     },
     "empty_opened_piano_bench": {
       "name": ["piano bench", "bench"],
       "desc": "A piano bench with the top opened to reveal storage space under the cushioning.",
-      "actions": []
+      "actions": [],
+      "art": "opened_piano_bench"
     },
     "film_reel" : {
       "name": ["film reel", "film", "reel"],
@@ -313,12 +317,14 @@
     "empty_projector": {
       "name": ["projector", "film projector", "movie projector"],
       "desc": "A film projector pointed at the giant projection screen. It has an empty slot where a film reel can be loaded into.",
-      "actions": ["load_object"]
+      "actions": ["load_object"],
+      "art": "empty_projector"
     },
     "loaded_projector": {
       "name": ["projector", "film projector", "movie projector"],
       "desc": "A film projector pointed at the giant projection screen. It has an empty slot where a film reel can be loaded into.",
-      "actions": ["load_object"]
+      "actions": ["load_object"],
+      "art": "loaded_projector"
     },
     "blank_screen": {
       "name": ["screen", "projector screen", "movie screen"],
