@@ -18,13 +18,14 @@ def filter_prep(pi, exits):
     # and climb up and down
     if re.match("climb down", pi):
         pi = "climb down"
+        return pi.split()
     pi = re.sub("climb up", "climb", pi)
 
     # find and sub out articles/prepositions
     # filters out: a, an, at, by, for, from, in, of, off, on, out, that, the, to, toward, towards, with
     pi = re.sub(
         r"\bthe\b|\bin\b|\bto\b|\baway\b|\ba\b|\ban\b|\bby\b|\bfor\b|\bon\b|\bfrom\b|\bof\b|\bout\b|\bwith\b|\bat\b|"
-        r"\btoward\b|\btowards\b|\bthat\b|\boff\b",
+        r"\btoward\b|\btowards\b|\bthat\b|\boff\b|\bdown\b",
         "",
         pi)
 
