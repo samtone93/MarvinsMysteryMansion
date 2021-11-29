@@ -9,11 +9,11 @@
     "objects" : ["master_bed", "nightstand", "narnia_book"],
     "exits": {
         "east": [12,0],
-        "closet": [12],
-        "wardrobe": [12],
-        "wardrobe room": [12],
+        "closet": [12,0],
+        "wardrobe": [12,0],
+        "wardrobe room": [12,0],
 
         "west": [10,0],
-        "library": [10]
+        "library": [10,0]
     }
 }

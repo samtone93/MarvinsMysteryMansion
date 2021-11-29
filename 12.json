@@ -9,23 +9,23 @@
     "objects" : ["lion_wardrobe", "witch_wardrobe", "wardrobe_wardrobe"],
     "exits": {
       "north": [13,0],
-      "lion wardrobe": [13],
-      "lion": [13],
-      "study": [13],
+      "lion wardrobe": [13,0],
+      "lion": [13,0],
+      "study": [13,0],
 
       "east": [15,0],
-      "wardrobe wardrobe": [15],
-      "garage": [15],
+      "wardrobe wardrobe": [15,0],
+      "garage": [15,0],
 
 
       "south": [14,0],
-      "witch wardrobe": [14],
-      "witch": [14],
-      "wine cellar": [14],
-      "wine": [14],
+      "witch wardrobe": [14,0],
+      "witch": [14,0],
+      "wine cellar": [14,0],
+      "wine": [14,0],
 
       "west": [11,0],
-      "master": [11],
-      "master bedroom": [11]
+      "master": [11,0],
+      "master bedroom": [11,0]
     }
   }
