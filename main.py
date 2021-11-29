@@ -447,21 +447,15 @@ while game_running:
                 looping = False
             
         while looping:
-        
-            # print(current_room['longDesc'])
-            # print("Room items: " + str(current_room['objects']))
-        
             player_input = input(">").lower()
             if player_input == "quit":
                 looping = quit_game()
             else:
                 current_room = parse(player_input)
-                # print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
-                # print()
+
     elif player_input == '2':
         print("Thanks for playing! Goodbye.")
         game_running = False
     else:
         print("I'm sorry, I do not understand that input. Let's try again.\n")
         intro_needed = False
-    
