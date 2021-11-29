@@ -4,7 +4,7 @@ import json
 from regex_filter import filter_prep
 from helper_functions import uncover_vase, harvey_chat, greg_chat, play_pc, smash_vase, load_projector, unlock_exit, locked_exit_output, unlock_combo
 from helper_functions import take_ladder_room_revision, climbed_on_item_check, master_bedroom_key_take_check, ballroom_ladder_climb_event, master_bedroom_unlock_check
-from helper_functions import game_intro, main_menu, new_game_screen, load_game_screen
+from helper_functions import game_intro, main_menu, new_game_screen, load_game_check
 
 game_running = True
 intro_needed = True
@@ -439,9 +439,9 @@ while game_running:
         if player_input == '0':
             new_game_screen(objects_list["will"]["read"], current_room['roomName'], current_room['longDesc'])
         else:
-            if load_game_screen():
+            if load_game_check():
                 print("*** LOADING PREVIOUS GAME... ***\n")
-                loadgame()
+                current_room = loadgame()
             else:
                 print("No save file found.. Returning to main menu")
                 looping = False

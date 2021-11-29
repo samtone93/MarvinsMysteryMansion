@@ -3,9 +3,6 @@
 import re
 
 
-# looping = True
-
-
 def filter_prep(pi, exits):
     """pi stands for player input"""
     # if there is look at, replace with look_at so not to filter out
@@ -49,10 +46,3 @@ def filter_prep(pi, exits):
         pi = "go " + pi
 
     return pi.split()
-
-# while looping:
-#     player_input = input(">").lower()
-#     filtered_str = filter_prep(player_input)
-#     print(filtered_str)
-#     if player_input == "exit":
-#         looping = False
