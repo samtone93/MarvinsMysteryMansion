@@ -456,8 +456,8 @@ while game_running:
                 looping = quit_game()
             else:
                 current_room = parse(player_input)
-                print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
-                print()
+                # print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
+                # print()
     elif player_input == '2':
         print("Thanks for playing! Goodbye.")
         game_running = False
