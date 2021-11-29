@@ -216,12 +216,11 @@ def play(item):
 # Smash the 1950 wine bottle in the wine cellar for the album key
 def smash(item):
     item = item_convert(item)
-    if obj_check(item, "smash", "room") and item == "uncovered_vase":
-        smash_vase(current_room)
-        take("piano bench doodle")
-        return current_room
+    if obj_check(item, "smash", "both"):
+        if item == "uncovered_vase":
+            smash_vase(current_room)
+            take("piano bench doodle")
 
-    if obj_check(item, "smash", "inventory"):
         if item == "wine_1950":
             print("You smash the 1950 wine bottle open.")
             room_data_list[0]["objects"].remove(item)
