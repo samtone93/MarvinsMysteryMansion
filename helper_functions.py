@@ -290,7 +290,10 @@ def new_game_screen(will, roomName, roomDesc):
 	print(roomDesc + "\n")
 	
 	
-def load_game_screen(roomName, roomDesc):
-	print("*** LOADING PREVIOUS GAME... ***\n")
-	print("\nYou enter the " + roomName + ".")
-	print(roomDesc + "\n")
+def load_game_screen():
+    try:
+        save_file_check = open("saved_data_file.json")
+        save_file_check.close()
+        return True
+    except FileNotFoundError:
+        return False

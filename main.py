@@ -439,8 +439,12 @@ while game_running:
         if player_input == '0':
             new_game_screen(objects_list["will"]["read"], current_room['roomName'], current_room['longDesc'])
         else:
-            load_game_screen(current_room['roomName'], current_room['longDesc'])
-            inventory()
+            if load_game_screen():
+                print("*** LOADING PREVIOUS GAME... ***\n")
+                loadgame()
+            else:
+                print("No save file found.. Returning to main menu")
+                looping = False
             
         while looping:
         
