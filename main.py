@@ -34,7 +34,7 @@ for num in range(1, 16):
     room_json_file.close()
     room_data_list.append(room_data)
 
-current_room = room_data_list[1]
+current_room = room_data_list[11]
 
 
 # Quit game
@@ -452,8 +452,8 @@ while game_running:
                 looping = quit_game()
             else:
                 current_room = parse(player_input)
-                print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
-                print()
+                # print("***FOR DEBUGGING***\nRoom Objects:", current_room["objects"])
+                # print()
     elif player_input == '2':
         print("Thanks for playing! Goodbye.")
         game_running = False
