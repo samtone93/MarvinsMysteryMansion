@@ -6,7 +6,7 @@
       "name": ["will", "marvin's will"],
       "desc": "The will left to you by your great-grandfather Marvin.",
       "actions": ["put", "take", "read"],
-      "read": "Hello, I hope this letter finds you well.\n\nAs my last remaining kin, I have left you the entirety of my fortune, which includes the mansion you currently stand at.\n\nInside, I hope you'll find, decipher, and solve the clues I've left behind, to which will truly determine whether or not you are worthy of the Lehane family legacy.\n\nPrevail, and you shall inherit it all; fail, and you will return to what you once were.\n\nGood luck,\nMartin Lehane"
+      "read": "Hello, I hope this letter finds you well.\n\nAs my last remaining kin, I have left you the entirety of my fortune, which includes the mansion you currently stand at.\n\nInside, I hope you'll find, decipher, and solve the clues I've left behind, to which will truly determine whether or not\nyou are worthy of the Lehane family legacy.\n\nPrevail, and you shall inherit it all; fail, and you will return to what you once were.\n\nGood luck,\nMartin Lehane"
     },
     "lion_hook": {
       "name": ["lion hook", "lion"],

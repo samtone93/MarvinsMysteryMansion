@@ -3,7 +3,7 @@
     "roomName": "Living Room",
     "firstEntry": true,
     "shortDesc": "A very large living room with a few art pieces and 3 exits: to the east, west, and north.",
-    "longDesc": "The living room is a massive space with large windows letting in sunlight. The floor shows dust around where furniture used to live and many guests were likely entertained. All that is left is a what appears to be a portrait leaning against the wall and a statue in the corner. To your west is the archway to the foyer. To your east is a mysterious red door. To your north are saloon doors leading to the kitchen.",
+    "longDesc": "The living room is a massive space with large windows letting in sunlight. \nThe floor shows dust around where furniture used to live and many guests were likely entertained. \nAll that is left is a what appears to be a portrait leaning against the wall and a statue in the corner. \nTo your west is the archway to the foyer. To your east is a mysterious red door. \nTo your north are saloon doors leading to the kitchen.",
     "smell": "The faint aroma from the foyer is much stronger as you near the kitchen making your mouth water. It clouds the mustiness coming from the dusty living room.",
     "sound": "From the kitchen, the clanking of pots and pans, whistling of boiling water, and sizzling skillet seem inviting. Behind all of the commotion, you also pick up someone humming a light tune through the saloon doors.",
     "objects" : ["covered_portrait","covered_lion_statue","nailed_boards"],
