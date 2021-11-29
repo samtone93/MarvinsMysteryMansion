@@ -452,6 +452,7 @@ while game_running:
                 looping = quit_game()
             else:
                 current_room = parse(player_input)
+                print()
 
     elif player_input == '2':
         print("Thanks for playing! Goodbye.")
