@@ -21,20 +21,27 @@ objects_json_file = open("objects.json")
 objects_list = json.load(objects_json_file)
 objects_json_file.close()
 
-inventory_json_file = open("inventory.json")
-inventory_list = json.load(inventory_json_file)
-inventory_json_file.close()
 
-room_data_list = [inventory_list]
+def new_game_setup(room_list):
+    inventory_json_file = open("inventory.json")
+    inventory_list = json.load(inventory_json_file)
+    inventory_json_file.close()
 
-for num in range(1, 16):
-    room_num = str(num)
-    room_json_file = open(room_num + ".json")
-    room_data = json.load(room_json_file)
-    room_json_file.close()
-    room_data_list.append(room_data)
+    room_list.append(inventory_list)
 
-current_room = room_data_list[1]
+    for num in range(1, 16):
+        room_num = str(num)
+        room_json_file = open(room_num + ".json")
+        room_data = json.load(room_json_file)
+        room_json_file.close()
+        room_list.append(room_data)
+
+    return room_list[1]
+
+
+room_data_list = []
+
+current_room = objects_list
 
 
 # Quit game
@@ -412,7 +419,8 @@ def loadgame():
         saved_curr_room = save_data_list.pop()
         save_file.close()
 
-        room_data_list.clear()
+        if room_data_list:
+            room_data_list.clear()
         for room in save_data_list:
             room_data_list.append(room)
         new_curr_room = room_data_list[saved_curr_room["room"]]
@@ -433,9 +441,13 @@ while game_running:
         game_intro()
     main_menu()
     player_input = input(">").lower()
-    
+
     if player_input == '0' or player_input == '1':
         if player_input == '0':
+            if room_data_list:
+                room_data_list.clear()
+
+            current_room = new_game_setup(room_data_list)
             new_game_screen(objects_list["will"]["read"], current_room['roomName'], current_room['longDesc'])
         else:
             if load_game_check():
@@ -444,7 +456,7 @@ while game_running:
             else:
                 print("No save file found.. Returning to main menu")
                 looping = False
-            
+
         while looping:
             player_input = input(">").lower()
             if player_input == "quit":
