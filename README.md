@@ -9,7 +9,7 @@ Progress can be saved and loaded at any point during the game. There is also a h
 
 <br>
 
-![game](/screenshots/screenshot.png)
+![game](/screenshots/01.PNG)
 
 <br>
 
